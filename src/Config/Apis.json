@@ -1,0 +1,9 @@
+
+{
+    "api":"http://10.0.2.2:5000",
+    "deploy_API": "http://webprojectmockup.com:9441",
+    "GoogleMapURL": "https://maps.googleapis.com/maps/api/geocode/json",
+    "GoogleMapDetailURL": "https://maps.googleapis.com/maps/api/place/details/json",
+    "GoogleMapKey": "AIzaSyCAcgEQMvho7rnMg-cV7wLEZjJLoH50ehk"
+    
+}
