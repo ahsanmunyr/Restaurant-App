@@ -345,14 +345,14 @@ export  function userFavourite(state=initialState,action){
 
 export  function userAuthSignUp(state=initialState,action){
 
-    switch(action.type){
-        case AUTH_ALL_SIGNUP:
-            return action.payload;
-        case AUTH_LOGOUT:
-                return action.payload;
-        default:
-            return state
-    }
+    // switch(action.type){
+    //     case AUTH_ALL_SIGNUP:
+    //         return action.payload;
+    //     case AUTH_LOGOUT:
+    //             return action.payload;
+    //     default:
+    //         return state
+    // }
 }
 
 export  function navigationApp(state=initialNav,action){

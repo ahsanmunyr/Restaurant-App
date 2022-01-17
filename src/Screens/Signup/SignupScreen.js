@@ -31,15 +31,15 @@ import LinearGradient from 'react-native-linear-gradient'
 // import { color } from 'react-native-elements/dist/helpers';
 const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
     const fadeAnim = useRef(new Animated.Value(0)).current;
-    const [value, setValue] = useState("3488300016");
+    const [value, setValue] = useState("");
     const [otp, setOtp] = useState("")
     const [formattedValue, setFormattedValue] = useState("");
     const phoneInput = useRef(null);
     const [error, onChangeError] = React.useState("");
     const [username, onChangeUsername] = React.useState("");
-    const [password, onChangePassword] = React.useState("123456");
-    const [confirmPassword, onChangeConfirmPassword] = React.useState("123456");
-    const [email, onChangeEmail] = React.useState("ahsanmuneer81@gmail.com");
+    const [password, onChangePassword] = React.useState("");
+    const [confirmPassword, onChangeConfirmPassword] = React.useState("");
+    const [email, onChangeEmail] = React.useState("");
     const [phoneNumber, onChangePhone] = React.useState("");
     const [modalVisible, setModalVisible] = React.useState(false);
     const [stepOne, onChangestepOne] = React.useState(false);
@@ -67,13 +67,13 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
 
     const onSubmit=()=>{
         const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-        if(emailRegex.test(email)){
+        if(emailRegex.test(username)){
                 console.log(value.length)
                 if(value.length > 5){
                     const mobileNumber = '+'+phoneInput.current.state.code + value
                     onChangePhone(mobileNumber)
                         if(password === confirmPassword){
-                            SignUpStepOne(email, password ,confirmPassword , mobileNumber, fadeChange, onChangeError)
+                            SignUpStepOne(username, password ,confirmPassword , mobileNumber, fadeChange, onChangeError)
                         }else{
                             onChangeError("Password not match") 
                             setValidation(true)
@@ -135,7 +135,7 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
                         <FontAwesome name="user-o"  size={20} color="#f54730" />
                             <TextInputFeild
                                 placeholder="Email"
-                                value={email}
+                                value={username}
                                 onchange={onChangeUsername}
                                 keyboardType='email-address'
                                 secureTextEntry={false}
@@ -151,7 +151,7 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
                                 style={styles.input}
                                 onChangeText={onChangePassword}
                                 value={password}
-                                caretHidden={true}
+                                caretHidden={false}
                                 textAlignVertical='bottom'
                                 secureTextEntry={true}
                             />

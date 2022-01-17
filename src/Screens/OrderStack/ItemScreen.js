@@ -120,18 +120,18 @@ return (
               borderWidth: 0.5, zIndex: 9999, 
               elevation: 9,
             }}>
-          <View style={{width: '90%', flexDirection:'row', alignItems:'center', justifyContent:'space-between', alignSelf: 'center',  height: '17%', marginBottom: 0, paddingTop: 10}}>
+          <View style={{width: '100%', flexDirection:'row', alignItems:'center', justifyContent:'center', alignSelf: 'center',  height: '17%', marginBottom: 0, paddingTop: 10}}>
             <Searchbar
                                           placeholder="Search "
                                           onChangeText={onChangeSearch}
                                           value={searchQuery}
-                                          style={{borderRadius: 20, width: '75%'}}
+                                          style={{borderRadius: 20, width: '90%'}}
             />
-            <View style={{ alignItems:'center', justifyContent:'center'}}>
+            {/* <View style={{ alignItems:'center', justifyContent:'center'}}>
                                         <TouchableOpacity style={{backgroundColor:'#f54749', width: 40, height: 40, borderRadius: 50, alignItems:'center', justifyContent:'center'}} onPress={()=> navigation.navigate('searchfilter')}>
                                             <Ionicons name="filter" style={{}} size={20} color='white' />
                                         </TouchableOpacity>
-            </View>
+            </View> */}
           </View>
         <>
         {

@@ -209,6 +209,7 @@ export const SignUpStepOne = (email, password, confirmPassword, mobileNumber, fa
             phone: mobileNumber,
         }
         const response = await axios.post(`${deploy_API}/client/register`, data);
+        console.log(response.data)
         if (response.data.status) {
             fadeChange()
             dispatch({
@@ -235,10 +236,10 @@ export const SignOut = () => async (dispatch) => {
     console.log("sign out")
     try {
 
-        await AsyncStorage.removeItem('token')
-        await AsyncStorage.removeItem('userData')
-        await AsyncStorage.removeItem('userinformation')
-        // await AsyncStorage.clear()
+        // await AsyncStorage.removeItem('token')
+        // await AsyncStorage.removeItem('userData')
+        // await AsyncStorage.removeItem('userinformation')
+        await AsyncStorage.clear()
         dispatch({
             type: types.AUTH_LOGOUT,
             payload: {}

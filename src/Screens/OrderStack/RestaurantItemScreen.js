@@ -49,11 +49,39 @@ const RestaurantItemScreen = ({
     navigation, body, userGetRestaurantItem,userAddToCart
     }) => {
     const [searchQuery, setSearchQuery] = React.useState('');
-    const onChangeSearch = query => setSearchQuery(query);
+    const onChangeSearch = query =>
+    { 
+      // console.log(query)
+      setSearchQuery(query)
+
+      const newData = userGetRestaurantItem.filter((item) => {
+        const itemData = `${item.item_name.toUpperCase()}`
+        const textData = query.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      })
+      onChangeItems(newData)
+    };
     const [items, onChangeItems] = useState([])
     const [loading, onChangeLoading] = useState(false)
     const [noData, onChangeData] = useState(true)
     const fall = new Animated.Value(1)
+
+  // const searchFilterFunction = (text) => {
+  //     const newData = this.arrayholder.filter((item) => {
+  //       const itemData = `${item.Title.toUpperCase()}
+  //       ${item.description.toUpperCase()} ${item.status.toUpperCase()}
+  //       ${item.onloc.toUpperCase()} ${item.gttl.toUpperCase()}
+  //       ${moment(item.date).format('DD MMM yyyy')} ${moment(item.date).format(
+  //         'DD-MMM-yyyy',
+  //       )} ${moment(item.date).format('DD/MMM/yyyy')}`;
+  
+  //       const textData = text.toUpperCase();
+  
+  //       return itemData.indexOf(textData) > -1;
+  //     });
+  
+  //     this.setState({datahistory: newData});
+  //   };
     // console.log(body, ":(|):")
   const renderContent = () => (
     <View
@@ -96,6 +124,32 @@ const RestaurantItemScreen = ({
       </View>
     </View>
   );
+
+
+
+  // const onChangeSearch = (query) => {
+  //   console.log('query')  
+  //   // setSearchQuery(query);
+  // }
+
+  // const handleSearch = text => {
+  //   const formattedQuery = text.toLowerCase();
+  //   const filteredData = filter(fullData, user => {
+  //     return contains(user, formattedQuery);
+  //   });
+  //   setData(filteredData);
+  //   setQuery(text);
+  // };
+  
+  // const contains = ({ name, email }, query) => {
+  //   const { first, last } = name;
+  
+  //   if (first.includes(query) || last.includes(query) || email.includes(query)) {
+  //     return true;
+  //   }
+  
+  //   return false;
+  // };
 
 
  
@@ -153,21 +207,21 @@ const RestaurantItemScreen = ({
                         <View style={{
                           flexDirection:'row',
                           alignItems:'center', 
-                          justifyContent:'space-between', 
-                          width: '90%',
+                          justifyContent:'center', 
+                          width: '100%',
                           
                           }}>
                                           <Searchbar
                                                   placeholder="Search "
                                                   onChangeText={onChangeSearch}
                                                   value={searchQuery}
-                                                  style={{borderRadius: 20, width: '75%',  borderColor:'#f54749', borderWidth:1, zIndex: 1, elevation:999}}
+                                                  style={{borderRadius: 20, width: '90%',  borderColor:'#f54749', borderWidth:1, zIndex: 1, elevation:999}}
                                           />
-                                          <View style={{ alignItems:'center', justifyContent:'center', alignSelf:'center'}}>
+                                          {/* <View style={{ alignItems:'center', justifyContent:'center', alignSelf:'center'}}>
                                                   <TouchableOpacity style={{backgroundColor:'#f54749', width: 40, height: 40, borderRadius: 50, alignItems:'center', justifyContent:'center'}} >
                                                       <Ionicons name="filter" style={{}} size={20} color='white' />
                                                   </TouchableOpacity>
-                                          </View>
+                                          </View> */}
                       </View>
                       
                     </View>

@@ -94,11 +94,11 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
 
   const x = useMemo(() => {
 
-    if (riderCoord.condition) {
+    if (riderCoord?.condition) {
       console.log(riderCoord.data, "---------------RIDER COORDS-------------------------")
       onChangeRiderCoords({
-        latitude: parseFloat(riderCoord.data.lat),
-        longitude: parseFloat(riderCoord.data.long),
+        latitude: parseFloat(riderCoord?.data?.lat),
+        longitude: parseFloat(riderCoord?.data?.long),
         latitudeDelta: LATITUDE_DELTA,
         longitudeDelta: LONGITUDE_DELTA,
       })
@@ -195,6 +195,13 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
           // acceptOrderDetails(res.data.data.order_id)
           acceptOrderDetails(userLogin.user_id)
           onChangeShowMap(true)
+          setRestaurantCoords({
+            latitude: parseFloat(res.data.data?.restaurant_latitude),
+            longitude: parseFloat(res.data.data?.restaurant_longitude),
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
+          })
+
           // onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
         }
 
@@ -204,6 +211,12 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
           // acceptOrderDetails(res.data.data.order_id)
           acceptOrderDetails(userLogin.user_id)
           onChangeShowMap(true)
+          setRestaurantCoords({
+            latitude: parseFloat(res.data.data?.order_latitude),
+            longitude: parseFloat(res.data.data?.order_latitude),
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
+          })
           // onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
         }
         if (res.data.data.order_status == 9) {
@@ -242,12 +255,7 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
 
       onChangeDataa(orderAccept.data)
 
-      setRestaurantCoords({
-        latitude: parseFloat(orderAccept.data.restaurant_latitude),
-        longitude: parseFloat(orderAccept.data.restaurant_longitude),
-        latitudeDelta: LATITUDE_DELTA,
-        longitudeDelta: LONGITUDE_DELTA,
-      })
+      
       console.log(orderAccept.data, "=======================setRestaurantCoords=======================")
       updateLoading(true)
       onChangeRestaurantID(orderAccept.data.restaurant_id)
@@ -291,12 +299,24 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
         // acceptOrderDetails(res.data.data.order_id)
         // acceptOrderDetails(orderData.user_id)
         onChangeShowMap(true)
+        setRestaurantCoords({
+          latitude: parseFloat(orderAccept?.data?.restaurant_latitude),
+          longitude: parseFloat(orderAccept?.data?.restaurant_longitude),
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA,
+        })
 
       }
       if (orderAccept.data.order_status == 8) {
         onChangeTitle("Rider Picked Order")
         onChangeMessage("Rider has pick up your order")
         onChangeShowMap(true)
+        setRestaurantCoords({
+          latitude: parseFloat(orderAccept?.data?.order_latitude),
+          longitude: parseFloat(orderAccept?.data?.order_longitude),
+          latitudeDelta: LATITUDE_DELTA,
+          longitudeDelta: LONGITUDE_DELTA,
+        })
         //approved by admin
         // onChangeLottifiles()
       }
@@ -476,8 +496,8 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
     // console.log(mark.nativeEvent.coordinate)
     // console.log(mark)
     setRestaurantCoords({
-      latitude: mark.nativeEvent.coordinate.latitude,
-      longitude: mark.nativeEvent.coordinate.longitude,
+      latitude: mark?.nativeEvent?.coordinate?.latitude,
+      longitude: mark?.nativeEvent?.coordinate?.longitude,
       latitudeDelta: Delta,
       longitudeDelta: Delta
     })
@@ -655,10 +675,11 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
       <Animated.View style={{
         zIndex: 9,
         position: 'absolute', bottom: animatedFullScreen,
-        alignContent: 'center', width: '90%', height: '20%',
+        alignContent: 'center', width: '90%', 
         flexDirection: 'column', borderRadius: 20,
         elevation: 6, backgroundColor: '#f54749', alignSelf: 'center', margin: 10
       }}>
+
         <View style={{ margin: 5, padding: 5, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start', }}>
           <View style={{ alignItems: 'center', justifyContent: 'center' }}>
             <Ionicons name="restaurant" style={{}} size={25} color='white' />
@@ -696,6 +717,7 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
             />
           </View>
         </View>
+
         <View style={{ height: 1, backgroundColor: 'white', width: '100%' }} />
 
         <View style={{ margin: 5, padding: 5, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start' }}>
@@ -725,6 +747,7 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
             />
           </View>
         </View>
+
       </Animated.View>
       <View
         style={{

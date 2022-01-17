@@ -16,6 +16,11 @@ import TextSample from './Components/Text'
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
         try{
+
+          console.log(userLogin)
+          if(!userLogin.userLogin){
+            onChangeToken('')
+          }
           async function GetToken(){
              await AsyncStorage.getItem('token', (err, value) => {
               if (err) {
@@ -88,8 +93,8 @@ import TextSample from './Components/Text'
       }
 }
 
-const mapStatetoProps = ({userLogin, userAuthSignUp}) =>
+const mapStatetoProps = ({userLogin}) =>
 {
-    return {userLogin, userAuthSignUp}
+    return {userLogin}
 }
 export default connect(mapStatetoProps,actions)(Main)

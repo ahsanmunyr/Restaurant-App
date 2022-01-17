@@ -16,8 +16,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const LoginScreen = ({navigation, route,loginUser, userLogin}) => {
 
-    const [username, onChangeUsername] = React.useState("");
-    const [password, onChangePassword] = React.useState("");
+    const [username, onChangeUsername] = React.useState("ahsanmuneer81@gmail.com");
+    const [password, onChangePassword] = React.useState("123456");
     const [onClick, onChangeOnClick] = React.useState(false);
 useEffect(() => {
         SplashScreen.hide();

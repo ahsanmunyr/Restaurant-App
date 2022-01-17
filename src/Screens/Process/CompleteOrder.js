@@ -327,7 +327,7 @@ const CompleteOrder = ({ navigation, placeOrderStatus }) => {
 
           </View>
           <TouchableOpacity 
-          onPress={()=> navigation.navigate("Home")} 
+          onPress={()=>  navigation.dispatch(StackActions.replace('Home'))} 
           style={{ width: '100%', height: 50, backgroundColor: 'white', elevation: 8, position: 'absolute', bottom: 0, borderBottomLeftRadius: 12, borderBottomRightRadius:12 }}>
             <View style={{ width: '100%', height: 50, backgroundColor: 'white',borderBottomLeftRadius: 12, borderBottomRightRadius:12, justifyContent:'center',alignItems:'center'}}>
               <TextSample

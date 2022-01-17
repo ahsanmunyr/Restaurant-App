@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-import { View, StyleSheet, StatusBar, Text, Animated, Alert, TouchableOpacity } from "react-native"
+import { View, StyleSheet, StatusBar, Text, Animated, Alert, TouchableOpacity,PermissionsAndroid } from "react-native"
 import Home from 'react-native-vector-icons/Feather';
 import SplashScreen from "react-native-splash-screen";
 
@@ -248,17 +248,67 @@ function MainAppScreens({ UserLatLong, UserLocation,
 
   }, [placeOrderStatus])
 
+ const geoLocationCheck = async  () => {
+  try {
+    const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION
+    )
+
+    if( granted === PermissionsAndroid.RESULTS.GRANTED ) {
+        console.error("You can use the location")
+
+        Geolocation.getCurrentPosition(info => {
+          console.log(info, "SADSADSADSADSADSADSADSADSAD============================================================================")
+          const kilometer = 30
+          UserLatLong(info.coords.latitude, info.coords.longitude)
+          UserLocation(info.coords.latitude, info.coords.longitude)
+          getRestaurant(24.7945913, 67.0634449, kilometer)
+          getDeals(24.7945913, 67.0634449, kilometer)
+        },
+        err => console.log(err),
+      {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 10000,
+      });
+    } else {
+      console.error("You cannot use the location")
+    }
+  } catch (err) {
+    // alert("Error")
+    console.error(err)
+  }
+ }
+
+ 
 
   useEffect(() => {
     userGet()
     orderPlaceDataClear()
-    Geolocation.getCurrentPosition(info => {
+    
+    // geoLocationCheck()
+    Geolocation.getCurrentPosition((info)=>{
       const kilometer = 30
-      UserLatLong(info.coords.latitude, info.coords.longitude)
-      UserLocation(info.coords.latitude, info.coords.longitude)
-      getRestaurant(24.7945913, 67.0634449, kilometer)
-      getDeals(24.7945913, 67.0634449, kilometer)
-    });
+          UserLatLong(info.coords.latitude, info.coords.longitude)
+          UserLocation(info.coords.latitude, info.coords.longitude)
+          getRestaurant(24.7945913, 67.0634449, kilometer)
+          getDeals(24.7945913, 67.0634449, kilometer)
+    }, (e)=>{console.log(e)}, {timeout: 20000});
+    Geolocation.getCurrentPosition(info => {console.log(info)},
+    err => console.log(err),
+    {
+      enableHighAccuracy: false,
+      timeout: 20000,
+      maximumAge: 10000,
+    }
+    )
+    // Geolocation.getCurrentPosition(info => {
+    //   const kilometer = 30
+    //   UserLatLong(info.coords.latitude, info.coords.longitude)
+    //   UserLocation(info.coords.latitude, info.coords.longitude)
+    //   getRestaurant(24.7945913, 67.0634449, kilometer)
+    //   getDeals(24.7945913, 67.0634449, kilometer)
+    // });
     requestUserPermission()
     try {
       messaging()

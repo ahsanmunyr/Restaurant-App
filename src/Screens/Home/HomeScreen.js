@@ -310,16 +310,18 @@ const HomeScreen = ({
                       TextDecorationLine="none"
                       TextTransform="none"
                     />
-                    <TextSample
-                      Label={'View more'}
-                      Color="#f54749"
-                      Size={hp('1.5%')}
-                      TextAlign="left"
-                      NumberOfLines={1}
-                      Font="Overpass-Medium"
-                      TextDecorationLine="none"
-                      TextTransform="none"
-                    />
+                 <TouchableOpacity onPress={() => navigation.navigate('showall')}>
+                      <TextSample
+                        Label={'View more'}
+                        Color="#f54749"
+                        Size={hp('1.5%')}
+                        TextAlign="left"
+                        NumberOfLines={1}
+                        Font="Overpass-Medium"
+                        TextDecorationLine="none"
+                        TextTransform="none"
+                      />
+                    </TouchableOpacity>
                   </View>
 
                   <FlatList
@@ -353,6 +355,7 @@ const HomeScreen = ({
                         Phone={item.restaurant_phone}
                         Email={item.restaurant_email}
                         Navigation={navigation}
+                        screen={"main"}
                       />
                     )}
                   />
@@ -395,7 +398,7 @@ const HomeScreen = ({
                     TextDecorationLine="none"
                     TextTransform="none"
                   />
-                  <TextSample
+                  {/* <TextSample
                     Label={'Show all'}
                     Color="#f54749"
                     Size={hp('1.5%')}
@@ -404,7 +407,7 @@ const HomeScreen = ({
                     Font="Overpass-Medium"
                     TextDecorationLine="none"
                     TextTransform="none"
-                  />
+                  /> */}
                 </View>
                 <FlatList
                   data={userGetRestaurant.categories}
@@ -433,7 +436,7 @@ const HomeScreen = ({
             ) : null}
             {userGetRestaurant.length != [] ? (
               <>
-                <View style={{top: 10, position: 'relative'}}>
+                {/* <View style={{top: 10, position: 'relative'}}>
                   <View
                     style={{
                       flexDirection: 'row',
@@ -489,8 +492,8 @@ const HomeScreen = ({
                       />
                     )}
                   />
-                </View>
-                <View style={{top: 10, position: 'relative'}}>
+                </View> */}
+                {/* <View style={{top: 10, position: 'relative'}}>
                   <View
                     style={{
                       flexDirection: 'row',
@@ -539,7 +542,7 @@ const HomeScreen = ({
                       />
                     )}
                   />
-                </View>
+                </View> */}
               </>
             ) : (
               <View

@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen'
 import MainPost from './MainPost'
 import MessageIcon from "../../Components/MessageIcon";
+import ShowAllRestaurant from "./ShowAllRestaurants";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const Stack=createNativeStackNavigator();
 function HomeStack({navigation}){
@@ -21,6 +22,14 @@ function HomeStack({navigation}){
                                  })}
                     component={HomeScreen}
                 /> 
+                 <Stack.Screen 
+                    name="showall" 
+                    options={({  route }) => ({
+                                    headerShown: false,
+                                    headerTransparent: true,
+                                 })}
+                    component={ShowAllRestaurant}
+                />
                 <Stack.Screen 
                     name="mainpost" 
                     options={({  route }) => ({

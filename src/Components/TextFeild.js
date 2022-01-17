@@ -12,7 +12,7 @@ const TextInputFeild = ({placeholder, value, onchange, keyboardType, SecureTextE
                     style={styles.input}
                     onChangeText={onchange}
                     value={value}
-                    caretHidden={true}
+                    caretHidden={false}
                     secureTextEntry={SecureTextEntry}
                     textAlignVertical='bottom'
                 />
