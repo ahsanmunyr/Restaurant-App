@@ -6,10 +6,12 @@ import TextSample from './Text';
 import {
     Avatar,
 } from 'react-native-paper';
+import moment from 'moment';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { Rating, AirbnbRating } from 'react-native-elements';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { deploy_API} from "../Config/Apis.json"
 const Histories = ({
     Title,
     Images,
@@ -20,21 +22,47 @@ const Histories = ({
     Reviews,
     PaymentMethod,
     Location,
-    OrderID
+    OrderID,
+    OrderLocation,
+    restaurantLcoation
+    // Title={item.restaurant_name}
+    // Images={item.restaurant_image}
+    // Time={item.order_created_at}
+    // Items={['2x Pizza', '1x Biryani', '6x Tikka', '1x Plate Nihari']}
+    // OrderLocation={item.order_location}
+    // restaurantLcoation={item.restaurant_address}
+    // Status={item.order_status}
+    // Price={item.order_price}
+    // Reviews={4}
+    // Location={item.location}
+    // PaymentMethod={item.order_payment_method}
+    // OrderID={item.order_id}
 
 }) => {
 const ratingCompleted = (rating) => {
         // console.log("Rating is: " + rating)
     } 
+    console.log(Items)
     return(   
-            <View style={{
+            <View key={OrderID} style={{
                 height: hp('27%'),
-                width: wp('90%'), 
+                width: wp('95%'), 
                 flexDirection:'row',
-                margin: 10,
+                alignSelf:'center',
+                // margin: 10,
+                marginVertical: 10,
                 borderRadius: 12,
-                zIndex: 9999,
-                elevation: 5,
+                // zIndex: 9999,
+                // elevation: 5,
+                shadowColor: "#000",
+                shadowOffset: {
+                    width: 0,
+                    height: 1,
+                },
+                shadowOpacity: 0.51,
+                shadowRadius: 3.16,
+
+                elevation: 7,
                 backgroundColor:'white',
                 alignItems:'center'
             }}>
@@ -63,8 +91,9 @@ const ratingCompleted = (rating) => {
                             />   
             </View>     
                         <View style={{justifyContent:'flex-start', flexDirection:'row', alignItems:'center', right: 10}}>
+                            {/* {console.log(Status)} */}
                                     <TextSample 
-                                        Label={"ORDER STATUS:  "} 
+                                        Label={"STATUS:  "} 
                                         Color="black" 
                                         Size={hp("1.6%")} 
                                         TextAlign='left'
@@ -74,7 +103,7 @@ const ratingCompleted = (rating) => {
                                         TextTransform='none'
                                     />
                                     {
-                                        Status == 0 ? 
+                                        Status == 1 ? 
                                     <TextSample 
                                         Label={"Completed"} 
                                         Color="#f54749" 
@@ -85,7 +114,7 @@ const ratingCompleted = (rating) => {
                                         TextDecorationLine='none'
                                         TextTransform='none'
                                     />: 
-                                        Status == 1 ?
+                                        Status == 5 ?
                                     <TextSample 
                                         Label={"Cancelled"} 
                                         Color="#f54749" 
@@ -98,7 +127,7 @@ const ratingCompleted = (rating) => {
                                     />: 
                                         Status == 2 ? 
                                     <TextSample 
-                                        Label={"Order Accepted"} 
+                                        Label={"Pending"} 
                                         Color="#f54749" 
                                         Size={hp("1.6%")} 
                                         TextAlign='left'
@@ -129,6 +158,17 @@ const ratingCompleted = (rating) => {
                                         TextDecorationLine='none'
                                         TextTransform='none'
                                     />:
+                                        Status == 6 ?
+                                    <TextSample 
+                                        Label={"Order Accepted"} 
+                                        Color="#f54749" 
+                                        Size={hp("1.6%")} 
+                                        TextAlign='left'
+                                        NumberOfLines={2} 
+                                        Font="Overpass-Bold"
+                                        TextDecorationLine='none'
+                                        TextTransform='none'
+                                    />:
                                         null
                                     }
                     </View>     
@@ -150,7 +190,7 @@ const ratingCompleted = (rating) => {
                 width: wp('90%')}}>
                 <View style={{top: 0, position:'relative', margin: 10, width: '25%'}}>
                 <Avatar.Image
-                        source={Images}
+                        source={{uri: `${deploy_API+'/'+Images}`}} 
                         size={90}
                 />
                 </View>
@@ -158,31 +198,31 @@ const ratingCompleted = (rating) => {
                     <TextSample 
                                     Label={Title} 
                                     Color="#292929" 
-                                    Size={hp("1.6%")} 
+                                    Size={hp("2%")} 
                                     TextAlign='left'
                                     NumberOfLines={2} 
-                                    Font="Overpass-Medium"
+                                    Font="Poppins-SemiBold"
                                     TextDecorationLine='none'
                                     TextTransform='none'
                     />
-                    <View style={{flexDirection:'row'}}>
+                    <View style={{flexDirection:'column'}}>
                     <TextSample 
                                     Label={'Payment Type: '} 
                                     Color="black" 
                                     Size={hp("1.6%")} 
                                     TextAlign='left'
                                     NumberOfLines={1} 
-                                    Font="Overpass-Medium"
+                                    Font="Poppins-SemiBold"
                                     TextDecorationLine='none'
                                     TextTransform='none'
                     />
                     <TextSample 
-                                        Label={PaymentMethod} 
-                                        Color="#f54749" 
+                                        Label={PaymentMethod == 1 ? 'Cash on Delivery': 'Card'} 
+                                        Color="grey" 
                                         Size={hp("1.6%")} 
                                         TextAlign='left'
                                         NumberOfLines={1} 
-                                        Font="Overpass-Bold"
+                                        Font="Poppins-SemiBold"
                                         TextDecorationLine='none'
                                         TextTransform='none'
                     />
@@ -205,7 +245,17 @@ const ratingCompleted = (rating) => {
                                                 }}
                                             >
                                             <TextSample 
-                                                    Label={data} 
+                                                    Label={data.item_name + " "} 
+                                                    Color="#292929" 
+                                                    Size={hp("1.2%")} 
+                                                    TextAlign='left'
+                                                    NumberOfLines={1} 
+                                                    Font="Overpass-Bold"
+                                                    TextDecorationLine='none'
+                                                    TextTransform='none'
+                                            />
+                                            <TextSample 
+                                                    Label={'x' + data.item_qty} 
                                                     Color="#292929" 
                                                     Size={hp("1.2%")} 
                                                     TextAlign='left'
@@ -266,7 +316,7 @@ const ratingCompleted = (rating) => {
                             <View style={{justifyContent:'center', alignItems:'center', flexDirection:'row', left: 10}}>
                             <Ionicons name="ios-time-sharp" style={{}} size={20} color='white' />
                                 <TextSample 
-                                        Label={" "+ Time} 
+                                        Label={" "+ moment(Time).format('MMMM Do YYYY')} 
                                         Color="white" 
                                         Size={hp("1.6%")} 
                                         TextAlign='left'

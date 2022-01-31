@@ -41,25 +41,44 @@ import ItemsList from '../../Components/ItemsList';
 import Skeleton from '../../Components/Skeleton';
 
   const ItemScreen = ({
-      navigation, body,getItem,userGetItems, getItemsClear
+      navigation, body,getItem,userGetItems, getItemsClear,userAddToCart
     }) => {
-
-      const [searchQuery, setSearchQuery] = React.useState('');
-      const onChangeSearch = query => setSearchQuery(query);
-      const [items, onChangeItems] = useState([])
+      console.log("body",body)
+      // const onChangeSearch = query => setSearchQuery(query);
+      // const [items, onChangeItems] = useState([])
       const [loading, onChangeLoading] = useState(false)
       const [noData, onChangeData] = useState(true)
 
+      const [searchQuery, setSearchQuery] = React.useState('');
+      const onChangeSearch = query =>
+      { 
+        // console.log(query)
+        setSearchQuery(query)
+  
+        const newData = userGetItems.filter((item) => {
+          const itemData = `${item.restaurant_name.toUpperCase()}`
+          const textData = query.toUpperCase();
+          return itemData.indexOf(textData) > -1;
+        })
+        onChangeItems(newData)
+      };
+      const [items, onChangeItems] = useState([])
+
 useEffect(()=>{
     if(userGetItems.length > 0){
+      console.log(userGetItems, "================== =============== ==========")
       onChangeItems(userGetItems)
       onChangeLoading(true)
       onChangeData(false)
     }
+    console.log(userGetItems)
     navigation.addListener('blur',()=>{
       getItemsClear()
     })
   },[userGetItems])
+
+  
+
 return ( 
       <View style={styles.container}>
           <StatusBar translucent backgroundColor="transparent" />
@@ -71,8 +90,8 @@ return (
                       </View>
                     </TouchableOpacity>
                   
-                    <TouchableOpacity onPress={()=> console.log('sda')}>
-                                        <View style={{top:10,zIndex: 9999,left: 10}}><Badge  value="1" status="error"  /></View>
+                    <TouchableOpacity onPress={()=> navigation.navigate('Cart')}>
+                                        <View style={{top:10,zIndex: 9999,left: 10}}><Badge  value={userAddToCart.length}  status="error"  /></View>
                                         <View style={{ backgroundColor:'white',   borderColor: '#f54749', borderWidth: 2, width: 40, height: 40, borderRadius: 50, justifyContent: 'center', alignItems:'center', }}>
                                               <Ionicons name="cart-outline" style={{}} size={20} color='#f54749' />
                                         </View>
@@ -86,7 +105,7 @@ return (
                                       Size={hp("3%")} 
                                       TextAlign='left'
                                       NumberOfLines={1} 
-                                      Font="Overpass-ExtraBoldItalic"
+                                      Font="Overpass-Bold"
                                       TextDecorationLine='none'
                                       TextTransform='none'
                     /> 
@@ -151,7 +170,7 @@ return (
                             scrollEnabled
                             bounces
                             bouncesZoom
-                            maintainVisibleContentPosition
+                            // maintainVisibleContentPosition
                             renderItem={({ item, index }) => 
                                         <ItemsList
                                             ItemID={item.item_id}
@@ -163,10 +182,27 @@ return (
                                             Images={item.item_image}
                                             Price={item.item_price}
                                             Navigation={navigation}
-                                            Description={item.review_text}
+                                            Description={item.item_description}
+                                            Address={item.restaurant_address}
+                                            Phone={item.restaurant_phone}
                                         />
                                     }
                         />
+                        
+      {/* "category_id":1,
+      "item_created_at":"2021-12-15T04:34:56.000Z",
+      "item_description":"Test test",
+      "item_estimated_time":"2",
+      "item_id":3,
+      "item_image":"uploads/1637762029047rest4.jpg",
+      "item_name":"Burger",
+      "item_price":"50",
+      "item_status":1,
+      "item_updated_at":"2021-11-17T04:36:17.000Z",
+      "rating":4,
+      "restaurant_id":1,
+      "restaurant_name":"KFC" */}
+   
                       
               </View>: noData  ?
               <View style={{flexDirection:'column'}}>
@@ -186,8 +222,8 @@ return (
     )
 }
 
-function mapStateToProps({userGetItems}){
-    return {userGetItems}
+function mapStateToProps({userGetItems, userAddToCart}){
+    return {userGetItems, userAddToCart}
 }
 
 export default connect(mapStateToProps,actions)(ItemScreen)

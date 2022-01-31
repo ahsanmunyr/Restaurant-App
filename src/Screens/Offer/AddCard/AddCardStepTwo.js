@@ -34,7 +34,7 @@ const AddCardStepTwo = ({navigation}) => {
                 <ScrollView scrollEnabled showsVerticalScrollIndicator={false} >
                      <StatusBar translucent backgroundColor="transparent" />
                 <View style={{justifyContent:'flex-start', flexDirection:'column',  alignItems:'flex-start', padding: 25, alignContent:'flex-start',alignSelf:'flex-start', left: 5}}>
-                    <AppText  nol={1}  textAlign="left"  family="Overpass-SemiBold" size={hp("4%")} color="black" Label={"Add credit card"} />
+                    <AppText  nol={1}  textAlign="left"  family="Poppins-SemiBold" size={hp("4%")} color="black" Label={"Add credit card"} />
                     <AppText  nol={1}  textAlign="left"  family="Overpass-Regular" size={hp("2%")} color="black" Label={"Enter your credit card details"} />
                 </View>
                 <View style={{alignItems:'center'}}>

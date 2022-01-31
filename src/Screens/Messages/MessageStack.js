@@ -16,7 +16,7 @@ function MessageStack({navigation}){
                         headerShown: false,
                         headerStyle: { borderBottomColor: 'grey', borderBottomWidth: 0.7, height: 110  },
                         headerStatusBarHeight: 32,
-                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Overpass-SemiBold'}}>Messages</Text>,
+                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Poppins-SemiBold'}}>Messages</Text>,
                         headerTransparent: false,
                         headerLeft: ()=>      <TouchableOpacity onPress={()=> navigation.openDrawer()} style={{}}>
                                                     <View style={{padding:10, top: 3}}>

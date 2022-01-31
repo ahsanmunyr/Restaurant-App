@@ -3,17 +3,26 @@ import {Dimensions,TouchableOpacity,Text,View,Image} from "react-native"
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './HomeScreen'
+// import AnimatedGradient from "./../Process/CompleteOrder"
 import MainPost from './MainPost'
 import MessageIcon from "../../Components/MessageIcon";
 import ShowAllRestaurant from "./ShowAllRestaurants";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const Stack=createNativeStackNavigator();
 function HomeStack({navigation}){
-  
+    // completeOrder
     console.log("HOME STACK")
     return(
       
             <Stack.Navigator initialRouteName="home">
+                 {/* <Stack.Screen 
+                    name="completeOrder" 
+                    options={({  route }) => ({
+                                    headerShown: false,
+                                    headerTransparent: true,
+                                 })}
+                    component={HomeScreen}
+                />  */}
                 <Stack.Screen 
                     name="home" 
                     options={({  route }) => ({

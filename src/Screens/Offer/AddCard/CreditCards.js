@@ -18,7 +18,7 @@ export const CreditCards = ({navigation}) =>{
                     options={({  route }) => ({
                         headerShown: false,
                         headerStatusBarHeight: 32,
-                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Overpass-SemiBold'}}>Add Credit Card</Text>,
+                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Poppins-SemiBold'}}>Add Credit Card</Text>,
                         headerTransparent: false,
                         headerLeft: ()=>     <View style={{left: 20}}><TouchableOpacity onPress={()=> navigation.goBack()}><Icon name="arrow-back" size={25} color="#B01125" /></TouchableOpacity></View>,
                         headerRight: ()=> <View style={{right: 20}}> 
@@ -35,7 +35,7 @@ export const CreditCards = ({navigation}) =>{
                     options={({  route }) => ({
                         headerShown: false,
                         headerStatusBarHeight: 32,
-                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Overpass-SemiBold'}}>Add Credit Card</Text>,
+                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Poppins-SemiBold'}}>Add Credit Card</Text>,
                         headerTransparent: false,
                         headerLeft: ()=>     <View style={{left: 20}}><TouchableOpacity onPress={()=> navigation.goBack()}><Icon name="arrow-back" size={25} color="#B01125" /></TouchableOpacity></View>,
                         headerRight: ()=> <View style={{right: 20}}> 
@@ -51,7 +51,7 @@ export const CreditCards = ({navigation}) =>{
                     options={({  route }) => ({
                         headerShown: false,
                         headerStatusBarHeight: 32,
-                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Overpass-SemiBold'}}>Select Card</Text>,
+                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Poppins-SemiBold'}}>Select Card</Text>,
                         headerTransparent: false,
                         headerLeft: ()=>     <View style={{left: 20}}><TouchableOpacity onPress={()=> navigation.goBack()}><Icon name="arrow-back" size={25} color="#B01125" /></TouchableOpacity></View>,
                         headerRight: ()=> <View style={{right: 20}}> 

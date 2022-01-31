@@ -10,7 +10,7 @@ const CustomRadio = ({value}) => {
     }else{
         return(
         <TouchableOpacity onPress={()=> console.log(value)} style={{backgroundColor: '#B01125', width: 30, height: 30, borderRadius: 50, borderColor:'white', borderWidth:1}}>
-            <Image resizeMode='contain' source={require('./../Assets/Images/Check.png')} />
+            <Image  resizeMode='contain' source={require('./../Assets/Images/Check.png')} />
         </TouchableOpacity>
         ) 
     }

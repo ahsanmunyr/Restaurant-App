@@ -8,10 +8,61 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* RestaurantAppsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RestaurantAppsTests.m */; };
+		060E57C8EC8F40D4B4F44CAD /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6854247F8841438AAAAA72AF /* Poppins-Light.ttf */; };
+		068536D96C544B1B83089AC0 /* Poppins-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 566D24B689514A6D8503D2AC /* Poppins-BoldItalic.ttf */; };
+		096F49876C1143E48208B48E /* Dosis-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D17881C6F9E142439B6C75B7 /* Dosis-ExtraLight.ttf */; };
+		0C65ADEF0A1D4625BAC9C51A /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2CE7475436E844A9BA655013 /* Poppins-Medium.ttf */; };
+		10CA89B1BE03468F9BF5006E /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34ED0CA81E9F44DE97D54D1A /* Poppins-SemiBoldItalic.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		144AAE99DE7246268D3EFC2E /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 480B0B4628F94BD0AC85A38B /* Poppins-MediumItalic.ttf */; };
+		1677C18FA2BC4A0589D8C276 /* Overpass-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 205013E5A3EF4972B7F40A1C /* Overpass-ExtraLightItalic.ttf */; };
+		18EA9885C02643CE904483E3 /* Overpass-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 39BB2101A71A43D298490C2B /* Overpass-Black.ttf */; };
+		22545A8CC1B0476CA2376C94 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2FD8F775576421B9D2D5A49 /* Poppins-LightItalic.ttf */; };
+		26C5CA23A5344FF6A3C52BAD /* Overpass-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFF1924D2F1C4EC3849201DF /* Overpass-Italic.ttf */; };
+		2714F64E9F224CDCA642F3CA /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8E20980A2DE4489AFC7FDD0 /* Poppins-ExtraLight.ttf */; };
+		2D4D4FC9863B4709A268A760 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 609A638F1D27438CBE42EF59 /* Poppins-Bold.ttf */; };
+		2D85FA9289804E0F9E83145B /* Overpass-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 41524B57E13D4929B0DA4364 /* Overpass-BoldItalic.ttf */; };
+		33F9DC8DE9FD4CC8A368589E /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5A968CF2D29D4790A8904F05 /* Quicksand-Medium.ttf */; };
+		3B54C441E3804A418CA5F5A6 /* Overpass-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88A0789E62D4426E984EAB54 /* Overpass-LightItalic.ttf */; };
+		3CBC5385056140E4BD009790 /* Overpass-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 871A0FA7A84043A5A55FFAFF /* Overpass-ThinItalic.ttf */; };
+		407B87E0C3AB457FBFB2CDF2 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 625F9CD69EE3439F87852623 /* Poppins-Italic.ttf */; };
+		40C44620A40C477FA7D7F141 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F358B9D3D3284125B58F5999 /* Poppins-SemiBold.ttf */; };
+		41779C4FDD0D02CB216D8377 /* libPods-RestaurantApps-RestaurantAppsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A696B5FF6B82666338FDAB7 /* libPods-RestaurantApps-RestaurantAppsTests.a */; };
+		43752B8B8B3E4856A2822EEA /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E7FE88B099D4D7696B82073 /* Dosis-SemiBold.ttf */; };
+		44A38DD8C8094079935DB0F2 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CB48FA9B25E64D969E209DE6 /* Quicksand-Bold.ttf */; };
+		45C17B8E56BF407CA726EAB6 /* Poppins-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 286F29A7E0CA4022AE7663E1 /* Poppins-BlackItalic.ttf */; };
+		4EC30551D8EC4AB190FAB75E /* Overpass-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C10BB385D5354D9EAA53A85D /* Overpass-Thin.ttf */; };
+		5B1C71C804954DBBBD122671 /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27721E36FF2A4622A446EDC8 /* Poppins-Black.ttf */; };
+		5D180B48BAE84408ACE3498E /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BDD63D14C284768AFCEA35D /* Poppins-ExtraBold.ttf */; };
+		5FC1198E729A4A00990340A1 /* Dosis-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3C394CC381EF410EA01A61D7 /* Dosis-Light.ttf */; };
+		600D6C55C6324CDD88671617 /* Poppins-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0BFDBA68DFE474B98F6CD51 /* Poppins-ExtraBoldItalic.ttf */; };
+		6EA4266DD8734C1992C45EE5 /* Overpass-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B99858FBDD3D4E14BF615B3F /* Overpass-Light.ttf */; };
+		7189B2CD47484F72845A6486 /* Poppins-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63E4805E2F1544248C53072D /* Poppins-ThinItalic.ttf */; };
+		7770BF44B06A4E0394767FD2 /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A514897D174B45959B85FD3A /* Dosis-Bold.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		862BAE6AAB084DE095CA38A2 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 504396F106024606B54542C2 /* Dosis-Regular.ttf */; };
+		899FBE5383564B4098AC95D8 /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72121CB425CD4E59AFA616AA /* Dosis-ExtraBold.ttf */; };
+		96D0E9D7EF0241F693422152 /* Overpass-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C11EB9CA0F9F4879894CFE85 /* Overpass-ExtraBold.ttf */; };
+		998B0E1E824B440FBB53F294 /* Dosis-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4392DC17C984CC4BCB7E492 /* Dosis-VariableFont_wght.ttf */; };
+		A4673A79364741A493E0923F /* Overpass-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 761B2F8314CA4D3AB5010611 /* Overpass-Bold.ttf */; };
+		A8153279327C4CD9872BA370 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F4DA21B5D46240A9BB1B07C6 /* Poppins-SemiBold.ttf */; };
+		B430ABF02B0B4A2BB4110F58 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC90D510A36C497384FD0AB3 /* Quicksand-Light.ttf */; };
+		B5877F84E6FB4697965BB444 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 450CED43BFCA4154A7CF3AE1 /* Poppins-Regular.ttf */; };
+		BFB2A49E207C42E0B2C0395A /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DCCCF94C4F7A4BDA8537FDAE /* Poppins-Thin.ttf */; };
+		C53BF5162799A19300211EDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C53BF5152799A19300211EDB /* GoogleService-Info.plist */; };
+		C5E2BF15279AE0B4003F02A2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5E2BF14279AE0B4003F02A2 /* MapKit.framework */; };
+		CC1217C239CE4C2F9A34F180 /* Overpass-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DD185135502649A1AAD90997 /* Overpass-BlackItalic.ttf */; };
+		D0EBC4223B654551A90C6228 /* Dosis-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A2BA7488360E45D8B7F70711 /* Dosis-Medium.ttf */; };
+		D230ABD2AB594F929699EC2D /* Overpass-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1160610F2E74471EBCE83DA7 /* Overpass-Regular.ttf */; };
+		D342C61F700F4D1B9FC28B73 /* Overpass-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC6223E3EAC247EB96425C29 /* Overpass-ExtraLight.ttf */; };
+		D633E3D3BD2940C4BF55D6AE /* Overpass-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08A998F3F3C349E485A6C869 /* Overpass-ExtraBoldItalic.ttf */; };
+		DDC8545F12E2414A90140699 /* Poppins-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ECCC3F4E1374BBBA40421F2 /* Poppins-SemiBoldItalic.ttf */; };
+		E845DFE946A144BDB6E99A8A /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A5A989217DB44CE8EE21E37 /* Quicksand-Regular.ttf */; };
+		E8BDE64F0CFB4BE9A16EB78D /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 518F5CE1C0364087A7C1384E /* Quicksand-SemiBold.ttf */; };
+		ED1A1CA30C29CEAF7FB4C3F0 /* libPods-RestaurantApps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD0ABF59803C1F97F809EA96 /* libPods-RestaurantApps.a */; };
+		F2E1D2FD16084C789D68F952 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 363C24B94B3640A2B09AC3B3 /* Poppins-ExtraLightItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +79,86 @@
 		00E356EE1AD99517003FC87E /* RestaurantAppsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantAppsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* RestaurantAppsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantAppsTests.m; sourceTree = "<group>"; };
+		0630388A3E834A1FAC314C28 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		08A998F3F3C349E485A6C869 /* Overpass-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/Overpass-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		1160610F2E74471EBCE83DA7 /* Overpass-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-Regular.ttf"; path = "../src/assets/fonts/Overpass-Regular.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* RestaurantApps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantApps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = RestaurantApps/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = RestaurantApps/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = RestaurantApps/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = RestaurantApps/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = RestaurantApps/main.m; sourceTree = "<group>"; };
+		1BC1186A893F4E00B21858A2 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		1BEB0172B48847C48A52D744 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		1C5EA1CC1412E5AA8C0DEFB4 /* Pods-RestaurantApps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApps.release.xcconfig"; path = "Target Support Files/Pods-RestaurantApps/Pods-RestaurantApps.release.xcconfig"; sourceTree = "<group>"; };
+		205013E5A3EF4972B7F40A1C /* Overpass-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-ExtraLightItalic.ttf"; path = "../src/assets/fonts/Overpass-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		23036EF30E7049BFBC740A6A /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		27721E36FF2A4622A446EDC8 /* Poppins-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Black.ttf"; path = "../src/assets/fonts/Poppins-Black.ttf"; sourceTree = "<group>"; };
+		286F29A7E0CA4022AE7663E1 /* Poppins-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BlackItalic.ttf"; path = "../src/assets/fonts/Poppins-BlackItalic.ttf"; sourceTree = "<group>"; };
+		294F595917E14BBCA1502B22 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		2CE7475436E844A9BA655013 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Medium.ttf"; path = "../src/assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		34C3EEEC2A454460A1E97712 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		34ED0CA81E9F44DE97D54D1A /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../src/assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		363C24B94B3640A2B09AC3B3 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLightItalic.ttf"; path = "../src/assets/fonts/Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		39BB2101A71A43D298490C2B /* Overpass-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-Black.ttf"; path = "../src/assets/fonts/Overpass-Black.ttf"; sourceTree = "<group>"; };
+		3C394CC381EF410EA01A61D7 /* Dosis-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Light.ttf"; path = "../src/assets/fonts/Dosis-Light.ttf"; sourceTree = "<group>"; };
+		3E7FE88B099D4D7696B82073 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-SemiBold.ttf"; path = "../src/assets/fonts/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
+		41524B57E13D4929B0DA4364 /* Overpass-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-BoldItalic.ttf"; path = "../src/assets/fonts/Overpass-BoldItalic.ttf"; sourceTree = "<group>"; };
+		42D56D207C9B4768917C9446 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		450CED43BFCA4154A7CF3AE1 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		480B0B4628F94BD0AC85A38B /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-MediumItalic.ttf"; path = "../src/assets/fonts/Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
+		504396F106024606B54542C2 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Regular.ttf"; path = "../src/assets/fonts/Dosis-Regular.ttf"; sourceTree = "<group>"; };
+		518F5CE1C0364087A7C1384E /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-SemiBold.ttf"; path = "../src/assets/fonts/Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
+		521BB9591E6045759A6BBBA9 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		543AE701E5DAC6AF4ED53A30 /* Pods-RestaurantApps-RestaurantAppsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApps-RestaurantAppsTests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantApps-RestaurantAppsTests/Pods-RestaurantApps-RestaurantAppsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		566D24B689514A6D8503D2AC /* Poppins-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-BoldItalic.ttf"; path = "../src/assets/fonts/Poppins-BoldItalic.ttf"; sourceTree = "<group>"; };
+		5A696B5FF6B82666338FDAB7 /* libPods-RestaurantApps-RestaurantAppsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RestaurantApps-RestaurantAppsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A968CF2D29D4790A8904F05 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Medium.ttf"; path = "../src/assets/fonts/Quicksand-Medium.ttf"; sourceTree = "<group>"; };
+		5BDD63D14C284768AFCEA35D /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.ttf"; path = "../src/assets/fonts/Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		609A638F1D27438CBE42EF59 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		625F9CD69EE3439F87852623 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Italic.ttf"; path = "../src/assets/fonts/Poppins-Italic.ttf"; sourceTree = "<group>"; };
+		63E4805E2F1544248C53072D /* Poppins-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ThinItalic.ttf"; path = "../src/assets/fonts/Poppins-ThinItalic.ttf"; sourceTree = "<group>"; };
+		6854247F8841438AAAAA72AF /* Poppins-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Light.ttf"; path = "../src/assets/fonts/Poppins-Light.ttf"; sourceTree = "<group>"; };
+		72121CB425CD4E59AFA616AA /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-ExtraBold.ttf"; path = "../src/assets/fonts/Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
+		761B2F8314CA4D3AB5010611 /* Overpass-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-Bold.ttf"; path = "../src/assets/fonts/Overpass-Bold.ttf"; sourceTree = "<group>"; };
+		7A5A989217DB44CE8EE21E37 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Regular.ttf"; path = "../src/assets/fonts/Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		7F1867346ACC41DC85A26A99 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = RestaurantApps/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		834A4D37190A4A2A9B982EEE /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		871A0FA7A84043A5A55FFAFF /* Overpass-ThinItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-ThinItalic.ttf"; path = "../src/assets/fonts/Overpass-ThinItalic.ttf"; sourceTree = "<group>"; };
+		88A0789E62D4426E984EAB54 /* Overpass-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-LightItalic.ttf"; path = "../src/assets/fonts/Overpass-LightItalic.ttf"; sourceTree = "<group>"; };
+		93035EDCEE35649798610C9D /* Pods-RestaurantApps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApps.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantApps/Pods-RestaurantApps.debug.xcconfig"; sourceTree = "<group>"; };
+		9ECCC3F4E1374BBBA40421F2 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBoldItalic.ttf"; path = "../src/assets/fonts/Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		A0BFDBA68DFE474B98F6CD51 /* Poppins-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/Poppins-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		A226EBA6D8984CC1903D1C09 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		A2BA7488360E45D8B7F70711 /* Dosis-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Medium.ttf"; path = "../src/assets/fonts/Dosis-Medium.ttf"; sourceTree = "<group>"; };
+		A2FD8F775576421B9D2D5A49 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-LightItalic.ttf"; path = "../src/assets/fonts/Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
+		A4A062AF8957410EAEA20816 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		A514897D174B45959B85FD3A /* Dosis-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-Bold.ttf"; path = "../src/assets/fonts/Dosis-Bold.ttf"; sourceTree = "<group>"; };
+		AC1511CD5530442389D9C04D /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		B99858FBDD3D4E14BF615B3F /* Overpass-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-Light.ttf"; path = "../src/assets/fonts/Overpass-Light.ttf"; sourceTree = "<group>"; };
+		C10BB385D5354D9EAA53A85D /* Overpass-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-Thin.ttf"; path = "../src/assets/fonts/Overpass-Thin.ttf"; sourceTree = "<group>"; };
+		C11EB9CA0F9F4879894CFE85 /* Overpass-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-ExtraBold.ttf"; path = "../src/assets/fonts/Overpass-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C53BF5152799A19300211EDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C5E2BF13279AE0A1003F02A2 /* RestaurantApps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = RestaurantApps.entitlements; path = RestaurantApps/RestaurantApps.entitlements; sourceTree = "<group>"; };
+		C5E2BF14279AE0B4003F02A2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CB48FA9B25E64D969E209DE6 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Bold.ttf"; path = "../src/assets/fonts/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		CC90D510A36C497384FD0AB3 /* Quicksand-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Light.ttf"; path = "../src/assets/fonts/Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		CFE59F286778452B804A8280 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		D17881C6F9E142439B6C75B7 /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-ExtraLight.ttf"; path = "../src/assets/fonts/Dosis-ExtraLight.ttf"; sourceTree = "<group>"; };
+		D52A38440CF4489AB975E957 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		DCCCF94C4F7A4BDA8537FDAE /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
+		DD185135502649A1AAD90997 /* Overpass-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-BlackItalic.ttf"; path = "../src/assets/fonts/Overpass-BlackItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F171AADE460D4E28B43F40F1 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		F358B9D3D3284125B58F5999 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../src/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		F4392DC17C984CC4BCB7E492 /* Dosis-VariableFont_wght.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Dosis-VariableFont_wght.ttf"; path = "../src/assets/fonts/Dosis-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		F4DA21B5D46240A9BB1B07C6 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../src/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		F86894792447AA2C3526760A /* Pods-RestaurantApps-RestaurantAppsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantApps-RestaurantAppsTests.release.xcconfig"; path = "Target Support Files/Pods-RestaurantApps-RestaurantAppsTests/Pods-RestaurantApps-RestaurantAppsTests.release.xcconfig"; sourceTree = "<group>"; };
+		F8E20980A2DE4489AFC7FDD0 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraLight.ttf"; path = "../src/assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FC6223E3EAC247EB96425C29 /* Overpass-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-ExtraLight.ttf"; path = "../src/assets/fonts/Overpass-ExtraLight.ttf"; sourceTree = "<group>"; };
+		FD0ABF59803C1F97F809EA96 /* libPods-RestaurantApps.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RestaurantApps.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFF1924D2F1C4EC3849201DF /* Overpass-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Overpass-Italic.ttf"; path = "../src/assets/fonts/Overpass-Italic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41779C4FDD0D02CB216D8377 /* libPods-RestaurantApps-RestaurantAppsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +174,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5E2BF15279AE0B4003F02A2 /* MapKit.framework in Frameworks */,
+				ED1A1CA30C29CEAF7FB4C3F0 /* libPods-RestaurantApps.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +202,8 @@
 		13B07FAE1A68108700A75B9A /* RestaurantApps */ = {
 			isa = PBXGroup;
 			children = (
+				C5E2BF13279AE0A1003F02A2 /* RestaurantApps.entitlements */,
+				C53BF5152799A19300211EDB /* GoogleService-Info.plist */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -89,9 +217,93 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5E2BF14279AE0B4003F02A2 /* MapKit.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				FD0ABF59803C1F97F809EA96 /* libPods-RestaurantApps.a */,
+				5A696B5FF6B82666338FDAB7 /* libPods-RestaurantApps-RestaurantAppsTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4410006B08600E04711CA8E6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				93035EDCEE35649798610C9D /* Pods-RestaurantApps.debug.xcconfig */,
+				1C5EA1CC1412E5AA8C0DEFB4 /* Pods-RestaurantApps.release.xcconfig */,
+				543AE701E5DAC6AF4ED53A30 /* Pods-RestaurantApps-RestaurantAppsTests.debug.xcconfig */,
+				F86894792447AA2C3526760A /* Pods-RestaurantApps-RestaurantAppsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6590CE6685AD4FE88BFF4752 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A514897D174B45959B85FD3A /* Dosis-Bold.ttf */,
+				72121CB425CD4E59AFA616AA /* Dosis-ExtraBold.ttf */,
+				D17881C6F9E142439B6C75B7 /* Dosis-ExtraLight.ttf */,
+				3C394CC381EF410EA01A61D7 /* Dosis-Light.ttf */,
+				A2BA7488360E45D8B7F70711 /* Dosis-Medium.ttf */,
+				504396F106024606B54542C2 /* Dosis-Regular.ttf */,
+				3E7FE88B099D4D7696B82073 /* Dosis-SemiBold.ttf */,
+				F4392DC17C984CC4BCB7E492 /* Dosis-VariableFont_wght.ttf */,
+				39BB2101A71A43D298490C2B /* Overpass-Black.ttf */,
+				DD185135502649A1AAD90997 /* Overpass-BlackItalic.ttf */,
+				761B2F8314CA4D3AB5010611 /* Overpass-Bold.ttf */,
+				41524B57E13D4929B0DA4364 /* Overpass-BoldItalic.ttf */,
+				C11EB9CA0F9F4879894CFE85 /* Overpass-ExtraBold.ttf */,
+				08A998F3F3C349E485A6C869 /* Overpass-ExtraBoldItalic.ttf */,
+				FC6223E3EAC247EB96425C29 /* Overpass-ExtraLight.ttf */,
+				205013E5A3EF4972B7F40A1C /* Overpass-ExtraLightItalic.ttf */,
+				FFF1924D2F1C4EC3849201DF /* Overpass-Italic.ttf */,
+				B99858FBDD3D4E14BF615B3F /* Overpass-Light.ttf */,
+				88A0789E62D4426E984EAB54 /* Overpass-LightItalic.ttf */,
+				1160610F2E74471EBCE83DA7 /* Overpass-Regular.ttf */,
+				F4DA21B5D46240A9BB1B07C6 /* Poppins-SemiBold.ttf */,
+				9ECCC3F4E1374BBBA40421F2 /* Poppins-SemiBoldItalic.ttf */,
+				C10BB385D5354D9EAA53A85D /* Overpass-Thin.ttf */,
+				871A0FA7A84043A5A55FFAFF /* Overpass-ThinItalic.ttf */,
+				27721E36FF2A4622A446EDC8 /* Poppins-Black.ttf */,
+				286F29A7E0CA4022AE7663E1 /* Poppins-BlackItalic.ttf */,
+				609A638F1D27438CBE42EF59 /* Poppins-Bold.ttf */,
+				566D24B689514A6D8503D2AC /* Poppins-BoldItalic.ttf */,
+				5BDD63D14C284768AFCEA35D /* Poppins-ExtraBold.ttf */,
+				A0BFDBA68DFE474B98F6CD51 /* Poppins-ExtraBoldItalic.ttf */,
+				F8E20980A2DE4489AFC7FDD0 /* Poppins-ExtraLight.ttf */,
+				363C24B94B3640A2B09AC3B3 /* Poppins-ExtraLightItalic.ttf */,
+				625F9CD69EE3439F87852623 /* Poppins-Italic.ttf */,
+				6854247F8841438AAAAA72AF /* Poppins-Light.ttf */,
+				A2FD8F775576421B9D2D5A49 /* Poppins-LightItalic.ttf */,
+				2CE7475436E844A9BA655013 /* Poppins-Medium.ttf */,
+				480B0B4628F94BD0AC85A38B /* Poppins-MediumItalic.ttf */,
+				450CED43BFCA4154A7CF3AE1 /* Poppins-Regular.ttf */,
+				F358B9D3D3284125B58F5999 /* Poppins-SemiBold.ttf */,
+				34ED0CA81E9F44DE97D54D1A /* Poppins-SemiBoldItalic.ttf */,
+				DCCCF94C4F7A4BDA8537FDAE /* Poppins-Thin.ttf */,
+				63E4805E2F1544248C53072D /* Poppins-ThinItalic.ttf */,
+				CB48FA9B25E64D969E209DE6 /* Quicksand-Bold.ttf */,
+				CC90D510A36C497384FD0AB3 /* Quicksand-Light.ttf */,
+				5A968CF2D29D4790A8904F05 /* Quicksand-Medium.ttf */,
+				7A5A989217DB44CE8EE21E37 /* Quicksand-Regular.ttf */,
+				518F5CE1C0364087A7C1384E /* Quicksand-SemiBold.ttf */,
+				A4A062AF8957410EAEA20816 /* AntDesign.ttf */,
+				23036EF30E7049BFBC740A6A /* Entypo.ttf */,
+				A226EBA6D8984CC1903D1C09 /* EvilIcons.ttf */,
+				42D56D207C9B4768917C9446 /* Feather.ttf */,
+				521BB9591E6045759A6BBBA9 /* FontAwesome.ttf */,
+				CFE59F286778452B804A8280 /* FontAwesome5_Brands.ttf */,
+				7F1867346ACC41DC85A26A99 /* FontAwesome5_Regular.ttf */,
+				D52A38440CF4489AB975E957 /* FontAwesome5_Solid.ttf */,
+				834A4D37190A4A2A9B982EEE /* Fontisto.ttf */,
+				F171AADE460D4E28B43F40F1 /* Foundation.ttf */,
+				AC1511CD5530442389D9C04D /* Ionicons.ttf */,
+				0630388A3E834A1FAC314C28 /* MaterialCommunityIcons.ttf */,
+				1BEB0172B48847C48A52D744 /* MaterialIcons.ttf */,
+				1BC1186A893F4E00B21858A2 /* Octicons.ttf */,
+				34C3EEEC2A454460A1E97712 /* SimpleLineIcons.ttf */,
+				294F595917E14BBCA1502B22 /* Zocial.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -109,6 +321,8 @@
 				00E356EF1AD99517003FC87E /* RestaurantAppsTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				4410006B08600E04711CA8E6 /* Pods */,
+				6590CE6685AD4FE88BFF4752 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -131,9 +345,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "RestaurantAppsTests" */;
 			buildPhases = (
+				CE7EC4C88714A446B3ECC35E /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				5B385532E561FABFFBCCB731 /* [CP] Embed Pods Frameworks */,
+				0A2F36ABF379840E2AD18EC1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,11 +366,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RestaurantApps" */;
 			buildPhases = (
+				307D0B18F11E9001613AC954 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				72AB6AFC862768F737BF0F89 /* [CP] Embed Pods Frameworks */,
+				1E86AF3346987C49354EB827 /* [CP] Copy Pods Resources */,
+				E4D219291C2F6F443D8E6E1E /* [CP-User] [RNFB] Core Configuration */,
 			);
 			buildRules = (
 			);
@@ -170,7 +391,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -214,6 +435,54 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				7770BF44B06A4E0394767FD2 /* Dosis-Bold.ttf in Resources */,
+				899FBE5383564B4098AC95D8 /* Dosis-ExtraBold.ttf in Resources */,
+				096F49876C1143E48208B48E /* Dosis-ExtraLight.ttf in Resources */,
+				5FC1198E729A4A00990340A1 /* Dosis-Light.ttf in Resources */,
+				D0EBC4223B654551A90C6228 /* Dosis-Medium.ttf in Resources */,
+				862BAE6AAB084DE095CA38A2 /* Dosis-Regular.ttf in Resources */,
+				43752B8B8B3E4856A2822EEA /* Dosis-SemiBold.ttf in Resources */,
+				998B0E1E824B440FBB53F294 /* Dosis-VariableFont_wght.ttf in Resources */,
+				18EA9885C02643CE904483E3 /* Overpass-Black.ttf in Resources */,
+				CC1217C239CE4C2F9A34F180 /* Overpass-BlackItalic.ttf in Resources */,
+				A4673A79364741A493E0923F /* Overpass-Bold.ttf in Resources */,
+				2D85FA9289804E0F9E83145B /* Overpass-BoldItalic.ttf in Resources */,
+				96D0E9D7EF0241F693422152 /* Overpass-ExtraBold.ttf in Resources */,
+				D633E3D3BD2940C4BF55D6AE /* Overpass-ExtraBoldItalic.ttf in Resources */,
+				D342C61F700F4D1B9FC28B73 /* Overpass-ExtraLight.ttf in Resources */,
+				1677C18FA2BC4A0589D8C276 /* Overpass-ExtraLightItalic.ttf in Resources */,
+				26C5CA23A5344FF6A3C52BAD /* Overpass-Italic.ttf in Resources */,
+				6EA4266DD8734C1992C45EE5 /* Overpass-Light.ttf in Resources */,
+				3B54C441E3804A418CA5F5A6 /* Overpass-LightItalic.ttf in Resources */,
+				D230ABD2AB594F929699EC2D /* Overpass-Regular.ttf in Resources */,
+				A8153279327C4CD9872BA370 /* Poppins-SemiBold.ttf in Resources */,
+				DDC8545F12E2414A90140699 /* Poppins-SemiBoldItalic.ttf in Resources */,
+				4EC30551D8EC4AB190FAB75E /* Overpass-Thin.ttf in Resources */,
+				3CBC5385056140E4BD009790 /* Overpass-ThinItalic.ttf in Resources */,
+				5B1C71C804954DBBBD122671 /* Poppins-Black.ttf in Resources */,
+				C53BF5162799A19300211EDB /* GoogleService-Info.plist in Resources */,
+				45C17B8E56BF407CA726EAB6 /* Poppins-BlackItalic.ttf in Resources */,
+				2D4D4FC9863B4709A268A760 /* Poppins-Bold.ttf in Resources */,
+				068536D96C544B1B83089AC0 /* Poppins-BoldItalic.ttf in Resources */,
+				5D180B48BAE84408ACE3498E /* Poppins-ExtraBold.ttf in Resources */,
+				600D6C55C6324CDD88671617 /* Poppins-ExtraBoldItalic.ttf in Resources */,
+				2714F64E9F224CDCA642F3CA /* Poppins-ExtraLight.ttf in Resources */,
+				F2E1D2FD16084C789D68F952 /* Poppins-ExtraLightItalic.ttf in Resources */,
+				407B87E0C3AB457FBFB2CDF2 /* Poppins-Italic.ttf in Resources */,
+				060E57C8EC8F40D4B4F44CAD /* Poppins-Light.ttf in Resources */,
+				22545A8CC1B0476CA2376C94 /* Poppins-LightItalic.ttf in Resources */,
+				0C65ADEF0A1D4625BAC9C51A /* Poppins-Medium.ttf in Resources */,
+				144AAE99DE7246268D3EFC2E /* Poppins-MediumItalic.ttf in Resources */,
+				B5877F84E6FB4697965BB444 /* Poppins-Regular.ttf in Resources */,
+				40C44620A40C477FA7D7F141 /* Poppins-SemiBold.ttf in Resources */,
+				10CA89B1BE03468F9BF5006E /* Poppins-SemiBoldItalic.ttf in Resources */,
+				BFB2A49E207C42E0B2C0395A /* Poppins-Thin.ttf in Resources */,
+				7189B2CD47484F72845A6486 /* Poppins-ThinItalic.ttf in Resources */,
+				44A38DD8C8094079935DB0F2 /* Quicksand-Bold.ttf in Resources */,
+				B430ABF02B0B4A2BB4110F58 /* Quicksand-Light.ttf in Resources */,
+				33F9DC8DE9FD4CC8A368589E /* Quicksand-Medium.ttf in Resources */,
+				E845DFE946A144BDB6E99A8A /* Quicksand-Regular.ttf in Resources */,
+				E8BDE64F0CFB4BE9A16EB78D /* Quicksand-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +502,131 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		0A2F36ABF379840E2AD18EC1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps-RestaurantAppsTests/Pods-RestaurantApps-RestaurantAppsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps-RestaurantAppsTests/Pods-RestaurantApps-RestaurantAppsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps-RestaurantAppsTests/Pods-RestaurantApps-RestaurantAppsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1E86AF3346987C49354EB827 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps/Pods-RestaurantApps-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps/Pods-RestaurantApps-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps/Pods-RestaurantApps-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		307D0B18F11E9001613AC954 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RestaurantApps-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B385532E561FABFFBCCB731 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps-RestaurantAppsTests/Pods-RestaurantApps-RestaurantAppsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps-RestaurantAppsTests/Pods-RestaurantApps-RestaurantAppsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps-RestaurantAppsTests/Pods-RestaurantApps-RestaurantAppsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72AB6AFC862768F737BF0F89 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps/Pods-RestaurantApps-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps/Pods-RestaurantApps-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RestaurantApps/Pods-RestaurantApps-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE7EC4C88714A446B3ECC35E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RestaurantApps-RestaurantAppsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E4D219291C2F6F443D8E6E1E /* [CP-User] [RNFB] Core Configuration */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "[CP-User] [RNFB] Core Configuration";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/usr/bin/env bash\n#\n# Copyright (c) 2016-present Invertase Limited & Contributors\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this library except in compliance with the License.\n# You may obtain a copy of the License at\n#\n#   http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\nset -e\n\n_MAX_LOOKUPS=2;\n_SEARCH_RESULT=''\n_RN_ROOT_EXISTS=''\n_CURRENT_LOOKUPS=1\n_JSON_ROOT=\"'react-native'\"\n_JSON_FILE_NAME='firebase.json'\n_JSON_OUTPUT_BASE64='e30=' # { }\n_CURRENT_SEARCH_DIR=${PROJECT_DIR}\n_PLIST_BUDDY=/usr/libexec/PlistBuddy\n_TARGET_PLIST=\"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}\"\n_DSYM_PLIST=\"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist\"\n\n# plist arrays\n_PLIST_ENTRY_KEYS=()\n_PLIST_ENTRY_TYPES=()\n_PLIST_ENTRY_VALUES=()\n\nfunction setPlistValue {\n  echo \"info:      setting plist entry '$1' of type '$2' in file '$4'\"\n  ${_PLIST_BUDDY} -c \"Add :$1 $2 '$3'\" $4 || echo \"info:      '$1' already exists\"\n}\n\nfunction getFirebaseJsonKeyValue () {\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$1'); puts output[$_JSON_ROOT]['$2']\"\n  else\n    echo \"\"\n  fi;\n}\n\nfunction jsonBoolToYesNo () {\n  if [[ $1 == \"false\" ]]; then\n    echo \"NO\"\n  elif [[ $1 == \"true\" ]]; then\n    echo \"YES\"\n  else echo \"NO\"\n  fi\n}\n\necho \"info: -> RNFB build script started\"\necho \"info: 1) Locating ${_JSON_FILE_NAME} file:\"\n\nif [[ -z ${_CURRENT_SEARCH_DIR} ]]; then\n  _CURRENT_SEARCH_DIR=$(pwd)\nfi;\n\nwhile true; do\n  _CURRENT_SEARCH_DIR=$(dirname \"$_CURRENT_SEARCH_DIR\")\n  if [[ \"$_CURRENT_SEARCH_DIR\" == \"/\" ]] || [[ ${_CURRENT_LOOKUPS} -gt ${_MAX_LOOKUPS} ]]; then break; fi;\n  echo \"info:      ($_CURRENT_LOOKUPS of $_MAX_LOOKUPS) Searching in '$_CURRENT_SEARCH_DIR' for a ${_JSON_FILE_NAME} file.\"\n  _SEARCH_RESULT=$(find \"$_CURRENT_SEARCH_DIR\" -maxdepth 2 -name ${_JSON_FILE_NAME} -print | /usr/bin/head -n 1)\n  if [[ ${_SEARCH_RESULT} ]]; then\n    echo \"info:      ${_JSON_FILE_NAME} found at $_SEARCH_RESULT\"\n    break;\n  fi;\n  _CURRENT_LOOKUPS=$((_CURRENT_LOOKUPS+1))\ndone\n\nif [[ ${_SEARCH_RESULT} ]]; then\n  _JSON_OUTPUT_RAW=$(cat \"${_SEARCH_RESULT}\")\n  _RN_ROOT_EXISTS=$(ruby -e \"require 'rubygems';require 'json'; output=JSON.parse('$_JSON_OUTPUT_RAW'); puts output[$_JSON_ROOT]\" || echo '')\n\n  if [[ ${_RN_ROOT_EXISTS} ]]; then\n    _JSON_OUTPUT_BASE64=$(python -c 'import json,sys,base64;print(base64.b64encode(json.dumps(json.loads(open('\"'${_SEARCH_RESULT}'\"').read())['${_JSON_ROOT}'])))' || echo \"e30=\")\n  fi\n\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n\n  # config.app_data_collection_default_enabled\n  _APP_DATA_COLLECTION_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_data_collection_default_enabled\")\n  if [[ $_APP_DATA_COLLECTION_ENABLED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseDataCollectionDefaultEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_DATA_COLLECTION_ENABLED\")\")\n  fi\n\n  # config.analytics_auto_collection_enabled\n  _ANALYTICS_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_auto_collection_enabled\")\n  if [[ $_ANALYTICS_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_COLLECTION\")\")\n  fi\n\n  # config.analytics_collection_deactivated\n  _ANALYTICS_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_collection_deactivated\")\n  if [[ $_ANALYTICS_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FIREBASE_ANALYTICS_COLLECTION_DEACTIVATED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_DEACTIVATED\")\")\n  fi\n\n  # config.analytics_idfv_collection_enabled\n  _ANALYTICS_IDFV_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_idfv_collection_enabled\")\n  if [[ $_ANALYTICS_IDFV_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_IDFV_COLLECTION_ENABLED\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_IDFV_COLLECTION\")\")\n  fi\n\n  # config.analytics_default_allow_ad_personalization_signals\n  _ANALYTICS_PERSONALIZATION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"analytics_default_allow_ad_personalization_signals\")\n  if [[ $_ANALYTICS_PERSONALIZATION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_PERSONALIZATION\")\")\n  fi\n\n  # config.google_analytics_automatic_screen_reporting_enabled\n  _ANALYTICS_AUTO_SCREEN_REPORTING=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"google_analytics_automatic_screen_reporting_enabled\")\n  if [[ $_ANALYTICS_AUTO_SCREEN_REPORTING ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseAutomaticScreenReportingEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_ANALYTICS_AUTO_SCREEN_REPORTING\")\")\n  fi\n\n  # config.perf_auto_collection_enabled\n  _PERF_AUTO_COLLECTION=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_auto_collection_enabled\")\n  if [[ $_PERF_AUTO_COLLECTION ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_enabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_AUTO_COLLECTION\")\")\n  fi\n\n  # config.perf_collection_deactivated\n  _PERF_DEACTIVATED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"perf_collection_deactivated\")\n  if [[ $_PERF_DEACTIVATED ]]; then\n    _PLIST_ENTRY_KEYS+=(\"firebase_performance_collection_deactivated\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_PERF_DEACTIVATED\")\")\n  fi\n\n  # config.messaging_auto_init_enabled\n  _MESSAGING_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"messaging_auto_init_enabled\")\n  if [[ $_MESSAGING_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseMessagingAutoInitEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_MESSAGING_AUTO_INIT\")\")\n  fi\n\n  # config.in_app_messaging_auto_colllection_enabled\n  _FIAM_AUTO_INIT=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"in_app_messaging_auto_collection_enabled\")\n  if [[ $_FIAM_AUTO_INIT ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseInAppMessagingAutomaticDataCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_FIAM_AUTO_INIT\")\")\n  fi\n\n  # config.app_check_token_auto_refresh\n  _APP_CHECK_TOKEN_AUTO_REFRESH=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"app_check_token_auto_refresh\")\n  if [[ $_APP_CHECK_TOKEN_AUTO_REFRESH ]]; then\n    _PLIST_ENTRY_KEYS+=(\"FirebaseAppCheckTokenAutoRefreshEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"$(jsonBoolToYesNo \"$_APP_CHECK_TOKEN_AUTO_REFRESH\")\")\n  fi\n\n  # config.crashlytics_disable_auto_disabler - undocumented for now - mainly for debugging, document if becomes useful\n  _CRASHLYTICS_AUTO_DISABLE_ENABLED=$(getFirebaseJsonKeyValue \"$_JSON_OUTPUT_RAW\" \"crashlytics_disable_auto_disabler\")\n  if [[ $_CRASHLYTICS_AUTO_DISABLE_ENABLED == \"true\" ]]; then\n    echo \"Disabled Crashlytics auto disabler.\" # do nothing\n  else\n    _PLIST_ENTRY_KEYS+=(\"FirebaseCrashlyticsCollectionEnabled\")\n    _PLIST_ENTRY_TYPES+=(\"bool\")\n    _PLIST_ENTRY_VALUES+=(\"NO\")\n  fi\nelse\n  _PLIST_ENTRY_KEYS+=(\"firebase_json_raw\")\n  _PLIST_ENTRY_TYPES+=(\"string\")\n  _PLIST_ENTRY_VALUES+=(\"$_JSON_OUTPUT_BASE64\")\n  echo \"warning:   A firebase.json file was not found, whilst this file is optional it is recommended to include it to configure firebase services in React Native Firebase.\"\nfi;\n\necho \"info: 2) Injecting Info.plist entries: \"\n\n# Log out the keys we're adding\nfor i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n  echo \"    ->  $i) ${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\"\ndone\n\nfor plist in \"${_TARGET_PLIST}\" \"${_DSYM_PLIST}\" ; do\n  if [[ -f \"${plist}\" ]]; then\n\n    # paths with spaces break the call to setPlistValue. temporarily modify\n    # the shell internal field separator variable (IFS), which normally\n    # includes spaces, to consist only of line breaks\n    oldifs=$IFS\n    IFS=\"\n\"\n\n    for i in \"${!_PLIST_ENTRY_KEYS[@]}\"; do\n      setPlistValue \"${_PLIST_ENTRY_KEYS[$i]}\" \"${_PLIST_ENTRY_TYPES[$i]}\" \"${_PLIST_ENTRY_VALUES[$i]}\" \"${plist}\"\n    done\n\n    # restore the original internal field separator value\n    IFS=$oldifs\n  else\n    echo \"warning:   A Info.plist build output file was not found (${plist})\"\n  fi\ndone\n\necho \"info: <- RNFB build script finished\"\n";
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -286,14 +680,18 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 543AE701E5DAC6AF4ED53A30 /* Pods-RestaurantApps-RestaurantAppsTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				DEVELOPMENT_TEAM = UZ4THV58BR;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = RestaurantAppsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,11 +710,15 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F86894792447AA2C3526760A /* Pods-RestaurantApps-RestaurantAppsTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = UZ4THV58BR;
 				INFOPLIST_FILE = RestaurantAppsTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,10 +737,13 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93035EDCEE35649798610C9D /* Pods-RestaurantApps.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RestaurantApps/RestaurantApps.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UZ4THV58BR;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = RestaurantApps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -350,7 +755,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.RestaurantApps;
 				PRODUCT_NAME = RestaurantApps;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -360,10 +765,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C5EA1CC1412E5AA8C0DEFB4 /* Pods-RestaurantApps.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = RestaurantApps/RestaurantApps.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UZ4THV58BR;
 				INFOPLIST_FILE = RestaurantApps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -374,7 +782,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.RestaurantApps;
 				PRODUCT_NAME = RestaurantApps;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -414,6 +822,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -429,14 +838,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -478,6 +886,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "arm64 ";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -486,14 +895,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
-					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
 					"\"$(inherited)\"",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -512,7 +920,7 @@
 				00E356F71AD99517003FC87E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "RestaurantApps" */ = {
 			isa = XCConfigurationList;
@@ -521,7 +929,7 @@
 				13B07F951A680F5B00A75B9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "RestaurantApps" */ = {
 			isa = XCConfigurationList;
@@ -530,7 +938,7 @@
 				83CBBA211A601CBA00E9B192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

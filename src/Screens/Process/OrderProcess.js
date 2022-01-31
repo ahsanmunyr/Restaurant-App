@@ -43,7 +43,7 @@ import axios from 'axios'
 import MapViewDirections from 'react-native-maps-directions';
 import MapView, { PROVIDER_GOOGLE, Marker, AnimatedRegion, MarkerAnimated } from "react-native-maps";
 import { deploy_API } from './../../Config/Apis.json'
-import { StackActions } from '@react-navigation/native';
+import { StackActions, CommonActions } from '@react-navigation/native';
 // import {useNavigation} from "@react-navigation/native"
 
 const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatus, userLogin, acceptOrderDetails, userLatitudeLongitude, riderCoord, orderDetails,saveNavigatorVariable, firebaseData }) => {
@@ -93,9 +93,8 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
   }))
 
   const x = useMemo(() => {
-
     if (riderCoord?.condition) {
-      console.log(riderCoord.data, "---------------RIDER COORDS-------------------------")
+      // console.log(riderCoord.data, "---------------RIDER COORDS-------------------------")
       onChangeRiderCoords({
         latitude: parseFloat(riderCoord?.data?.lat),
         longitude: parseFloat(riderCoord?.data?.long),
@@ -103,8 +102,28 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
         longitudeDelta: LONGITUDE_DELTA,
       })
     }
-
   }, [riderCoord])
+
+
+  useEffect(() => {
+  //   navigation.addListener('beforeRemove', (e) => {
+  //     e.preventDefault()
+  //     //clear setInterval here and go back
+  //  })
+    const backAction = () => {
+      navigation.dispatch(StackActions.replace('Home'));
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+  
+   
+    return () => backHandler.remove();
+  }, []);
 
   useEffect(()=>{
     saveNavigatorVariable(navigation)
@@ -113,86 +132,90 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
   useEffect(() => {
     if (restaurantID) {
       axios.get(`${deploy_API}/api/restaurant/getrestaurant?restaurant_id=${restaurantID}`).then((res) => {
-        console.log("=============api/restaurant/getrestaurant?restaurant_id=======================", res.data)
+        // console.log("=============api/restaurant/getrestaurant?restaurant_id=======================", res.data)
         if (res.data.status) {
           onChangeRestaurantDetail(res.data.data)
         }
       }).catch((err) => {
         console.log(err)
       })
-      // alert(restaurantID)
     }
 
   }, [restaurantID])
-  // MapViewDirections Error: Error on GMAPS route request: ZERO_RESULTS
-  // {"assigned_to": 0, 
-  // "order_created_at": "2021-12-14T07:35:59.000Z", 
-  // "order_id": 11, 
-  // "order_is_deleted": 0, 
-  // "order_latitude": "24.792994", 
-  // "order_location": "Q3V7+5W Defence Housing Authority, Karachi, Pakistan", 
-  // "order_longitude": "67.064844", 
-  // "order_payment_method": "1", 
-  // "order_price": "110", 
-  // "order_remarks": "TEST REMARK", 
-  // "order_status": 2, 
-  // "restaurant_id": 1, 
-  // "user_id": 4}, 
-  // "msg": "Order details fetched successfully", 
-  // "status": true}
+
+  useEffect(()=>{
+    console.log(placeOrderStatus, "SATA 2")
+    if (placeOrderStatus?.data?.order_status == 2) {
+      updateLoading(true)
+      onChangeStatus(placeOrderStatus.data.order_status)
+      onChangeLocation(placeOrderStatus.data.order_location)
+      onChangeTitle("Order Placed")
+      onChangeMessage("Thank you, your order has been placed. Wait for restaurant approval")
+      onChangeLottifiles(require('./../../Assets/Lottie/OPS.json'))
+      onChangeShowMap(false)
+    }
+    if (firebaseData?.data?.data.type == "rejectorder") {
+      updateLoading(true)
+      onChangeTitle("Order Rejected")
+      onChangeMessage("Sorry, your order has been rejected!!!")
+      onChangeLottifiles(require('./../../Assets/Lottie/cancel-animation.json'))
+      onChangeShowMap(false)
+    }
+  },[placeOrderStatus, firebaseData])
 
 
   useEffect(() => {
-    console.log(userLogin, "USER DETAILS")
     onChangeOrderData(userLogin)
-    // orderDetails(userLogin.user_id)
-    axios.get(`${deploy_API}/api/orders/getuserorderdetails?user_id=${userLogin.user_id}`).then((res) => {
-      console.log(res.data, "=======================/api/orders/getuserorderdetails?user_id IN FUNCTION=======================")
-      if (res.data.status) {
-        // orderDetailsInFunctionComponent(res)
-        console.log(res.data.data, "AS")
-        updateLoading(true)
-        onChangeRestaurantID(res.data.data.restaurant_id)
-        onChangeStatus(res.data.data.order_status)
-        // if(res.data.data.order_status == 1){
-        //   navigation.navigate('Home')
-        // }
-        if (res.data.data.order_status == 2) {
-          // location("48C Lane 9, Bukhari Commercial Area Phase 6 DHA karachi, Karachi, Karachi City, Sindh 75500, Pakistan")
-          // name("Restaurant Name")
-          // alert("SAD")
-          // const [location, onChangeLocation] = useState("")
-          // const [name, onChangeName] = useState("")
-          // const [time, onChangeTime] = useState("")
 
+    axios.get(`${deploy_API}/api/orders/getuserorderdetails?user_id=${userLogin.user_id}`).then((res) => {
+      if (res.data.status) {
+          console.log("====================================API RESPONSE================================", res.data.data)
+          onChangeRestaurantID(res.data.data.restaurant_id)
+          onChangeStatus(res.data.data.order_status)
+          onChangeLocation(res.data?.data?.order_location)
+          // console.log("RIDER COORDS")
+          // console.log(res.data.data.restaurant_latitude,res.data.data.restaurant_longitude, "RESTAURANT LOCATION")
+          // console.log(res.data.data.order_latitude,res.data.data.order_longitude, "USER ---- LOCATION")
+          // console.log(res.data?.data?.rider_latitude, res.data?.data?.rider_longitude, "-----------")
+          // onChangeRiderCoords({
+          //   latitude: parseFloat(res.data?.data?.rider_latitude),
+          //   longitude: parseFloat(res.data?.data?.rider_longitude),
+          //   latitudeDelta: LATITUDE_DELTA,
+          //   longitudeDelta: LONGITUDE_DELTA,
+          // })
+
+        if (res.data.data.order_status == 6) {
+          onChangeTitle("Order Accepted")
+          onChangeMessage("Thank you, your order has been accepted. Waiting for rider approval")
+          onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
+          onChangeShowMap(false)
+        }
+        if (res.data.data.order_status == 2) {
+      
+          onChangeStatus(res.data.data.order_status)
           onChangeLocation(res.data.data.order_location)
           onChangeTitle("Order Placed")
           onChangeMessage("Thank you, your order has been placed. Wait for restaurant approval")
           onChangeLottifiles(require('./../../Assets/Lottie/OPS.json'))
           onChangeShowMap(false)
-          //order acceptrequire('./../../Assets/Lottie/OPS.json')
-          // onChangeLottifiles
         }
-        if (res.data.data.order_status == 6) {
-          onChangeTitle("Order Accepted")
-          onChangeMessage("Thank you, your order has been accepted. Waiting for rider approval")
-          onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
-          //approved by admin
+        if (res.data.data.order_status == 5) {
+          onChangeTitle("Order Rejected")
+          onChangeMessage("Sorry, your order has been rejected!!!")
+          onChangeLottifiles(require('./../../Assets/Lottie/cancel-animation.json'))
           onChangeShowMap(false)
-          // onChangeLottifiles()
         }
         if (res.data.data.order_status == 4) {
           onChangeTitle("Rider Accepted")
           onChangeMessage("Rider has accepted your order")
-          // acceptOrderDetails(res.data.data.order_id)
+          onChangeLottifiles(require('./../../Assets/Lottie/your.json'))
           acceptOrderDetails(userLogin.user_id)
           onChangeShowMap(false)
-          // onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
         }
         if (res.data.data.order_status == 7) {
+          console.log("RIDER ON THE WAY REDUX API", res.data.data?.restaurant_latitude,res.data.data?.restaurant_longitude)
           onChangeTitle("Rider On The Way")
           onChangeMessage("Rider has start the ride")
-          // acceptOrderDetails(res.data.data.order_id)
           acceptOrderDetails(userLogin.user_id)
           onChangeShowMap(true)
           setRestaurantCoords({
@@ -201,35 +224,32 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
             latitudeDelta: LATITUDE_DELTA,
             longitudeDelta: LONGITUDE_DELTA,
           })
-
-          // onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
         }
 
         if (res.data.data.order_status == 8) {
+
           onChangeTitle("Rider Picked Order")
           onChangeMessage("Rider has pick up your order")
-          // acceptOrderDetails(res.data.data.order_id)
           acceptOrderDetails(userLogin.user_id)
           onChangeShowMap(true)
           setRestaurantCoords({
             latitude: parseFloat(res.data.data?.order_latitude),
-            longitude: parseFloat(res.data.data?.order_latitude),
+            longitude: parseFloat(res.data.data?.order_longitude),
             latitudeDelta: LATITUDE_DELTA,
             longitudeDelta: LONGITUDE_DELTA,
           })
-          // onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
         }
+
         if (res.data.data.order_status == 9) {
           onChangeTitle("Rider Arrived")
           onChangeMessage("Rider has arrived. Please pickup your order from the rider.")
           onChangeShowMap(false)
-          // acceptOrderDetails(res.data.data.order_id)
           acceptOrderDetails(userLogin.user_id)
-          // onChangeShowMap(true)
-          // onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
+          onChangeLottifiles(require('./../../Assets/Lottie/arrived.json'))
         }
 
       }
+      updateLoading(true)
     })
 
     // return navigation.dispatch(StackActions.replace('Home'));
@@ -250,258 +270,89 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
   }, []);
 
   useEffect(() => {
-    console.log(orderAccept, "=======================ss=======================")
-    if (orderAccept.order) { // true or false
-
+    // console.log(orderAccept.data, "=======================ss=======================")
+    if (orderAccept.order) { 
       onChangeDataa(orderAccept.data)
-
-      
-      console.log(orderAccept.data, "=======================setRestaurantCoords=======================")
-      updateLoading(true)
       onChangeRestaurantID(orderAccept.data.restaurant_id)
       onChangeStatus(orderAccept.data.order_status)
-      
-      // if(orderAccept.data.order_status == 1){
-      //   navigation.navigate('Home')
-      // }
+      // onChangeLocation(orderAccept?.data?.order_location)
+      onChangeRiderCoords({
+        latitude: parseFloat(orderAccept.data?.rider_latitude),
+        longitude: parseFloat(orderAccept.data?.rider_longitude),
+        latitudeDelta: LATITUDE_DELTA,
+        longitudeDelta: LONGITUDE_DELTA,
+      })
+      // console.log(orderAccept.data, "=======================ss=======================")
+      // console.log(orderAccept.data.restaurant_latitude,orderAccept.data.restaurant_longitude, "RESTAURANT LOCATION")
+      // console.log(orderAccept.data.order_latitude,orderAccept.data.order_longitude, "USER LOCATION")
       if (orderAccept.data.order_status == 2) {
-        // location("48C Lane 9, Bukhari Commercial Area Phase 6 DHA karachi, Karachi, Karachi City, Sindh 75500, Pakistan")
-        // name("Restaurant Name")
-        onChangeLocation(res.data.data.order_location)
+        onChangeLocation(orderAccept.data.order_location)
         onChangeTitle("Order Placed")
         onChangeMessage("Thank you, your order has been placed. Wait for restaurant approval")
         onChangeLottifiles(require('./../../Assets/Lottie/OPS.json'))
         onChangeShowMap(false)
-        //order accept
-        // onChangeLottifiles
       }
       if (orderAccept.data.order_status == 6) {
         onChangeTitle("Order Accepted")
         onChangeMessage("Thank you, your order has been accepted. Waiting for rider approval")
         onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
-        //approved by admin
         onChangeShowMap(false)
-        //approved by admin
-        // onChangeLottifiles()
       }
       if (orderAccept.data.order_status == 4) {
         onChangeTitle("Rider Accepted")
         onChangeMessage("Rider has accepted your order")
-        // acceptOrderDetails(res.data.data.order_id)
-        // acceptOrderDetails(userLogin.user_id)
         onChangeLottifiles(require('./../../Assets/Lottie/your.json'))
         onChangeShowMap(false)
-        // onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
       }
+   
       if (orderAccept.data.order_status == 7) {
         onChangeTitle("Rider On The Way")
         onChangeMessage("Rider has start the ride")
-        // acceptOrderDetails(res.data.data.order_id)
-        // acceptOrderDetails(orderData.user_id)
-        onChangeShowMap(true)
+        console.log("RIDER ON THE WAY REDUX", orderAccept?.data?.restaurant_latitude,orderAccept?.data?.restaurant_longitude )
         setRestaurantCoords({
           latitude: parseFloat(orderAccept?.data?.restaurant_latitude),
           longitude: parseFloat(orderAccept?.data?.restaurant_longitude),
           latitudeDelta: LATITUDE_DELTA,
           longitudeDelta: LONGITUDE_DELTA,
         })
-
+        onChangeShowMap(true)
       }
       if (orderAccept.data.order_status == 8) {
+        // alert("ASDASD")
         onChangeTitle("Rider Picked Order")
         onChangeMessage("Rider has pick up your order")
-        onChangeShowMap(true)
+    
         setRestaurantCoords({
           latitude: parseFloat(orderAccept?.data?.order_latitude),
           longitude: parseFloat(orderAccept?.data?.order_longitude),
           latitudeDelta: LATITUDE_DELTA,
           longitudeDelta: LONGITUDE_DELTA,
         })
-        //approved by admin
-        // onChangeLottifiles()
+        onChangeShowMap(true)
       }
       if (orderAccept.data.order_status == 9) {
         onChangeTitle("Rider Arrived")
         onChangeMessage("Rider has arrived. Please pickup your order from the rider.")
         onChangeShowMap(false)
         onChangeLottifiles(require('./../../Assets/Lottie/arrived.json'))
-        // onChangeShowMap(true)
-        //approved by admin
-        // onChangeLottifiles()
       }
-      // if(orderAccept.data.order_status == 9){
-      //   onChangeTitle("Rider Arrived")
-      //     onChangeMessage("Rider has arrived")
-      //     // onChangeShowMap(true)
-      //   //approved by admin
-      //   // onChangeLottifiles()
-      // }
-      // if(orderAccept.data.order_status == 4){
-      //   onChangeTitle("Rider Accepted")
-      //   onChangeMessage("Rider has accepted your order")
-      //   acceptOrderDetails(orderAccept.data.order_id)
-      //   // onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
-      // }
+      updateLoading(true)
     }
+
   }, [orderAccept])
 
 
-  // useEffect(()=>{
-  //   if(firebaseData){
-  //     console.log(firebaseData.data)
-    //   if (firebaseData.data.data.type == "approveorder") {
-    //   onChangeTitle("Order Accepted")
-    //   onChangeMessage("Thank you, your order has been accepted. Waiting for rider approval")
-    //   onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
-    //   onChangeShowMap(false)
-    // }
-    // if (firebaseData.data.data.type == "acceptorder") {
-    //   onChangeTitle("Order Accepted")
-    //   onChangeMessage("Thank you, your order has been accepted. Waiting for rider approval")
-    //   onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
-    //   onChangeShowMap(true)
-    // }
-    // if (firebaseData.data.data.type == "ridercoords") {
-    //     onChangeTitle("Rider Accepted")
-    //     onChangeMessage("Rider has accepted your order")
-    //     // acceptOrderDetails(res.data.data.order_id)
-    //     // acceptOrderDetails(userLogin.user_id)
-    //     onChangeLottifiles(require('./../../Assets/Lottie/your.json'))
-    //     onChangeShowMap(false)
-    // }                                                                                              
-    // if (firebaseData.data.data.type == "pickorder") {
-    //   onChangeTitle("Rider Picked Order")
-    //   onChangeMessage("Rider has pick up your order")
-    //   onChangeShowMap(true)
-    // }
-    // if (firebaseData.data.data.type == "arriveorder") {
-    //   onChangeTitle("Rider Arrived")
-    //   onChangeMessage("Rider has arrived")
-    //   onChangeShowMap(false)
-    //   onChangeLottifiles(require('./../../Assets/Lottie/arrived.json'))
-    // }
-    // if (firebaseData.data.data.type == "rejectorder") {
-    //   onChangeTitle("Order Rejected")
-    //   onChangeMessage("We are sorry, your order has been rejected. Please try again.")
-    //   onChangeLottifiles(require('./../../Assets/Lottie/crossCancel.json'))
-    //   onChangeShowMap(false)
-    // }
-    // if (firebaseData.data.data.type == "declineorder") {
-    //   onChangeTitle("Order Decline")
-    //   onChangeMessage("We are sorry, your order has been rejected. Please try again.")
-    //   onChangeLottifiles(require('./../../Assets/Lottie/crossCancel.json'))
-    //   onChangeShowMap(false)
-    // }
-    // }
-   
-    
-  // },[firebaseData])
-//   if (remoteMessage.data.type == "approveorder") {
-//     acceptOrderDetails(userID)
-// }
-// if (remoteMessage.data.type == "acceptorder") {
-//     acceptOrderDetails(userID)
-// }
-// if (remoteMessage.data.type == "ridercoords") {
-//     acceptOrderDetails(userID)
-//     firebaseCoordsRider(remoteMessage.data)
-// }
-// if (remoteMessage.data.type == "startride") {
-//     acceptOrderDetails(userID)
-// }
-// if (remoteMessage.data.type == "pickorder") {
-//     acceptOrderDetails(userID)
-// }
-// if (remoteMessage.data.type == "arriveorder") {
-//     acceptOrderDetails(userID)
-// }
-// if (remoteMessage.data.type == "completeorder") {
-//     orderDataClear()
-//     onChangeStatus(false)
-// }
-// if (remoteMessage.data.type == "rejectorder") {
-//     orderDataClear()
-//     onChangeStatus(false)
-// }
-// if (remoteMessage.data.type == "declineorder") {
-//     orderDataClear()
-//     onChangeStatus(false)
-// }
-  //   {
-  //     "data":{
-  //        "assigned_to":6,
-  //        "order_created_at":"2021-11-25T10:20:06.000Z",
-  //        "order_id":5,
-  //        "order_is_deleted":0,
-  //        "order_latitude":"24.7929966",
-  //        "order_location":"48C Lane 9, Bukhari Commercial Area Phase 6 DHA karachi, Karachi, Karachi City, Sindh 75500, Pakista",
-  //        "order_longitude":"67.0648322",
-  //        "order_payment_method":"1",
-  //        "order_price":"50",
-  //        "order_remarks":"TEST REMARK",
-  //        "order_status":4,
-  //        "restaurant_address":"KFC - Gulshan-e-Iqbal, Block 7 Gulshan-e-Iqbal, Karachi",
-  //        "restaurant_email":"farooq.khan@gmail.com",
-  //        "restaurant_id":1,
-  //        "restaurant_image":"uploads/1637139878931rest4.jpg",
-  //        "restaurant_latitude":"24.9180588",
-  //        "restaurant_longitude":"67.0947953",
-  //        "restaurant_name":"sasaas",
-  //        "restaurant_phone":"11223344556",
-  //        "rider_email":"ahsanmuneer81@gmail.com",
-  //        "rider_id":6,
-  //        "rider_name":"M Ahsan Muneer",
-  //        "user_id":4
-  //     },
-  //     "msg":"Order details fetched successfully",
-  //     "status":true
-  //  }
-  // useEffect(()=>{
-  //   if(dataa){
-  //     if(dataa.order_status == 4){
-  //       onChangeTitle("Rider Accepted")
-  //       onChangeMessage("Rider has accepted your order")
-  //       acceptOrderDetails(dataa.order_id)
-  //       // onChangeLottifiles(require('./../../Assets/Lottie/congratulation.json'))
-  //     }
-  //   }
-  // },[dataa])
 
-  // useEffect(()=>{
 
-  //   axios.get(`${deploy_API}/api/orders/getclientorderdetails?user_id=${userID}`)
-
-  // },[])
-
-  // useEffect(()=>{
-
-  //     return navigation.addListener('blur',()=>{
-  //       navigation.navigate('Home')
-  //     })
-  // },[navigation])
-
-  //   const setUserLocation = (coordinate) => {
-  //     const Delta = 0.025
-  //     //alert("User location changed MAP SHOULDNT MOVE")
-  //     setRiderCoords({
-  //         latitude: coordinate.latitude,
-  //         longitude: coordinate.longitude,
-  //         latitudeDelta: Delta,
-  //         longitudeDelta: Delta
-  //     })
+  // const onRegionChange = (mark) => {
+  //   const Delta = 0.025
+  //   setRestaurantCoords({
+  //     latitude: mark?.nativeEvent?.coordinate?.latitude,
+  //     longitude: mark?.nativeEvent?.coordinate?.longitude,
+  //     latitudeDelta: Delta,
+  //     longitudeDelta: Delta
+  //   })
   // }
-
-  const onRegionChange = (mark) => {
-    const Delta = 0.025
-    // console.log(mark.nativeEvent.coordinate)
-    // console.log(mark)
-    setRestaurantCoords({
-      latitude: mark?.nativeEvent?.coordinate?.latitude,
-      longitude: mark?.nativeEvent?.coordinate?.longitude,
-      latitudeDelta: Delta,
-      longitudeDelta: Delta
-    })
-  }
 
 
   const openMap = () => {
@@ -553,6 +404,10 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
 
   return (
     <View style={styles.container}>
+    {
+      loading ? 
+    
+      <>
       <StatusBar translucent backgroundColor="#f54749" />
 
       <View style={{ position: 'absolute', top: 80, width: '75%', flexDirection: 'column', alignSelf: 'center', }}>
@@ -612,14 +467,30 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
                 />
           
             </Animated.View>
+        
+            
               <MapView
-                onMarkerDragEnd={onRegionChange}
+                // onMarkerDragEnd={onRegionChange}
                 ref={(ref) => updateMapRef(ref)}
                 zoomControlEnabled
                 // onRegionChange={onRegionChange}
-                zoomEnabled={false}
+                showsCompass={true}
+                // zoomEnabled={true}
+                maxZoomLevel={18}
+                // minZoomLevel={10}
+                // followsUserLocation={true}
+                scrollEnabled={true}
+                mapPadding={{ top: 100, left: 50, right: 50, bottom: 200 }}
+                mapType={Platform.OS == 'android' ? 'terrain' : 'standard'}
+                // initialRegion={{
+                //   latitude: riderCoords?.latitude,
+                //   longitude: riderCoords?.latitude, 
+                //   latitudeDelta: LATITUDE_DELTA,
+                //   longitudeDelta: LONGITUDE_DELTA,
+                // }}
+                // zoomEnabled={false}
                 style={{ width: '100%', height: '100%', position: 'relative' }}
-                provider={PROVIDER_GOOGLE}
+                provider={Platform.OS == 'android' ? PROVIDER_GOOGLE: null}
                 onMapReady={() => {
                   mapRef.fitToCoordinates([riderCoords, restaurantCoords], {
                     animated: true,
@@ -627,30 +498,46 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
                       top: 150,
                       right: 50,
                       bottom: 100,
-                      left: 50,
+                      left: 10,
                     },
+                    
                   });
+                
                 }}
               >
+                {/* {console.log(riderCoords?.latitude,riderCoords?.longitude, "RETURN RIDER")} */}
+                {console.log(restaurantCoords?.latitude,restaurantCoords?.longitude,"RETURN USER")}
                 <MarkerAnimated
                   ref={(ref) => updateMapmarkerRef(ref)}
-                  coordinate={riderCoords}
+                  // coordinate={riderCoords}
+                  coordinate={{
+                    "latitude": riderCoords?.latitude,
+                    "longitude": riderCoords?.longitude
+                  }}
                   title={"Rider Location"}
                   identifier={'mk1'}
                 />
                 <Marker
                   identifier={'mk2'}
                   coordinate={{
-                    "latitude": restaurantCoords.latitude,
-                    "longitude": restaurantCoords.longitude
+                    "latitude": restaurantCoords?.latitude,
+                    "longitude": restaurantCoords?.longitude
                   }}
-                  title={"Restaurant Location"}
+                  title={status == 8 ? "Your Location":"Restaurant Location"}
                 />
                 <MapViewDirections
                   strokeColor="#FF3D58"
                   splitWaypoints={true}
-                  origin={riderCoords}
-                  destination={restaurantCoords}
+                  origin={{
+                    "latitude": riderCoords?.latitude,
+                    "longitude": riderCoords?.longitude,
+                    
+                  }}
+                  
+                  destination={{
+                    "latitude": restaurantCoords?.latitude,
+                    "longitude": restaurantCoords?.longitude,
+                  }}
                   strokeWidth={5}
                   apikey={GOOGLE_MAPS_APIKEY}
                 />
@@ -673,11 +560,19 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
         }
       </>
       <Animated.View style={{
-        zIndex: 9,
         position: 'absolute', bottom: animatedFullScreen,
         alignContent: 'center', width: '90%', 
         flexDirection: 'column', borderRadius: 20,
-        elevation: 6, backgroundColor: '#f54749', alignSelf: 'center', margin: 10
+        backgroundColor: '#f54749', alignSelf: 'center', margin: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
       }}>
 
         <View style={{ margin: 5, padding: 5, alignItems: 'center', flexDirection: 'row', justifyContent: 'flex-start', }}>
@@ -749,16 +644,30 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
         </View>
 
       </Animated.View>
+      <>
+      {console.log(status)}
+      {
+        status != 5 && status != 2 ?
+      
       <View
         style={{
           width: '90%',
           position: 'absolute',
-          height: '10%', alignItems: 'center',
+          height: '8%', alignItems: 'center',
           bottom: 10, alignSelf: 'center',
-          elevation: 6, backgroundColor: '#f54749',
-          zIndex: 999, borderRadius: 25,
+          backgroundColor: '#f54749',
+          borderRadius: 25,
           justifyContent: 'space-around',
-          borderColor: 'white'
+          borderColor: 'white',
+          shadowColor: "#000",
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+
+          elevation: 5,
         }}>
 
 
@@ -766,7 +675,6 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
           alignItems: 'center',
           alignSelf: 'center',
           width: '90%',
-
           flexDirection: 'row', justifyContent: 'space-around'
         }}>
           <TouchableOpacity onPress={openMap} style={{ backgroundColor: 'white', zIndex: 1, elevation: 8, borderRadius: 50, height: 35, width: 35, alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }}>
@@ -774,11 +682,13 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
               <Ionicons size={20} name="md-navigate-outline" color="#FF3D58" />
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={directCall} style={{ backgroundColor: 'white', zIndex: 1, elevation: 8, borderRadius: 50, height: 35, width: 35, alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }}>
-            <View>
-              <Ionicons size={20} name="ios-call-outline" color="#FF3D58" />
-            </View>
-          </TouchableOpacity>
+      
+            <TouchableOpacity onPress={directCall} style={{ backgroundColor: 'white', zIndex: 1, elevation: 8, borderRadius: 50, height: 35, width: 35, alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }}>
+              <View>
+                <Ionicons size={20} name="ios-call-outline" color="#FF3D58" />
+              </View>
+            </TouchableOpacity>
+          
           <TouchableOpacity onPress={fullScreen} style={{ backgroundColor: 'white', zIndex: 1, elevation: 8, borderRadius: 50, height: 35, width: 35, alignSelf: 'center', justifyContent: 'center', alignItems: 'center' }}>
             <View>
               <MaterialIcons size={20} name={fullScreens ? "fullscreen" : "fullscreen-exit"} color="#FF3D58" />
@@ -794,7 +704,16 @@ const OrderProcess = ({ navigation, restaurantInfo, orderAccept, placeOrderStatu
 
 
 
-      </View>
+      </View>: null
+     
+     }
+      </>
+      
+      </>: 
+      <>
+        <LottieView speed={1} style={{ height: '100%', width: '100%', alignSelf: 'center', }} autoPlay loop={true} source={require('./../../Assets//Lottie/loading.json')} />
+      </>
+    }
     </View>
   )
 }

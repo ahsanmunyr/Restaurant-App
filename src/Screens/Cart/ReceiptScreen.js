@@ -85,11 +85,11 @@ return (
                   <FlatList  
                       bounces
                       bouncesZoom
-                      maintainVisibleContentPosition
+                      // maintainVisibleContentPosition
                       showsVerticalScrollIndicator={false}
                       data={userAddToCart}
                       style={{width: '100%'}}
-                      contentContainerStyle={{ borderLeftWidth: 0.2}}
+                      // contentContainerStyle={{ borderLeftWidth: 0.2}}
                       ListFooterComponent={<View style={{height: 10}}></View>}
                       scrollEnabled
                       showsVerticalScrollIndicator={false}

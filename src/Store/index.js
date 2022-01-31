@@ -21,7 +21,13 @@ import {
     orderAccept,
     riderCoord,
     navigationApp,
-    firebaseData
+    firebaseData,
+    userOtpVerify,
+    historyReducer,
+    getRestaurantReview,
+    OTPPhone,
+    SearchDataRedux,
+    SearchDataItemRedux,ForgotPasswordRedux
 } from './Reducers/AuthReducers'
 import {userGets, getNearMeUsers} from './Reducers/InAppReducer'
 
@@ -48,7 +54,14 @@ const reducers = combineReducers({
     orderAccept,
     riderCoord,
     navigationApp,
-    firebaseData
+    firebaseData,
+    userOtpVerify,
+    historyReducer,
+    getRestaurantReview,
+    OTPPhone,
+    SearchDataRedux,
+    SearchDataItemRedux,
+    ForgotPasswordRedux
 })
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

@@ -59,7 +59,7 @@ function ProfileStack({navigation}){
                          
                         headerStyle: {  height: 110, backgroundColor:'white', borderBottomWidth: 0, borderBottomColor:'white' },
                         headerStatusBarHeight: 32,
-                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Overpass-SemiBold'}}>Edit Profile</Text>,
+                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Poppins-SemiBold'}}>Edit Profile</Text>,
                         headerTransparent: false,
                         headerLeft: ()=>      <TouchableOpacity onPress={()=> navigation.openDrawer()} style={{}}>
                                                     <View style={{padding:10, top: 3}}>
@@ -77,7 +77,7 @@ function ProfileStack({navigation}){
                          
                          headerStyle: {  height: 110, backgroundColor:'white', borderBottomWidth: 0, borderBottomColor:'white' },
                         headerStatusBarHeight: 32,
-                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Overpass-SemiBold'}}>Change Password</Text>,
+                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Poppins-SemiBold'}}>Change Password</Text>,
                         headerTransparent: false,
                         headerLeft: ()=>      <TouchableOpacity onPress={()=> navigation.openDrawer()} style={{}}>
                                                     <View style={{padding:10, top: 3}}>

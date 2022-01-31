@@ -34,8 +34,8 @@ import {
                     />
             </View>
             <View style={{ justifyContent:'space-around', flexDirection:'column', left: 15}}>
-                        <AppText  nol={1}  textAlign="left"  family="Overpass-SemiBold" size={hp("1.8%")} color="#757575" Label={Name} />
-                          <View style={{width: wp('60%')}}><AppText  nol={2}  textAlign="left"  family="Overpass-SemiBold" size={hp("1.8%")} color="#757575" Label={Message} /></View>
+                        <AppText  nol={1}  textAlign="left"  family="Poppins-SemiBold" size={hp("1.8%")} color="#757575" Label={Name} />
+                          <View style={{width: wp('60%')}}><AppText  nol={2}  textAlign="left"  family="Poppins-SemiBold" size={hp("1.8%")} color="#757575" Label={Message} /></View>
                     </View>
         </View>
 

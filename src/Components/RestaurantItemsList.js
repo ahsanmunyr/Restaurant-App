@@ -122,9 +122,9 @@ return(
                                                         TextTransform='none'
                             />
                         </View>
-                        <View style={{justifyContent:'space-between', alignItems:'flex-start',alignSelf:'center',   width: '100%', flexDirection: 'row'}}>
+                        {/* <View style={{justifyContent:'space-between', alignItems:'flex-start',alignSelf:'center',   width: '100%', flexDirection: 'row'}}>
                                 <Rating imageSize={15} readonly startingValue={Ratings}  /> 
-                        </View>
+                        </View> */}
                 </View>
                     <View style={{justifyContent:'center', alignItems:'flex-end', height:180, width: '40%'}}> 
                         {

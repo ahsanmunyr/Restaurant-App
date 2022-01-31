@@ -28,8 +28,8 @@ const OutOfDrink = ({navigation}) => {
                             
                             }} resizeMethod='auto' resizeMode='contain' source={require('./../../Assets/Images/drinks.png')} />
                 <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'column', width: '70%', padding: 20}}>
-                <AppText  nol={5}  textAlign="center"  family="Overpass-SemiBoldItalic" size={hp("3.5%")} color="white" Label={"Ooops!"} />
-                <AppText  nol={5}  textAlign="center"  family="Overpass-SemiBoldItalic" size={hp("3.5%")} color="white" Label={"You've run out of Drinks"} />
+                <AppText  nol={5}  textAlign="center"  family="Poppins-SemiBoldItalic" size={hp("3.5%")} color="white" Label={"Ooops!"} />
+                <AppText  nol={5}  textAlign="center"  family="Poppins-SemiBoldItalic" size={hp("3.5%")} color="white" Label={"You've run out of Drinks"} />
                 <AppText  nol={5}  textAlign="center"  family="Overpass-Regular" size={hp("2%")} color="white" Label={"Buy drinks now..."} />
                 <View style={{justifyContent:'center', alignItems:'center',marginTop: 50}}>
                     <TouchableOpacity onPress={()=> navigation.navigate('cards')} style={styles.touchableOpacity}> 

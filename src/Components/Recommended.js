@@ -1,6 +1,6 @@
 import React, {useEffect, useState,useRef} from 'react';
 import {
-    View,Text,Image
+    View,Text,Image,ActivityIndicator
  } from 'react-native';
 import TextSample from './Text';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -33,6 +33,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
                }}>
                 <View style={{top: 0, position:'relative'}}>
                     <Image resizeMode='cover' 
+                     PlaceholderContent={<ActivityIndicator />}
                     source={Images} style={{ height: hp('20%'),
                     width: wp('40%'), borderRadius: 12}} />
                 </View>

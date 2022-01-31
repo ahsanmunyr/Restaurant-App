@@ -1,6 +1,6 @@
 import React, {useEffect, useState,useRef, useMemo} from 'react';
 import {
-   TouchableOpacity, View,Text,ImageBackground,StyleSheet,StatusBar,SafeAreaView,Linking,
+   TouchableOpacity, View,Text,ImageBackground,StyleSheet,StatusBar,SafeAreaView,Linking,ActivityIndicator,
    Image,KeyboardAvoidingView,LayoutAnimation,Platform,UIManager,Animated,TouchableHighlight,TextInput,ScrollView,FlatList
  } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -51,7 +51,7 @@ const DetailScreen = ({navigation, route}) => {
              <ScrollView scrollEnabled>
                 <StatusBar translucent backgroundColor="transparent" />
                 <View style={{justifyContent:'center', top: 0, alignItems:'center'}}>
-                    <Image  style={{width: '100%', height: hp('40%')}} source={Data.image} />
+                    <Image         PlaceholderContent={<ActivityIndicator />} style={{width: '100%', height: hp('40%')}} source={Data.image} />
                     
                 </View>
                 <View style={{justifyContent:'center', flexDirection:'column', padding: 10}}>

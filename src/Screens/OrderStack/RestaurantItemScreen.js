@@ -98,7 +98,7 @@ const RestaurantItemScreen = ({
          <FlatList  
                 bounces
                 bouncesZoom
-                maintainVisibleContentPosition
+                // maintainVisibleContentPosition
                 showsVerticalScrollIndicator={false}
                 data={userAddToCart}
                 style={{width: '100%' }}
@@ -162,7 +162,9 @@ const RestaurantItemScreen = ({
         }
     },[userGetRestaurantItem])
 
-    
+  const goToFoo = () => {
+      navigation.navigate('Cart')
+  }
     return(
         <View style={{
           flex: 1,
@@ -197,7 +199,7 @@ const RestaurantItemScreen = ({
                                         <Ionicons name="arrow-back-outline" style={{}} size={20} color='white' />
                                   </View>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={()=> navigation.navigate('Cart')}>
+                                <TouchableOpacity onPress={() => goToFoo()}>
                                         <View style={{top:10,zIndex: 9999,left: 10}}><Badge  value={userAddToCart.length} status="error"  /></View>
                                         <View style={{ backgroundColor:'white',   borderColor: '#f54749', borderWidth: 2, width: 40, height: 40, borderRadius: 50, justifyContent: 'center', alignItems:'center', }}>
                                               <Ionicons name="cart-outline" style={{}} size={20} color='#f54749' />
@@ -234,7 +236,7 @@ const RestaurantItemScreen = ({
                     bounces
                     bouncesZoom
                     
-                    maintainVisibleContentPosition
+                    // maintainVisibleContentPosition
                     renderItem={({ item, index }) => 
                             <RestaurantItemsList
                                 CategoryID={item.category_id}

@@ -6,33 +6,33 @@ import {connect} from 'react-redux';
 
 function Shape({nav}) {
   return (
-    <View
+    <MotiView
 
-      // from={{
-      //   width: 110, height: 110,
-      //   borderRadius: 50,
-      //   borderWidth: 0.5,
-      //   shadowOpacity: 0.5,
+      from={{
+        width: 110, height: 110,
+        borderRadius: 50,
+        borderWidth: 0.5,
+        // shadowOpacity: 0.5,
         
-      // }}
-      // animate={{
-      //   width: 60,
-      //   height: 60,
-      //   borderRadius: 50,
-      //   borderWidth: 4,
-      //   shadowOpacity: 1,
-      //   shadowOffset: { width: 0, height: 0 },
-      //   shadowRadius: 10,
+      }}
+      animate={{
+        width: 60,
+        height: 60,
+        // borderRadius: 50,
+        // borderWidth: 4,
+        // shadowOpacity: 1,
+        // shadowOffset: { width: 0, height: 0 },
+        // shadowRadius: 10,
         
-      // }}
-      // transition={{
-      //   type: 'timing',
-      //   duration: 1000,
-      //   loop: true
-      //   // type: ,
-      //   // duration: 1500,
-      //   // delay: 100,
-      // }}
+      }}
+      transition={{
+        type: 'timing',
+        duration: 1000,
+        loop: true
+        // type: ,
+        // duration: 1500,
+        // delay: 100,
+      }}
       style={styles.shape}
     >
       <Pressable 
@@ -40,17 +40,17 @@ function Shape({nav}) {
       > 
           <Image style={{ height: 100, width: 100 }} resizeMode='contain' source={require('./../Assets/Images/logo.png')} />
       </Pressable>
-    </View>
+    </MotiView>
   )
 }
 
 const Loop = ({navigationApp}) => {
   return (
-    <View  style={styles.container}>
+    <MotiView  style={styles.container}>
       {/* <Pressable onPress={()=> alert("SAD")}>  */}
       <Shape nav={navigationApp}  />
       {/* </Pressable> */}
-    </View>
+    </MotiView>
   )
 }
 function mapStateToProps({
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderColor: '#f54749',
     shadowColor: '#f54749',
-    shadowOffset: { width: 0, height: 0 },
+    // shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 1,
     shadowRadius: 10,
     alignSelf: 'center',

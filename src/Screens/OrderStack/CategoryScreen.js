@@ -41,9 +41,9 @@ import * as actions from '../../Store/Actions'
 import {connect} from "react-redux";
 import CategoryRestaurants from '../../Components/CategoryRestaurants';
 import Skeleton from '../../Components/Skeleton';
-
+import moment from 'moment';
 const CategoryScreen = ({
-      navigation, body, getCategoryClear,userGetCategory
+      navigation, body, getCategoryClear,userGetCategory,getRestaurantReview
     }) => {
     const [loading, onChangeLoading] = useState(false)
     const [array, onChangeArray] = useState([])
@@ -84,28 +84,53 @@ const CategoryScreen = ({
                       /> 
                       <View style={{justifyContent:'space-between', alignItems:'center', flexDirection:'row', alignSelf:'center', width: '100%'}}>
                    
-                          <Rating imageSize={15} readonly startingValue={body.Ratings}  /> 
+                          <Rating imageSize={15} readonly startingValue={body.ratings}  /> 
                           <View style={{flexDirection:'row', justifyContent:'flex-end', alignItems:'flex-start'}}>
+                            {
+                              body.distance != null ?
+                              <View style={{ 
+                                padding: 5, 
+                                borderRadius: 12, 
+                                backgroundColor:'#e8e8e8',
+                                flexDirection:'row', 
+                                justifyContent:'flex-end', 
+                                alignItems:'flex-start', right: 5
+                              }}>
+                              <Ionicons name="location-outline" style={{padding: 1}} size={13} color='#f54749' />
+                              <TextSample 
+                                                  Label={(body.distance).toFixed(2)+" Km"} 
+                                                  Color="#f54749" 
+                                                  Size={hp("1.5%")} 
+                                                  TextAlign='left'
+                                                  NumberOfLines={1} 
+                                                  Font="Overpass-Regular"
+                                                  TextDecorationLine='none'
+                                                  TextTransform='none'
+                              />
+                          </View>:
                           <View style={{ 
-                                          padding: 5, 
-                                          borderRadius: 12, 
-                                          backgroundColor:'#e8e8e8',
-                                          flexDirection:'row', 
-                                          justifyContent:'flex-end', 
-                                          alignItems:'flex-start', right: 5
-                                      }}>
-                                  <Ionicons name="location-outline" style={{padding: 1}} size={13} color='#f54749' />
-                                  <TextSample 
-                                                      Label={(body.distance*10).toFixed(2)+" Km"} 
-                                                      Color="#f54749" 
-                                                      Size={hp("1.5%")} 
-                                                      TextAlign='left'
-                                                      NumberOfLines={1} 
-                                                      Font="Overpass-Regular"
-                                                      TextDecorationLine='none'
-                                                      TextTransform='none'
-                                  />
-                          </View>
+                            padding: 5, 
+                            borderRadius: 12, 
+                            backgroundColor:'#e8e8e8',
+                            flexDirection:'row', 
+                            justifyContent:'flex-end', 
+                            alignItems:'flex-start', right: 5
+                          }}>
+            
+                          <TextSample 
+                                              Label={"Get by Rating"} 
+                                              Color="#f54749" 
+                                              Size={hp("1.5%")} 
+                                              TextAlign='left'
+                                              NumberOfLines={1} 
+                                              Font="Overpass-Regular"
+                                              TextDecorationLine='none'
+                                              TextTransform='none'
+                            />
+                        </View>
+
+                            }
+                          
                           <View style={{padding: 5, borderRadius: 12, backgroundColor:'#e8e8e8',flexDirection:'row', justifyContent:'flex-end', alignItems:'center'}}>
                             <TextSample 
                                                   Label={'Reviews '} 
@@ -183,8 +208,8 @@ const CategoryScreen = ({
       const SecondRoute = () => (
         <View style={{ flex: 1, backgroundColor: 'white' }}>
            <FlatList
-                    data={Message}
-                    keyExtractor={(item) => item.id}
+                    data={getRestaurantReview?.data}
+                    keyExtractor={(item) => item.review_id}
                     showsHorizontalScrollIndicator={false}
                     showsVerticalScrollIndicator={false}
                     
@@ -194,23 +219,37 @@ const CategoryScreen = ({
                     scrollEnabled
                     bounces
                     bouncesZoom
-                    maintainVisibleContentPosition
+                    // maintainVisibleContentPosition
                     renderItem={({ item, index }) => 
                             <View style={{justifyContent:'flex-start', alignItems:'center',flexDirection:'row', padding: 10, width: '100%'}}>
-                              <Avatar.Image size={35} source={item.Image} />
+                          
+                              <Avatar.Image size={35}  source={{uri: `${deploy_API+'/'+item.user_image}`}}  />
+                         
                               <View style={{ justifyContent:'flex-start', alignItems:'flex-start', flexDirection:'column', left: 10, width: '90%'}}>
-                              <TextSample 
-                                                    Label={item.Name} 
-                                                    Color="black" 
-                                                    Size={hp("1.6%")} 
-                                                    TextAlign='left'
-                                                    NumberOfLines={1} 
-                                                    Font="Overpass-Regular"
-                                                    TextDecorationLine='none'
-                                                    TextTransform='none'
-                              />
+                              <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center', width: '90%'}}>
+                                <TextSample 
+                                                      Label={item.user_name} 
+                                                      Color="black" 
+                                                      Size={hp("1.6%")} 
+                                                      TextAlign='left'
+                                                      NumberOfLines={1} 
+                                                      Font="Overpass-Regular"
+                                                      TextDecorationLine='none'
+                                                      TextTransform='none'
+                                />
+                                <TextSample 
+                                                    Label={" "+ moment(item.review_created_date).format('MMMM Do YYYY')} 
+                                                      Color="black" 
+                                                      Size={hp("1.6%")} 
+                                                      TextAlign='left'
+                                                      NumberOfLines={1} 
+                                                      Font="Overpass-Regular"
+                                                      TextDecorationLine='none'
+                                                      TextTransform='none'
+                                />
+                              </View>
                                <TextSample 
-                                                    Label={item.details} 
+                                                    Label={item.review_text} 
                                                     Color="grey" 
                                                     Size={hp("1.4%")} 
                                                     TextAlign='left'
@@ -219,7 +258,7 @@ const CategoryScreen = ({
                                                     TextDecorationLine='none'
                                                     TextTransform='none'
                               />
-                              <Rating imageSize={10} readonly startingValue={item.Reviews}  /> 
+                              <Rating imageSize={13} readonly startingValue={item.Reviews}  /> 
                               </View>
                             </View>
                         }
@@ -286,18 +325,24 @@ const CategoryScreen = ({
                 </View>
                 </ImageBackground>
             </View>
-            <View style={{width: '90%',height: '37%', backgroundColor: 'white', zIndex: 9999, elevation: 3, alignSelf:'center', borderRadius: 20, top: -120 }}>
+            <View style={{width: '90%',height: '37%', backgroundColor: 'white', alignSelf:'center', borderRadius: 20, top: -120 }}>
               <TabView
                 navigationState={{ index, routes }}
                 renderScene={renderScene}
                 onIndexChange={setIndex}
                 renderTabBar={_renderTabBar}
-                swipeEnabled={false}
-                key={body.restaurantID}
-                transitionStyle='curl'
+                // swipeEnabled={true}
+                // key={body.restaurantID}
+                // transitionStyle='scroll'
                 style={{borderRadius: 20}}
                 initialLayout={{ width: layout.width }}
             />
+               {/* <TabView
+      navigationState={{ index, routes }}
+      renderScene={renderScene}
+      onIndexChange={setIndex}
+      initialLayout={{ width: layout.width }}
+    /> */}
             </View>
       {
         loading ?
@@ -315,7 +360,7 @@ const CategoryScreen = ({
                       scrollEnabled
                       bounces
                       bouncesZoom
-                      maintainVisibleContentPosition
+                      // maintainVisibleContentPosition
                       renderItem={({ item, index }) => 
                                   <CategoryRestaurants
                                       ID={item.category_id}
@@ -338,8 +383,8 @@ const CategoryScreen = ({
         </View>
   )
 }  
-function mapStateToProps({userGetCategory}){
-    return {userGetCategory}
+function mapStateToProps({userGetCategory, getRestaurantReview}){
+    return {userGetCategory, getRestaurantReview}
 }
 export default connect(mapStateToProps,actions)(CategoryScreen)
 

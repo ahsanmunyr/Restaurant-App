@@ -1,6 +1,6 @@
 import React, {useEffect, useState,useRef} from 'react';
 import {
-    View,Text, ImageBackground, TouchableOpacity,Image
+    View,Text, ImageBackground, TouchableOpacity,Image,ActivityIndicator
  } from 'react-native';
  import TextSample from './Text';
  import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -66,11 +66,12 @@ import {connect} from "react-redux";
     
 return(   
         <View style={{marginBottom: 10,  borderColor:'#f54749', height: 130, width: '100%', justifyContent:'space-around', alignSelf:'center', padding: 5, borderRadius: 12, }}>
+            {console.log(deploy_API+'/'+Img)}
             <View style={{flexDirection:'row', alignItems:'center', justifyContent:'space-between'   }}>
                         {
                                 Img != null ?
                                 <Image resizeMode='cover' 
-                                    
+                                PlaceholderContent={<ActivityIndicator />}
                                     source={{uri: `${deploy_API+'/'+Img}`}}   style={{width: 100, height: 100, borderRadius: 12 }} />: 
                                 <Image resizeMode='cover' 
                                     source={require('./../Assets/Images/imageNotFound.png')}   style={{width: 100, height: 100, borderRadius: 12 }} />

@@ -13,7 +13,7 @@ const OrderStack = ({navigation, route}) => {
 
 useEffect(()=>{
         setNav(route.params.OBJ.navigation)
-        // console.log(route.params.OBJ, "Behen ka ghora")
+        console.log(route.params.OBJ, "Behen ka ghora")
 },[])
 
 return(

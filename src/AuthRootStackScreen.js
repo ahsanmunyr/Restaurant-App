@@ -11,6 +11,10 @@ import LoginScreen from './Screens/Login/LoginScreen'
 import {connect} from "react-redux";
 import * as actions from './Store/Actions';
 import SignupScreen from './Screens/Signup/SignupScreen'
+import OTPScreen from "./Screens/Login/OTPScreen";
+import ForgotPassword from "./Screens/Login/ForgotPassword";
+import ForgotPasswordOTP from "./Screens/Login/ForgotPasswordOTP";
+import ChangePassword from "./Screens/Login/ChangePassword";
 // import { 
 //     NavigationContainer, 
 //   } from '@react-navigation/native';
@@ -23,7 +27,7 @@ const SignUpFunction = (userSignup, userFavourite, userInterest,SignupAll) => {
 }
 // Stack Navigator: 'headerMode' is moved to 'options'. Moved it to 'screenOptions' to keep current behavior
 const AuthRootStackScreen = ({navigation, userSignup, userFavourite, userInterest, SignupAll}) => (
-            <AuthStack.Navigator  headerTransparent={true}   screenOptions={{gestureEnabled:true}}  initialRouteName="signup">
+            <AuthStack.Navigator  headerTransparent={true}   screenOptions={{gestureEnabled:true}}  initialRouteName="main">
                 <AuthStack.Screen 
                     name="main" 
                     options={{headerShown:false, headerMode:'float'}} 
@@ -39,6 +43,28 @@ const AuthRootStackScreen = ({navigation, userSignup, userFavourite, userInteres
                     options={{headerShown:false, headerMode:'float'}} 
                     component={SignupScreen}
                 /> 
+                <AuthStack.Screen 
+                    name="otpverify" 
+                    options={{headerShown:false, headerMode:'float'}} 
+                    component={OTPScreen}
+                /> 
+                <AuthStack.Screen 
+                    name="forgotpassword" 
+                    options={{headerShown:false, headerMode:'float'}} 
+                    component={ForgotPassword}
+                /> 
+                <AuthStack.Screen 
+                    name="forgotpasswordotp" 
+                    options={{headerShown:false, headerMode:'float'}} 
+                    component={ForgotPasswordOTP}
+                /> 
+                <AuthStack.Screen 
+                    name="changepassword" 
+                    options={{headerShown:false, headerMode:'float'}} 
+                    component={ChangePassword}
+                /> 
+
+
                 {/* <AuthStack.Screen 
                     name="login" 
                     options={{headerShown:false}} 
@@ -61,7 +87,7 @@ const AuthRootStackScreen = ({navigation, userSignup, userFavourite, userInteres
                 <AuthStack.Screen 
                     name="YourInterests" 
                     options={({ navigation, route }) => ({
-                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Overpass-SemiBold'}}>Your Interests</Text>,
+                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Poppins-SemiBold'}}>Your Interests</Text>,
                         headerTransparent: false,
                         headerLeft: ()=>        <View style={{left: 20}}><TouchableOpacity onPress={()=> navigation.goBack()}><Icon name="arrow-back" size={25} color="#B01125" /></TouchableOpacity></View>,
                         headerRight: ()=>   
@@ -82,7 +108,7 @@ const AuthRootStackScreen = ({navigation, userSignup, userFavourite, userInteres
                 <AuthStack.Screen 
                     name="FavoriteDrinks" 
                     options={({ navigation, route }) => ({
-                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Overpass-SemiBold'}}>Favorite Drinks</Text>,
+                        headerTitle: props => <Text style={{textAlign:'center', fontSize: 18, color:'black', fontFamily: 'Poppins-SemiBold'}}>Favorite Drinks</Text>,
                         headerTransparent: false,
                         headerLeft: ()=>        <View style={{left: 20}}><TouchableOpacity onPress={()=> navigation.goBack()}><Icon name="arrow-back" size={25} color="#B01125" /></TouchableOpacity></View>,
                         headerRight: ()=>      

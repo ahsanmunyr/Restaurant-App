@@ -33,7 +33,7 @@ const MessageScreen = ({navigation, route}) => {
             <FlatList  
                 bounces
                 bouncesZoom
-                maintainVisibleContentPosition
+                // maintainVisibleContentPosition
                 showsVerticalScrollIndicator={false}
                 data={Messages}
                 ListHeaderComponent={<View style={{height:20}}></View>}

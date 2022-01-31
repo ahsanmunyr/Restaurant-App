@@ -59,8 +59,8 @@ const Img = [
                                 />
                                 <View style={{flexDirection:'row', padding: 4,justifyContent:'space-between', alignContent:'center', left:5, width: '90%' }}>
                                     <View style={{ justifyContent:'flex-start', flexDirection:'column'}}>
-                                        <AppText  nol={1}  textAlign="left"  family="Overpass-SemiBold" size={hp("1.9%")} color="black" Label={route.params.name} />
-                                        <AppText  nol={1}  textAlign="left"  family="Overpass-SemiBold" size={hp("1.5%")} color="black" Label={route.params.uploadTime} /> 
+                                        <AppText  nol={1}  textAlign="left"  family="Poppins-SemiBold" size={hp("1.9%")} color="black" Label={route.params.name} />
+                                        <AppText  nol={1}  textAlign="left"  family="Poppins-SemiBold" size={hp("1.5%")} color="black" Label={route.params.uploadTime} /> 
                                     </View>
                                 </View> 
                         </View>

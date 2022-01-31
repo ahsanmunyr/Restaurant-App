@@ -58,7 +58,8 @@ const OrderCartProcess = ({navigation, route, props, userAddToCart,userLocations
     },[userCreditCardDetail])
 
     useEffect(()=>{
-      if(placeOrderStatus.order){
+      console.log(placeOrderStatus, "ORDERCARTPROCESS")
+      if(placeOrderStatus?.order){
         onChangeOnClick(false)
         cartItemsClear()
         navigation.navigate('ProcessStack')
@@ -77,7 +78,8 @@ const OrderCartProcess = ({navigation, route, props, userAddToCart,userLocations
         var obj  = userAddToCart[i]
         let item = {
           "item_id": obj.itemId,
-          "item_qty": obj.qty
+          "item_qty": obj.qty,
+          "item_name": obj.title
         }
         pesa.push(obj.qty * obj.price)
         
@@ -88,6 +90,7 @@ const OrderCartProcess = ({navigation, route, props, userAddToCart,userLocations
       onChangeItem(array)
       console.log(pesa.reduce((a, b) => a + b, 0), 'Total AMT')
       if(restaurantInfo){
+        console.log(restaurantInfo, "restaurantInfo")
         onChangeRestaurantInfo(restaurantInfo)
       }
     },[])
@@ -155,6 +158,7 @@ const OrderCartProcess = ({navigation, route, props, userAddToCart,userLocations
         paymentMethod = 1
       }
       const testRemark = "TEST REMARK"
+      // console.log(userID, restaurantInformation.restaurantID, testRemark, paymentMethod, totalAmt, location, userLatitudeLongitude.lat, userLatitudeLongitude.long, item)
       orderPlace(userID, restaurantInformation.restaurantID, testRemark, paymentMethod, totalAmt, location, userLatitudeLongitude.lat, userLatitudeLongitude.long, item)
     }
 
@@ -445,10 +449,11 @@ return (
                                 justifyContent:'flex-start',
                                 padding: 10, flexDirection:'column', 
                                 alignItems:'flex-start', height:340, 
-                                width:'90%', alignSelf:'center', 
-                                elevation: 9999, zIndex: 999,
-                                borderWidth: 0,
-                                borderRadius:12,
+                                width:'90%', 
+                                // elevation: 9999, zIndex: 999,
+                                // borderWidth: 0,
+                                alignSelf:'center'
+                                // borderRadius:12,backgroundColor:'red'
 
                               }}>
                   <View style={{borderColor:'black', borderStyle:'dashed', borderWidth: 1, borderRadius: 50, width:'100%'}}/>
@@ -480,9 +485,9 @@ return (
                   />
                   </View>
 
-                  <View style={{flexDirection:'row', alignItems:'center', alignSelf:'flex-start', justifyContent:'space-between'}}>
+                  <View style={{flexDirection:'column', alignItems:'flex-start', alignSelf:'flex-start', justifyContent:'space-between',}}>
                   <TextSample 
-                              Label={'Address:   '}
+                              Label={'Restaurant Address: '}
                               Color="black" 
                               Size={hp("2%")} 
                               TextAlign='left'
@@ -491,18 +496,47 @@ return (
                               TextDecorationLine='none'
                               TextTransform='none'
                   />
-                  <TextSample 
-                              Label={restaurantInformation.address}
-                              Color="black" 
-                              Size={hp("2%")} 
-                              TextAlign='left'
-                              NumberOfLines={1} 
-                              Font="Overpass-Regular"
-                              TextDecorationLine='none'
-                              TextTransform='none'
-                  />
+                  {/* <View style={{width:'40%'}}> */}
+                  {console.log(restaurantInformation)}
+                    <TextSample 
+                                Label={restaurantInformation.address}
+                                Color="grey" 
+                                Size={hp("2%")} 
+                                TextAlign='left'
+                                NumberOfLines={3} 
+                                Font="Overpass-Regular"
+                                TextDecorationLine='none'
+                                TextTransform='none'
+                    />
+                  {/* </View> */}
                   </View>
                   
+                  
+                  <View style={{flexDirection:'column', alignItems:'flex-start', alignSelf:'flex-start', justifyContent:'space-between'}}>
+                  <TextSample 
+                              Label={'Drop Off Location:  '}
+                              Color="black" 
+                              Size={hp("2%")} 
+                              TextAlign='left'
+                              NumberOfLines={1} 
+                              Font="Overpass-Regular"
+                              TextDecorationLine='none'
+                              TextTransform='none'
+                  />
+                  {/* <View style={{width:'60%'}}> */}
+                  <TextSample 
+                              Label={location}
+                              Color="grey" 
+                              Size={hp("2%")} 
+                              TextAlign='left'
+                              NumberOfLines={3} 
+                              Font="Overpass-Regular"
+                              TextDecorationLine='none'
+                              TextTransform='none'
+                  />
+                  {/* </View> */}
+                  </View>
+
                   <View style={{flexDirection:'row', alignItems:'center', alignSelf:'flex-start', justifyContent:'space-between'}}>
                   <TextSample 
                               Label={'Tel:  '}
@@ -516,7 +550,7 @@ return (
                   />
                   <TextSample 
                               Label={restaurantInformation.phone}
-                              Color="black" 
+                              Color="grey" 
                               Size={hp("2%")} 
                               TextAlign='left'
                               NumberOfLines={1} 
@@ -538,7 +572,7 @@ return (
                   />
                   <TextSample 
                               Label={checked}
-                              Color="black" 
+                              Color="grey" 
                               Size={hp("2%")} 
                               TextAlign='left'
                               NumberOfLines={1} 
@@ -547,30 +581,6 @@ return (
                               TextTransform='none'
                   />
                   
-                  </View>
-                  <View style={{flexDirection:'row', alignItems:'flex-start', alignSelf:'flex-start', justifyContent:'space-between', width:'100%'}}>
-                  <TextSample 
-                              Label={'Drop Off Location:  '}
-                              Color="black" 
-                              Size={hp("2%")} 
-                              TextAlign='left'
-                              NumberOfLines={1} 
-                              Font="Overpass-Regular"
-                              TextDecorationLine='none'
-                              TextTransform='none'
-                  />
-                  <View style={{width:'60%'}}>
-                  <TextSample 
-                              Label={location}
-                              Color="black" 
-                              Size={hp("2%")} 
-                              TextAlign='left'
-                              NumberOfLines={3} 
-                              Font="Overpass-Regular"
-                              TextDecorationLine='none'
-                              TextTransform='none'
-                  />
-                  </View>
                   </View>
                   <ReceiptScreen />
                   <View style={{width:'100%', justifyContent:'space-between', flexDirection:'row', alignSelf:'flex-end', marginTop: 10}}>

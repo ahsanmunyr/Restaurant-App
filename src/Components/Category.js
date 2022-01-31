@@ -1,6 +1,6 @@
 import React, {useEffect, useState,useRef} from 'react';
 import {
-    View,Text,Image
+    View,Text,Image,ActivityIndicator
  } from 'react-native';
 import TextSample from './Text';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -19,6 +19,7 @@ const Category = ({
     getItem,
     RestaurantID,
     RestaurantCategoryID,
+    restInfo
 }) => {
     const obj = {
         categoryID: ID ,
@@ -29,37 +30,72 @@ const Category = ({
         restaurantID: RestaurantID,
         restaurantCategoryID: RestaurantCategoryID,
         }
+
     const objA = {
         categoryID: ID ,
-        name: Title,
+        title: Title,
         image: Images,
         quantity: Quantity,
         navigation: 'restaurantItemScreen',
         restaurantID: RestaurantID,
         restaurantCategoryID: RestaurantCategoryID,
     }
+
+//     const obj = {
+//         restaurantID: RestaurantID ,
+//         title: Title,
+//         description: Description,
+//         images: Images,
+//         ratings: Ratings,
+//         reviews: Reviews,
+//         distance: Distance,
+//         status: Status,
+//         address: Address,
+//         phone: Phone,
+//         email: Email,
+//         navigation: 'category'
+// }
+
 return( 
     <View key={ID} style={{    width: wp('34%'), margin: 10, height: 160,    borderRadius: 12, justifyContent:'center',
-            alignItems:'center', 
+            alignItems:'center',   backgroundColor: 'white',
             flexDirection:'column',}}>
         <TouchableRipple
             onPress={() => {  
                 Navigation.push('OrderStack', {OBJ: obj});
+                restInfo(objA)
                 getItem(ID)
             }}
             rippleColor="rgba(96, 28, 29, .09)"
-            borderless={true}
+            borderless={false}
             style={{
-                justifyContent:'center',
-                alignItems:'center',
-                width: wp('34%'), 
-                flexDirection:'column',
-                margin: 10,
-                borderRadius: 12,
+                backgroundColor: 'white',
+                shadowColor: "#000",
+                shadowOffset: {
+                    width: 0,
+                    height: 2,
+                },
+                shadowOpacity: 0.25,
+                shadowRadius: 3.84,
                 elevation: 5,
-                zIndex: 99, 
-                backgroundColor:'white',
-                paddingBottom: 6
+                borderRadius: 12, padding: 10
+                // justifyContent:'center',
+                // alignItems:'center',
+                // width: wp('34%'), 
+                // flexDirection:'column',
+                // margin: 10,
+                // height: 100,
+                // borderRadius: 12,
+                // paddingBottom: 6,
+                // shadowColor: "#000",
+                // shadowOffset: {
+                //     width: 0,
+                //     height: 2,
+                // },
+                // shadowOpacity: 0.25,
+                // shadowRadius: 3.84,
+
+                // elevation: 5
             }}
             >
             <View style={{
@@ -69,11 +105,20 @@ return(
                 margin: 10,
                 borderRadius: 12,
                 paddingBottom: 6
+                
             }}>
+            {/* {console.log(`${deploy_API+'/'+Images}`, "CATEGORY IMAGE")} */}
             <View style={{top: 0, position:'relative'}}>
+                {
+                Images != null ?
                 <Image resizeMode='contain' 
+                PlaceholderContent={<ActivityIndicator />}
                     source={{uri: `${deploy_API+'/'+Images}`}} style={{ height: hp('10%'),
+                    width: wp('16%'), borderRadius: 12}} />: 
+                <Image resizeMode='contain' 
+                    source={require('./../Assets/Images/imageNotFound.png')} style={{ height: hp('10%'),
                     width: wp('16%'), borderRadius: 12}} />
+                }
             </View>
             <TextSample 
                                             Label={Title} 
@@ -91,7 +136,7 @@ return(
                                             Size={hp("1.2%")} 
                                             TextAlign='center'
                                             NumberOfLines={3} 
-                                            Font="Overpass-SemiBold"
+                                            Font="Poppins-SemiBold"
                                             TextDecorationLine='none'
                                             TextTransform='none'
             />

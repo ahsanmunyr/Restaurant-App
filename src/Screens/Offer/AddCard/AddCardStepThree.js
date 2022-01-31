@@ -50,7 +50,7 @@ const AddCardStepThree = ({navigation}) => {
             */}
         </View>
         <View style={{ width:'85%', justifyContent:'flex-start', flexDirection:'column',  alignItems:'flex-start', padding: 10,alignSelf:'center', top: 10}}>
-        <AppText  nol={2}  textAlign="left"  family="Overpass-SemiBold" size={hp("4%")} color="black" Label={"My payment methods"} />
+        <AppText  nol={2}  textAlign="left"  family="Poppins-SemiBold" size={hp("4%")} color="black" Label={"My payment methods"} />
         
         <View style={{ alignItems:'center', flexDirection:'row', alignSelf:'flex-start', padding: 0, justifyContent:'space-between', alignContent:'space-between', marginTop:10,}}> 
             <View style={{}}>

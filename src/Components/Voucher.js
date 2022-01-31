@@ -38,7 +38,7 @@ return(
                               Size={hp("1.5%")} 
                               TextAlign='left'
                               NumberOfLines={1} 
-                              Font="Overpass-SemiBold"
+                              Font="Poppins-SemiBold"
                               TextDecorationLine='none'
                               TextTransform='none'
                /> 

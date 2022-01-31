@@ -21,7 +21,7 @@ const OfferADrink = ({navigation}) => {
                 >
               <StatusBar translucent backgroundColor="transparent" />
                 <View style={{top: -150}}>
-                   <AppText  nol={1}  textAlign="left"  family="Overpass-SemiBold" size={hp("4%")} color="white" Label={"Cheers!"} />
+                   <AppText  nol={1}  textAlign="left"  family="Poppins-SemiBold" size={hp("4%")} color="white" Label={"Cheers!"} />
                 </View>
               <View style={{
                   justifyContent: 'space-between', flexDirection:'column', position:'relative', alignContent:'center', alignItems:'center',alignSelf:'center'
@@ -48,14 +48,14 @@ const OfferADrink = ({navigation}) => {
                     </View>
               </View>
               <View style={{top:120, justifyContent:'center', alignItems:'center', width: '70%'}}>
-              <AppText  nol={5}  textAlign="center"  family="Overpass-SemiBold" size={hp("2%")} color="white" Label={"Proceed to Offer a Drink to Violet Today!"} />
+              <AppText  nol={5}  textAlign="center"  family="Poppins-SemiBold" size={hp("2%")} color="white" Label={"Proceed to Offer a Drink to Violet Today!"} />
               </View>
               <View style={{justifyContent:'center', alignItems:'center',position: 'absolute', bottom: 0, marginBottom: 100}}>
                   <TouchableOpacity onPress={()=> navigation.navigate('ProceedToPay')} style={styles.touchableOpacity}> 
                   <AppText
                       nol={1}
                       textAlign="left"
-                      family="Overpass-SemiBold"
+                      family="Poppins-SemiBold"
                       size={hp("2.5%")}
                       color="black"
                       Label={"Proceed"}

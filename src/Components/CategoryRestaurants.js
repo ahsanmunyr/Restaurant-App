@@ -1,6 +1,6 @@
 import React, {useEffect, useState,useRef} from 'react';
 import {
-    View,Text,Image
+    View,Text,Image,ActivityIndicator
  } from 'react-native';
 import TextSample from './Text';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -36,7 +36,7 @@ const CategoryRestaurants = ({
             <TouchableRipple
             onPress={() => {  
                 Navigation.push('OrderStack', {OBJ: objA});
-                // console.log(RestaurantID,ID)
+                console.log(RestaurantID,ID)
                 getRestaurantItems(RestaurantID,ID)
             }}
             rippleColor="rgba(96, 28, 29, .09)"
@@ -48,10 +48,17 @@ const CategoryRestaurants = ({
                 flexDirection:'column',
                 margin: 10,
                 borderRadius: 12,
-                elevation: 5,
-                zIndex: 99, 
                 backgroundColor:'white',
-                paddingBottom: 6
+                paddingBottom: 6,
+                shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+
+            elevation: 5
             }}
             >
             <View style={{
@@ -64,6 +71,7 @@ const CategoryRestaurants = ({
             }}>
                 <View style={{top: 0, position:'relative'}}>
                     <Image resizeMode='contain' 
+                         PlaceholderContent={<ActivityIndicator />}
                     source={{uri: `${deploy_API+'/'+Images}`}} style={{ height: hp('10%'),
                     width: wp('16%'), borderRadius: 12}} />
                 </View>
@@ -83,7 +91,7 @@ const CategoryRestaurants = ({
                                             Size={hp("1.2%")} 
                                             TextAlign='center'
                                             NumberOfLines={3} 
-                                            Font="Overpass-SemiBold"
+                                            Font="Poppins-SemiBold"
                                             TextDecorationLine='none'
                                             TextTransform='none'
                 />

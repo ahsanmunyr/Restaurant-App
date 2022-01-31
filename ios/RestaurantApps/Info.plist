@@ -22,10 +22,16 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MKDirectionsApplicationSupportedModes</key>
+	<array/>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
@@ -35,9 +41,56 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>App needs Camera Access Permission for capture images</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>We need access to your location to show you relevant search results.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need access to your location to show you relevant search results.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>We need access to your location to show you relevant search results.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App needs photo library Access</string>
+	<key>Privacy – Microphone Usage Description</key>
+	<string>App needs Microphone Access Permission for spying your voices</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Overpass-Bold.ttf</string>
+		<string>Overpass-Light.ttf</string>
+		<string>Poppins-SemiBold.ttf</string>
+		<string>Overpass-Regular.ttf</string>
+		<string>Overpass-ExtraBold.ttf</string>
+		<string>Poppins-Medium.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+		<string>Poppins-Regular.ttf</string>
+		<string>Overpass-BoldItalic.ttf</string>
+		<string>AntDesign.ttf</string>
+		<string>Overpass-Italic.ttf</string>
+		<string>Entypo.ttf</string>
+		<string>EvilIcons.ttf</string>
+		<string>Feather.ttf</string>
+		<string>FontAwesome.ttf</string>
+		<string>FontAwesome5_Brands.ttf</string>
+		<string>FontAwesome5_Regular.ttf</string>
+		<string>FontAwesome5_Solid.ttf</string>
+		<string>Fontisto.ttf</string>
+		<string>Foundation.ttf</string>
+		<string>Ionicons.ttf</string>
+		<string>MaterialCommunityIcons.ttf</string>
+		<string>MaterialIcons.ttf</string>
+		<string>Octicons.ttf</string>
+		<string>SimpleLineIcons.ttf</string>
+		<string>Zocial.ttf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>location</string>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

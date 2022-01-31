@@ -39,7 +39,7 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
     const [username, onChangeUsername] = React.useState("");
     const [password, onChangePassword] = React.useState("");
     const [confirmPassword, onChangeConfirmPassword] = React.useState("");
-    const [email, onChangeEmail] = React.useState("");
+    const [name, onChangeName] = React.useState("");
     const [phoneNumber, onChangePhone] = React.useState("");
     const [modalVisible, setModalVisible] = React.useState(false);
     const [stepOne, onChangestepOne] = React.useState(false);
@@ -73,7 +73,7 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
                     const mobileNumber = '+'+phoneInput.current.state.code + value
                     onChangePhone(mobileNumber)
                         if(password === confirmPassword){
-                            SignUpStepOne(username, password ,confirmPassword , mobileNumber, fadeChange, onChangeError)
+                            SignUpStepOne(name,username, password ,confirmPassword , mobileNumber, fadeChange, onChangeError)
                         }else{
                             onChangeError("Password not match") 
                             setValidation(true)
@@ -89,6 +89,7 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
     }
 
     const onSubmit2=()=>{
+        console.log(otp)
         Otp(otp, phoneNumber, fadeChange)
         // fadeChange()
     }
@@ -114,13 +115,25 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
     return(
         <View style={styles.container}>
         <StatusBar translucent backgroundColor="transparent" />
+                <>   
+             <KeyboardAvoidingView
+            behavior={Platform.OS === "ios" ? "padding" : "height"}
+            style={{flex:1}}
+            > 
         {
             stepOne == false  ?
-            <ScrollView showsVerticalScrollIndicator={false} style={styles.scrollView}>
-                <Image style={{width: '100%', height: 400}} resizeMode='cover' source={require('./../../Assets/Images/header.png')}  />
-                            <View style={{flexDirection:'row',  height: 100, width:'100%', zIndex: 1, top: -70, left: 10}}>
+            // <KeyboardAvoidingView
+            // behavior={Platform.OS === "ios" ? "padding" : "height"}
+            // style={{flex:1}}
+            // >  
+                
+                <ScrollView  style={styles.scrollView}>
+                      <Image style={{width: '100%', height: 350, top: -10}} resizeMode='cover' source={require('./../../Assets/Images/header.png')}  />
+                <View style={{  justifyContent:'flex-start', flexDirection:'column', height: '50%',  width:'100%'}}>
+                    
+                <View style={{flexDirection:'row',  height: 40,  left: 10}}>
                                 <TextSample 
-                                    Label="Sign Up" 
+                                    Label="Create Account" 
                                     Color="black" 
                                     Size={hp("3.5%")} 
                                     TextAlign='left'
@@ -130,9 +143,19 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
                                     TextTransform='none'
                                 />
                             </View>
-                <View style={{  justifyContent:'flex-start', flexDirection:'column',  height: 200, top: -100,  width:'100%'}}>
                     <View style={styles.textField}>
                         <FontAwesome name="user-o"  size={20} color="#f54730" />
+                            <TextInputFeild
+                                placeholder="Username"
+                                value={name}
+                                onchange={onChangeName}
+                                keyboardType='email-address'
+                                secureTextEntry={false}
+                                Color='grey'
+                            />
+                        </View>
+                    <View style={styles.textField}>
+                        <FontAwesome name="envelope-o"  size={20} color="#f54730" />
                             <TextInputFeild
                                 placeholder="Email"
                                 value={username}
@@ -186,12 +209,12 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
                             setFormattedValue(text);
                             }}
                             placeholder=" "
-                            containerStyle={{ height: hp('3%'), elevation: 0}}
-                            textContainerStyle={{backgroundColor: 'white',top: -5}}
-                            codeTextStyle={{color: 'black', top: 10, height: hp('5%'), left: -20}}
+                            containerStyle={{ height: 35, elevation: 0}}
+                            textContainerStyle={{backgroundColor: 'white',top: 0}}
+                            codeTextStyle={{color: 'black',  height: 20, left: -10}}
                             textInputStyle={{color: 'black', textAlignVertical:'bottom', height: 45}}
-                            flagButtonStyle={{color: 'white', marginTop: 6, shadowColor:'white', shadowOpacity: 0, shadowOffset:1, backgroundColor: 'white', elevation:0,}}
-                            countryPickerButtonStyle={{color: 'white', top: -8}}
+                            flagButtonStyle={{color: 'white',height: 30,  backgroundColor: 'white',}}
+                            countryPickerButtonStyle={{color: 'white',}}
                             withShadow
                             withDarkTheme
                             disableArrowIcon='false'
@@ -273,8 +296,8 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
                             tintColor="#FF3D46"
                             offTintColor="#FF3D46"
                             />
-                            <View style={{ height:hp('20%'), alignItems:'center' ,flexDirection: 'row', alignContent:'space-between', marginTop: 30, width:'100%', justifyContent:'space-between'}}>
-                            <TouchableOpacity    onPress={() => onChangestepOne(false)}>
+                            <View style={{ height:hp('20%'), alignItems:'center' ,flexDirection: 'row', alignContent:'space-between', marginTop: 30, width:'100%', justifyContent:'center'}}>
+                            {/* <TouchableOpacity    onPress={() => onChangestepOne(false)}>
                                         <LinearGradient
                                             start={{ x: -1, y: 0 }}
                                             end={{ x: 1, y: 0 }}
@@ -296,14 +319,14 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
                                                 <ActivityIndicator size='large' color="white" />
                                                 }
                                         </LinearGradient>
-                                </TouchableOpacity>
+                                </TouchableOpacity> */}
                         
-                            <TouchableOpacity  disabled={onClick}  onPress={() => {}} >
+                            <TouchableOpacity  disabled={onClick}  onPress={onSubmit2} >
                                         <LinearGradient
                                             start={{ x: -1, y: 0 }}
                                             end={{ x: 1, y: 0 }}
                                             colors={[ '#B01125','#f54730']}
-                                            style={styles.touchableOpacity}
+                                            style={styles.touchableOpacityOne}
                                             >
                                                 {
                                                     !onClick ?
@@ -327,7 +350,9 @@ const SignupScreen = ({navigation, SignUpStepOne, Otp, userOtp}) => {
                     </Animated.View>: null
                     
                 }
-                
+         
+                </KeyboardAvoidingView>
+                </> 
                 <AlertModal modalVisible={validation} closeModal={()=>{setValidation(false)}} message={error} />
         </View>
     )
@@ -344,7 +369,7 @@ var styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: "center",
-        height: hp('103%')
+        // height: hp('103%')
     },
     scrollView: {
         // marginHorizontal: 20,
@@ -362,19 +387,26 @@ var styles = StyleSheet.create({
         fontWeight: '200',
         fontSize: hp('2%'),
       },
-    textField: {
+      textField: {
         width: wp('90%'),
         justifyContent: 'center',
         flexDirection: 'row',
         margin: 5,
-        alignSelf:'center',
         backgroundColor:'white',
-        zIndex: 9999,
-        elevation: 5,
+        // zIndex: 9999,
+        // elevation: 5,
         borderRadius: 12,
         height:45,
-      
-        alignContent:'center', alignItems:'center'
+        alignItems:'center',
+        alignSelf:'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5
         
     },
     backgroundImage: {
@@ -409,10 +441,10 @@ var styles = StyleSheet.create({
         padding: 15,
         alignItems: "center",
         shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 2
-        },
+        // shadowOffset: {
+        //   width: 0,
+        //   height: 2
+        // },
         shadowOpacity: 0.25,
         shadowRadius: 4,
         elevation: 5
@@ -431,6 +463,22 @@ var styles = StyleSheet.create({
         alignSelf:'center',
         alignContent:'center'
         
+    },
+    touchableOpacityOne:{
+        borderWidth: 2,
+        borderColor: '#f54749',
+        width: wp('40%'),
+        height: hp('6%'),
+        justifyContent: 'center',
+        // borderRadius: 25,
+        flexDirection:'row',
+        borderTopLeftRadius: 25,
+        borderBottomLeftRadius: 25,
+        borderTopRightRadius: 25,
+        borderBottomRightRadius:25,
+        alignItems:'center',
+        alignSelf:'center',
+        alignContent:'center'
     },
     touchableOpacityBack:{
         borderWidth: 2,

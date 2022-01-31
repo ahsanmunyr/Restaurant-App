@@ -54,8 +54,8 @@ const Img = [
                                         />
                     <View style={{flexDirection:'row', padding: 4,justifyContent:'space-between', alignContent:'center', left:5, width: '80%' }}>
                             <View style={{ justifyContent:'flex-start', flexDirection:'column'}}>
-                                <AppText  nol={1}  textAlign="left"  family="Overpass-SemiBold" size={hp("1.9%")} color="black" Label={Name} />
-                                <AppText  nol={1}  textAlign="left"  family="Overpass-SemiBold" size={hp("1.5%")} color="black" Label={UploadTime} /> 
+                                <AppText  nol={1}  textAlign="left"  family="Poppins-SemiBold" size={hp("1.9%")} color="black" Label={Name} />
+                                <AppText  nol={1}  textAlign="left"  family="Poppins-SemiBold" size={hp("1.5%")} color="black" Label={UploadTime} /> 
                             </View>
                             <View style={{flexDirection:'row', justifyContent:'space-around'}}>
                                 <View style={{  flexDirection:'row'}}>

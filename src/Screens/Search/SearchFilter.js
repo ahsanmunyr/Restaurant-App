@@ -39,8 +39,10 @@ import TextInputFeild from '../../Components/TextFeild';
 import TouchableOpacityBtn from '../../Components/TouchableOpacity';
 import { Rating, AirbnbRating } from 'react-native-elements';
 import MultiSlider from '@ptomasroos/react-native-multi-slider'
+import * as actions from '../../Store/Actions';
+import {connect} from 'react-redux';
   const SearchFilter = ({
-      navigation
+      navigation,userLocations,getRestuarantByReviewAction,getItemByRangeAction,getItemByRangeActionB, clearRestaurant, clearItems
     }) => {
       const [searchQuery, setSearchQuery] = useState('');
       const onChangeSearch = query => setSearchQuery(query);
@@ -63,15 +65,22 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
       }, []);
       useEffect(() => {
       }, [])
-  const All = () => {
-    if(click){
-      onChangeClick(false)
-    }else{
-      onChangeClick(true)
-      onChangeSelectCategory(true)
-    }
+      const All = () => {
+        if(click){
+          onChangeClick(false)
+        }else{
+          onChangeClick(true)
+          onChangeSelectCategory(true)
+        }
 
-  }
+      }
+  useEffect(()=>{
+    if (userLocations.PlaceName == undefined) {
+      onChangeCurrentLocation('undefine');
+    } else {
+      onChangeCurrentLocation(userLocations.PlaceName);
+    }
+  },[])    
 
   const Restaurants = () => {
     if(restaurants){
@@ -113,6 +122,26 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
       onChangeClick(true)
     }
   }
+
+  const getRestuarantByReview = () => {
+    console.log(rating)
+    clearItems()
+    getRestuarantByReviewAction(rating, navigation)
+  }
+
+  const getItemWithRangePrice = () => {
+    // console.log("SAD", price[0], price[1])
+    clearRestaurant()
+    getItemByRangeAction(price[0], price[1], navigation)
+  }
+
+  const getItemWithRangePriceB = () => {
+    // console.log("SAD", price[0], price[1])
+    clearRestaurant()
+    getItemByRangeActionB(price[0], price[1], navigation)
+  }
+
+
       return ( 
         <View style={styles.container}>
           <StatusBar translucent backgroundColor="#f54749" />
@@ -180,7 +209,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                 <ScrollView showsHorizontalScrollIndicator={false}  horizontal scrollEnabled 
                 style={{width: '100%', height: '20%', flexDirection:'row'}}>
                   <View style={{ margin: 15, alignItems:'center', justifyContent:'center'}}>
-                    <TouchableOpacity 
+                    {/* <TouchableOpacity 
                       onPress={All} 
                       disabled={selectCategory? true: false}
                       style={!click ?{
@@ -211,7 +240,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                                                                 TextDecorationLine='none'
                                                                 TextTransform='none'
                       />
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                   </View>
                   <View style={{ margin: 15, alignItems:'center', justifyContent:'center'}}>
                     <TouchableOpacity 
@@ -301,117 +330,22 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                                 alignItems:'center', 
                                 justifyContent:'center',
                                 }}>
-                    <TextSample 
-                                                                Label="Beverages" 
-                                                                Color={!beverage ? '#f54749': 'white'} 
-                                                                Size={hp("2%")} 
-                                                                TextAlign='left'
-                                                                NumberOfLines={1} 
-                                                                Font="Overpass-Bold"
-                                                                TextDecorationLine='none'
-                                                                TextTransform='none'
-                      />
+                        <TextSample 
+                                                                    Label="Beverages" 
+                                                                    Color={!beverage ? '#f54749': 'white'} 
+                                                                    Size={hp("2%")} 
+                                                                    TextAlign='left'
+                                                                    NumberOfLines={1} 
+                                                                    Font="Overpass-Bold"
+                                                                    TextDecorationLine='none'
+                                                                    TextTransform='none'
+                          />
                     </TouchableOpacity>
                   </View>
                 </ScrollView>
             </View>
             {
-              click ? 
-              <View style={{height: '60%', width: '90%', justifyContent:'space-between', alignSelf:'center'}}>
-                <View style={{flexDirection:'column', left: 10}}>
-                      <View>
-                            <TextSample 
-                                    Label="Current location: " 
-                                    Color="black" 
-                                    Size={hp("2%")} 
-                                    TextAlign='left'
-                                    NumberOfLines={1} 
-                                    Font="Overpass-Bold"
-                                    TextDecorationLine='none'
-                                    TextTransform='none'
-                            />
-                      </View> 
-                      <TouchableOpacity onPress={()=>console.log("Click")}>
-                      <View style={{
-                          flexDirection:'row', alignItems:'flex-start', alignSelf:'flex-start', width: '90%'
-                      }}> 
-                    
-                          <Ionicons name="location-outline" style={{top: 2}} size={15} color='grey' />
-                            <TextSample 
-                                    Label={"R-659 15-A/4 Bufferzone North Nazimabad, Karachi."} 
-                                    Color="grey" 
-                                    Size={hp("1.5%")} 
-                                    TextAlign='left'
-                                    NumberOfLines={3} 
-                                    Font="Overpass-Regular"
-                                    TextDecorationLine='none'
-                                    TextTransform='none'
-                            />
-                            </View> 
-                        </TouchableOpacity>
-                    </View> 
-                    <View style={{ left: 10,justifyContent:'flex-start', flexDirection:'column', alignItems:'flex-start',alignSelf:'flex-start', width: '90%'}}>
-                            <TextSample 
-                                    Label="Search by name:" 
-                                    Color="black" 
-                                    Size={hp("2%")} 
-                                    TextAlign='left'
-                                    NumberOfLines={1} 
-                                    Font="Overpass-Bold"
-                                    TextDecorationLine='none'
-                                    TextTransform='none'
-                            />
-                        <View style={styles.textField}>
-                            <TextInputFeild
-                                  placeholder="name"
-                                  value={name}
-                                  onchange={onChangeName}
-                                  keyboardType='email-address'
-                                  secureTextEntry={false}
-                              />
-                        </View>
-                    </View> 
-                    <View style={{ left: 10,justifyContent:'flex-start', flexDirection:'column', alignItems:'flex-start',alignSelf:'flex-start', width: '90%'}}>
-                            <TextSample 
-                                    Label="Select radius:" 
-                                    Color="black" 
-                                    Size={hp("2%")} 
-                                    TextAlign='left'
-                                    NumberOfLines={1} 
-                                    Font="Overpass-Bold"
-                                    TextDecorationLine='none'
-                                    TextTransform='none'
-                            />
-                            <Slider
-                                  style={{width: '100%', height: 40}}
-                                  minimumValue={0}
-                                  maximumValue={100}
-                                  step={10}
-                                  onValueChange={onChangeRadius}
-                                  value={radius}
-                                  minimumTrackTintColor="#f54749"
-                                  maximumTrackTintColor="#000000"
-                                  thumbTintColor='#f54749'
-                                  
-                            />
-                            <TextSample 
-                                    Label={radius + ' Kilometers'} 
-                                    Color="black" 
-                                    Size={hp("2%")} 
-                                    TextAlign='left'
-                                    NumberOfLines={1} 
-                                    Font="Overpass-Regular"
-                                    TextDecorationLine='none'
-                                    TextTransform='none'
-                            />
-                    </View> 
-                    <View style={{ justifyContent:'center', flexDirection:'column', alignItems:'center',alignSelf:'center', width: '90%'}}>
-                                <TouchableOpacityBtn  
-                                          onPress={()=> console.log('sad')}
-                                          title="Apply Filter"
-                                />
-                    </View> 
-              </View>: 
+              
               restaurants ? 
               <View style={{height: '60%', width: '90%', justifyContent:'space-between', alignSelf:'center'}}>
               <View style={{flexDirection:'column', left: 10}}>
@@ -433,7 +367,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                   }}> 
                   <Ionicons name="location-outline" style={{top: 2}} size={15} color='grey' />
                           <TextSample 
-                                Label={"R-659 15-A/4 Bufferzone North Nazimabad, Karachi."} 
+                                Label={currentLocation} 
                                 Color="grey" 
                                 Size={hp("1.5%")} 
                                 TextAlign='left'
@@ -460,7 +394,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                             <Rating imageSize={25} fractions={1} startingValue={rating} onFinishRating={onChangeRating} /> 
                       </View>
                 </View> 
-                <View style={{ left: 10,justifyContent:'flex-start', flexDirection:'column', alignItems:'flex-start',alignSelf:'flex-start', width: '90%'}}>
+                {/* <View style={{ left: 10,justifyContent:'flex-start', flexDirection:'column', alignItems:'flex-start',alignSelf:'flex-start', width: '90%'}}>
                         <TextSample 
                                   Label="Select radius:" 
                                   Color="black" 
@@ -492,10 +426,10 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                                   TextDecorationLine='none'
                                   TextTransform='none'
                           />
-                </View> 
+                </View>  */}
                 <View style={{ justifyContent:'center', flexDirection:'column', alignItems:'center',alignSelf:'center', width: '90%'}}>
                             <TouchableOpacityBtn  
-                                      onPress={()=> console.log('sad')}
+                                      onPress={getRestuarantByReview}
                                       title="Apply Filter"
                             />
                 </View> 
@@ -521,7 +455,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                   }}> 
                     <Ionicons name="location-outline" style={{top: 2}} size={15} color='grey' />
                           <TextSample 
-                                Label={"R-659 15-A/4 Bufferzone North Nazimabad, Karachi."} 
+                                Label={currentLocation} 
                                 Color="grey" 
                                 Size={hp("1.5%")} 
                                 TextAlign='left'
@@ -572,7 +506,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                                   Size={hp("1.5%")} 
                                   TextAlign='left'
                                   NumberOfLines={1} 
-                                  Font="Overpass-Medium"
+                                  Font="Poppins-SemiBold"
                                   TextDecorationLine='none'
                                   TextTransform='none'
                             />
@@ -582,12 +516,12 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                                   Size={hp("1.5%")} 
                                   TextAlign='left'
                                   NumberOfLines={1} 
-                                  Font="Overpass-Medium"
+                                  Font="Poppins-SemiBold"
                                   TextDecorationLine='none'
                                   TextTransform='none'
                             />
                 </View> 
-                <View style={{ left: 10,justifyContent:'flex-start', flexDirection:'column', alignItems:'flex-start',alignSelf:'flex-start', width: '90%'}}>
+                {/* <View style={{ left: 10,justifyContent:'flex-start', flexDirection:'column', alignItems:'flex-start',alignSelf:'flex-start', width: '90%'}}>
                         <TextSample 
                                   Label="Select radius:" 
                                   Color="black" 
@@ -619,10 +553,10 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                                 TextDecorationLine='none'
                                 TextTransform='none'
                           />
-                </View> 
+                </View>  */}
                 <View style={{ justifyContent:'center', flexDirection:'column', alignItems:'center',alignSelf:'center', width: '90%'}}>
                             <TouchableOpacityBtn  
-                                      onPress={()=> console.log('sad')}
+                                      onPress={getItemWithRangePrice}
                                       title="Apply Filter"
                             />
                 </View> 
@@ -648,7 +582,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                   }}> 
                     <Ionicons name="location-outline" style={{top: 2}} size={15} color='grey' />
                         <TextSample 
-                                Label={"R-659 15-A/4 Bufferzone North Nazimabad, Karachi."} 
+                                Label={currentLocation} 
                                 Color="grey" 
                                 Size={hp("1.5%")} 
                                 TextAlign='left'
@@ -699,7 +633,7 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                                   Size={hp("1.5%")} 
                                   TextAlign='left'
                                   NumberOfLines={1} 
-                                  Font="Overpass-Medium"
+                                  Font="Poppins-SemiBold"
                                   TextDecorationLine='none'
                                   TextTransform='none'
                             />
@@ -709,12 +643,12 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                                   Size={hp("1.5%")} 
                                   TextAlign='left'
                                   NumberOfLines={1} 
-                                  Font="Overpass-Medium"
+                                  Font="Poppins-SemiBold"
                                   TextDecorationLine='none'
                                   TextTransform='none'
                             />
                 </View> 
-                <View style={{ left: 10,justifyContent:'flex-start', flexDirection:'column', alignItems:'flex-start',alignSelf:'flex-start', width: '90%'}}>
+                {/* <View style={{ left: 10,justifyContent:'flex-start', flexDirection:'column', alignItems:'flex-start',alignSelf:'flex-start', width: '90%'}}>
                         <TextSample 
                                   Label="Select radius:" 
                                   Color="black" 
@@ -746,10 +680,10 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
                                   TextDecorationLine='none'
                                   TextTransform='none'
                           />
-                </View> 
+                </View>  */}
                 <View style={{ justifyContent:'center', flexDirection:'column', alignItems:'center',alignSelf:'center', width: '90%'}}>
                             <TouchableOpacityBtn  
-                                      onPress={()=> console.log('sad')}
+                                      onPress={getItemWithRangePriceB}
                                       title="Apply Filter"
                             />
                 </View> 
@@ -760,9 +694,11 @@ import MultiSlider from '@ptomasroos/react-native-multi-slider'
       </View>
   )
 }
-  
-  
-  export default SearchFilter;
+function mapStateToProps({ userLocations }) {
+  return { userLocations }
+}
+export default connect(mapStateToProps, actions)(SearchFilter)
+
   
   var styles = StyleSheet.create({
     container: {

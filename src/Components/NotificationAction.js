@@ -35,7 +35,7 @@ import {
     touchableOpacityText: {
       color: 'white',
     //   fontFamily: '' 
-     fontFamily: 'Overpass-SemiBold',
+     fontFamily: 'Poppins-SemiBold',
       fontSize: hp('1.7'),
       textAlign:'center'
       

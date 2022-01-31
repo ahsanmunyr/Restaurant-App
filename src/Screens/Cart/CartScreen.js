@@ -33,6 +33,7 @@ const CartScreen = ({navigation, route, props, userAddToCart, cartItemsClear}) =
   }
 
   OrderConfirm = () => {
+    console.log(userAddToCart)
       if(userAddToCart.length > 0){
             navigation.navigate('ordercartprocess')
       }else{
@@ -73,7 +74,7 @@ return (
           <FlatList  
                 bounces
                 bouncesZoom
-                maintainVisibleContentPosition
+                // maintainVisibleContentPosition
                 showsVerticalScrollIndicator={false}
                 data={userAddToCart}
                 style={{width: '100%' }}
@@ -310,7 +311,7 @@ return (
               </TouchableRipple> */}
               </View>
               </View>
-              <View style={{justifyContent:'space-around', alignItems:'center', marginTop: 20, height: 100,  }}>
+              <View style={{justifyContent:'space-around', alignItems:'center', marginTop: 10, height: 100, bottom: 10  }}>
               <TouchableOpacityBtn  
 
                                 onPress={ClearBucket}

@@ -16,7 +16,7 @@ export const stripe = (token, pesa) => async (dispatch) => {
                 type: types.STRIPE_PAYMENT,
                 payload: response.data,
             })
-            console.log(response.data)
+            // console.log(response.data)
         }
     }
     catch (e) {
@@ -79,7 +79,7 @@ export const nearMeUsers = (latitude, longitude) => async (dispatch) => {
             }
         });
         if (location.data.length > 0) {
-            console.log(location.data)
+            // console.log(location.data)
             dispatch({
                 type: types.NEAR_ME_USERS,
                 payload: location.data,
@@ -95,32 +95,49 @@ export const nearMeUsers = (latitude, longitude) => async (dispatch) => {
     }
 }
 
-export const loginUser = (email, password) => async (dispatch) => {
+export const loginUser = (email, password, navigation) => async (dispatch) => {
     try {
-        // console.log(email, password)
+        console.log(email, password)
         const response = await axios.post(`${deploy_API}/client/login`, {
             email: email,
             password: password
         })
-        // console.log(response.data.data)
+        console.log(response.data, "=====================================================================================================")
         if (response.data.status) {
-            console.log('success')
             dispatch({
                 type: types.AUTH_LOGGED_IN,
                 payload: response.data.data,
             })
-            // const token = response.data.data.token
             const user = JSON.stringify(response.data.data)
-            console.log(user)
             await AsyncStorage.setItem('token', user)
-            // await AsyncStorage.setItem('userinformation',user)
         } else {
-            console.log("fail")
-            showMessage({
-                message: "ERROR",
-                description: "Login Failed",
-                type: "danger",
-            });
+            // console.log(response.data.msg)
+            if(response.data.msg == "Please verify your account"){
+                showMessage({
+                    message: "WARNING",
+                    description: "Your account has not verified, Please verify your account",
+                    type: "warning",
+                });
+                dispatch({
+                    type: types.OTP_VERIFY,
+                    payload: {
+                        data: response.data.data,
+                    },
+                })
+                navigation.navigate('otpverify')
+            }else{
+                showMessage({
+                    message: "ERROR",
+                    description: "Login Failed",
+                    type: "danger",
+                });
+                dispatch({
+                    type: types.AUTH_LOGGING_IN_ERROR,
+                    payload: {
+                        userLogin: false,
+                    },
+                })
+            }
             dispatch({
                 type: types.AUTH_LOGGING_IN_ERROR,
                 payload: {
@@ -129,7 +146,7 @@ export const loginUser = (email, password) => async (dispatch) => {
             })
         }
     } catch (error) {
-        console.log(error, "[Error: Network Error]")
+        // console.log(error, "[Error: Network Error]")
         showMessage({
             message: "ERROR",
             description: "Network Error",
@@ -150,27 +167,70 @@ export const userDetailsSave = (data) => async (dispatch) => {
         payload: data
     })
 }
-export const Otp = (email, password, confirmPassword, mobileNumber, fadeChange) => async (dispatch) => {
-    try {
-        if (otp != null) {
-            const responseVerify = await axios.get(`${deploy_API}/client/verify`, {
-                params: {
-                    phonenumber: number,
-                    code: otp
-                }
+
+export const verifyOtp = (number, code) => async (dispatch) => {
+    console.log(code, "SADASDASD")
+    try{
+        const responseVerify = await axios.post(`${deploy_API}/client/verify`, {
+            phone: code.user_phone,
+            verification_code: number
+        })
+        console.log(responseVerify.data.msg)
+        if (responseVerify.data.msg === "Verified successfully") {
+            const user = JSON.stringify(responseVerify.data.data)
+            await AsyncStorage.setItem('token', user)
+            // await AsyncStorage.setItem('token', responseVerify.data.data)
+            dispatch({
+                type: types.AUTH_OTP_VERIFY,
+                payload: {
+                    data: responseVerify.data.data
+                },
+            })
+            showMessage({
+                message: "Success",
+                description: "Verified successfully!!!",
+                type: "success",
             });
-            if (responseVerify.data.message === "User is Verified!!") {
+            // fadeChange()
+        } else {
+            alert("otp error")
+        }
+    }catch(err){
+        
+    }
+}
+
+export const Otp = (otp, number, fadeChange) => async (dispatch) => {
+    try {
+        // console.log(otp, number)
+        if (otp != null) {
+            const responseVerify = await axios.post(`${deploy_API}/client/verify`, {
+                phone: number,
+                verification_code: otp
+            })
+            // (`${deploy_API}/client/verify`, {
+            //     phone: number,
+            //     verification_code: otp
+            // })
+            console.log(responseVerify.data.msg)
+            if (responseVerify.data.msg === "Verified successfully") {
                 dispatch({
                     type: types.AUTH_OTP_VERIFY,
-                    payload: responseVerify.data,
-
+                    payload: {
+                        data: responseVerify.data.data
+                    },
                 })
-                fadeChange()
+                showMessage({
+                    message: "Success",
+                    description: "Verified successfully!!!",
+                    type: "success",
+                });
+                // fadeChange()
             } else {
-                alert("error")
+                alert("otp error")
             }
         } else {
-            console.log(number)
+            // console.log(number)
             const response = await axios.get(`${deploy_API}/api/auth/login`, {
                 params: {
                     phonenumber: number,
@@ -184,8 +244,17 @@ export const Otp = (email, password, confirmPassword, mobileNumber, fadeChange) 
                     payload: response.data,
 
                 })
+                showMessage({
+                    message: "Success",
+                    description: "Verification is sent!!",
+                    type: "success",
+                });
             } else {
-                alert("error")
+                showMessage({
+                    message: "Error",
+                    description: "OTP Error",
+                    type: "error",
+                });
             }
         }
     }
@@ -196,28 +265,40 @@ export const Otp = (email, password, confirmPassword, mobileNumber, fadeChange) 
 
 
 export const consoleFunc = () => async (dispatch) => {
-    console.log("Test by roshaan")
+    // console.log("Test by roshaan")
 }
 
-export const SignUpStepOne = (email, password, confirmPassword, mobileNumber, fadeChange, onChangeError) => async (dispatch) => {
-    console.log(email, password, confirmPassword, mobileNumber)
+export const SignUpStepOne = (name, email, password, confirmPassword, mobileNumber, fadeChange, onChangeError) => async (dispatch) => {
+    // console.log(email, password, confirmPassword, mobileNumber)
     try {
         const data = {
+            user_name: name,
             email: email,
             password: password,
             confirm_password: confirmPassword,
             phone: mobileNumber,
         }
         const response = await axios.post(`${deploy_API}/client/register`, data);
-        console.log(response.data)
+        // console.log(response.data)
         if (response.data.status) {
             fadeChange()
             dispatch({
                 type: types.AUTH_SIGNUP,
                 payload: response.data.msg
             })
+            showMessage({
+                message: "Success",
+                description: "Account create successfully, Please wait for number verfication.",
+                type: "success",
+            });
+
         } else {
             // alert(response.data.msg)
+            showMessage({
+                message: "Warning",
+                description: response.data.msg,
+                type: "warning",
+            });
             onChangeError(response.data.msg)
             dispatch({
                 type: types.AUTH_ERROR,
@@ -227,7 +308,7 @@ export const SignUpStepOne = (email, password, confirmPassword, mobileNumber, fa
 
     } catch (error) {
         onChangeError(error)
-        alert("error")
+        // alert("error")
         console.log(error)
     }
 };
@@ -239,11 +320,18 @@ export const SignOut = () => async (dispatch) => {
         // await AsyncStorage.removeItem('token')
         // await AsyncStorage.removeItem('userData')
         // await AsyncStorage.removeItem('userinformation')
-        await AsyncStorage.clear()
         dispatch({
             type: types.AUTH_LOGOUT,
             payload: {}
         })
+        dispatch({
+            type: types.AUTH_OTP_VERIFY,
+            payload: {
+                data: null
+            }
+        })
+        
+        await AsyncStorage.clear()
     } catch (error) {
         console.log(error)
     }
@@ -278,7 +366,7 @@ export const Favourite = (favourite) => async (dispatch) => {
 
 export const SignupAll = (userSignup, userFavourite, userInterest) => async (dispatch) => {
     try {
-        console.log(userSignup.user_gender_interest, "-----")
+        // console.log(userSignup.user_gender_interest, "-----")
         // console.log(userInterest, "-----")
         // const intgend = [userSignup.user_gender_interest.male, userSignup.user_gender_interest.female]
         const response = await axios.post(`${deploy_API}/api/auth/register`, {
@@ -293,7 +381,7 @@ export const SignupAll = (userSignup, userFavourite, userInterest) => async (dis
             user_favorite: JSON.stringify(userFavourite),
             social_login: "USER_AUTH"
         });
-        console.log(response.data)
+        // console.log(response.data)
         if (response.data.status) {
             dispatch({
                 type: types.AUTH_ALL_SIGNUP,
@@ -331,6 +419,33 @@ export const UserLatLong = (latitude, longitude) => async (dispatch) => {
     }
 }
 
+export const getReviews = (id) => async (dispatch) => {
+    try {
+        const response = await axios.get(`${deploy_API}/api/review/getreview`, {
+            params: {
+                restaurant_id: id
+            }
+        });
+        if(response.data.status){
+            dispatch({
+                type: types.REVIEWS,
+                payload: {
+                    data: response.data.data,
+                },
+            })
+        }
+    }
+    catch(err){
+        console.log(err)
+        dispatch({
+            type: types.REVIEWS_EEROR,
+            payload: {
+                data: null,
+            },
+        })
+    }
+}
+
 export const UserLocation = (latitude, longitude) => async (dispatch) => {
     try {
         let placename;
@@ -346,7 +461,7 @@ export const UserLocation = (latitude, longitude) => async (dispatch) => {
 
         if (responseVerify.data.status == "OK") {
             placename = responseVerify.data.results[1].formatted_address
-            console.log(placename)
+            // console.log(placename)
             let arrayLoc = responseVerify.data.results[0].address_components;
             for (let i = 0; i < arrayLoc.length; i++) {
                 if (arrayLoc[i].types.includes('country')) {
@@ -523,6 +638,7 @@ export const getCategory = (id) => async (dispatch) => {
                 restaurant_id: id,
             }
         });
+        console.log(category.data.data, "getCategory")
         if (category.data.data.length <= 0) {
             dispatch({
                 type: types.USER_GET_CATEGORY_ERROR,
@@ -545,13 +661,14 @@ export const getCategory = (id) => async (dispatch) => {
 }
 
 export const getItem = (id) => async (dispatch) => {
-    console.log(id, "id")
+    // console.log(id, "id")
     try {
         const items = await axios.get(`${deploy_API}/api/item/getclientitems`, {
             params: {
                 category_id: id,
             }
         });
+        console.log("=============================================",items.data.data, "=============================================")
         if (items.data.data.length <= 0) {
             dispatch({
                 type: types.USER_GET_ITEMS_ERROR,
@@ -683,7 +800,7 @@ export const orderPlace = (userID, restaurantID, testRemark, paymentMethod, tota
             order_longitude: long,
             items: item
         });
-        console.log(response.data)
+        // console.log(response.data)
         if (response.data.status) {
             console.log("ORDER PLACE", response.data.status)
             dispatch({
@@ -749,9 +866,11 @@ export const orderDetails = (userID) => async (dispatch) => {
 
     try {
         const response = await axios.get(`${deploy_API}/api/orders/getuserorderdetails?user_id=${userID}`)
-        console.log(response.data, "========ORDER_PLACE==========/api/orders/getuserorderdetails?user_id=============orderDetails========")
+        console.log(response.data)
+        // console.log(response.data, "========ORDER_PLACE==========/api/orders/getuserorderdetails?user_id=============orderDetails========")
         if (response.data.status) {
             // alert("SAD")
+
             if(response.data.data.order_status == 1){
                 dispatch({
                     type: types.ORDER_PLACE_ERROR,
@@ -761,6 +880,7 @@ export const orderDetails = (userID) => async (dispatch) => {
                     }
                 })
             }else{
+                // alert("SAD")
                 dispatch({
                     type: types.ORDER_PLACE,
                     payload: {
@@ -807,17 +927,27 @@ export const acceptOrderDetails = (user_id) => async (dispatch) => {
 
     try {
         const response = await axios.get(`${deploy_API}/api/orders/getclientorderdetails?user_id=${user_id}`)
-        console.log(response.data, "=========acceptOrderDetails======/api/orders/getclientorderdetails?order_id======----------------------------------------------------------------------------------------------------------------------------------=======ORDER_ACCEPT_DATA=====")
-        
+        // console.log(response.data, "=========acceptOrderDetails======/api/orders/getclientorderdetails?order_id======----------------------------------------------------------------------------------------------------------------------------------=======ORDER_ACCEPT_DATA=====")
+        // {"msg": "Your order is not assigned to any rider", "status": true}
         if (response.data.status) {
             // alert("SAD")
-            dispatch({
-                type: types.ORDER_ACCEPT_DATA,
-                payload: {
-                    data: response.data.data,
-                    order: response.data.status
-                }
-            })
+            if(response.data.msg == "Your order is not assigned to any rider"){
+                dispatch({
+                    type: types.ORDER_ACCEPT_ERROR,
+                    payload: {
+                        data: null,
+                        order: false
+                    }
+                })
+            }else{
+                dispatch({
+                    type: types.ORDER_ACCEPT_DATA,
+                    payload: {
+                        data: response.data.data,
+                        order: response.data.status
+                    }
+                })
+            }
         } else {
             dispatch({
                 type: types.ORDER_ACCEPT_ERROR,
@@ -863,6 +993,38 @@ export const firebaseCoordsRider = (data) => async (dispatch) => {
     }
 }
 
+export const getHistory = (id) => async (dispatch) => {
+
+    try {
+        const response = await axios.get(`${deploy_API}/api/orders/getorderhistorys?user_id=${id}`)
+        console.log(response.data.data)
+
+        if(response.data.status){
+            dispatch({
+                type: types.HISTORY,
+                payload: {
+                    data: response.data.data
+                }
+            })
+        }else{
+            dispatch({
+                type: types.HISTORY_ERROR,
+                payload: {
+                    data: null
+                }
+            })
+        }
+    }
+    catch (err) {
+        console.log(err)
+        dispatch({
+            type: types.HISTORY_ERROR,
+            payload: {
+                data: null
+            }
+        })
+    }
+}
 
 export const orderDataClear = () => async (dispatch) => {
 
@@ -878,6 +1040,16 @@ export const orderDataClear = () => async (dispatch) => {
 export const orderPlaceDataClear = () => async (dispatch) => {
     dispatch({
         type: types.ORDER_PLACE,
+        payload: {
+            data: null,
+            order: false
+        }
+    })
+}
+
+export const orderPlaceDataEmpty = () => async (dispatch) => {
+    dispatch({
+        type: types.ORDER_PLACE_EMPTY,
         payload: {
             data: null,
             order: false
@@ -902,4 +1074,270 @@ export const firebaseMessageData = (data) => async (dispatch) => {
             data: data
         }
     })
+}
+
+
+export const getRestuarantByReviewAction = (ratting, navigation) => async (dispatch) => {
+    try{
+        const response = await axios.get(`${deploy_API}/api/search/rating?rating=${ratting}`)
+        console.log(response.data.data)
+        if(response.data.status){
+            dispatch({
+                type: types.SEARCHDATA,
+                payload: {
+                    data: response.data
+                }
+            })
+            navigation.navigate('search')
+        }
+    }catch(eer){
+        console.log(eer)
+        showMessage({
+            message: "Warning",
+            description: "No record found",
+            type: "warning",
+        });
+        dispatch({
+            type: types.SEARCHDATA_ERROR,
+            payload: {
+                data: null
+            }
+        })
+    }
+}
+
+export const getItemByRangeAction = (price1,price2, navigation) => async (dispatch) => {
+    try{
+//         {{base_url}}/api/search/food?min=22&max=55
+
+// {{base_url}}/api/search/bev?min=12&max=55
+        const response = await axios.get(`${deploy_API}/api/search/food?min=${price1}&max=${price2}`)
+        console.log(response.data.data)
+        if(response.data.status){
+            dispatch({
+                type: types.SEARCHDATAITEM,
+                payload: {
+                    data: response.data
+                }
+            })
+            navigation.navigate('search')
+        }
+    }catch(eer){
+        console.log(eer)
+        showMessage({
+            message: "Warning",
+            description: "No record found",
+            type: "warning",
+        });
+        dispatch({
+            type: types.SEARCHDATAITEM_ERROR,
+            payload: {
+                data: null
+            }
+        })
+    }
+}
+
+export const getItemByRangeActionB = (price1,price2, navigation) => async (dispatch) => {
+    try{
+//         {{base_url}}/api/search/food?min=22&max=55
+
+// {{base_url}}/api/search/bev?min=12&max=55
+        const response = await axios.get(`${deploy_API}/api/search/bev?min=${price1}&max=${price2}`)
+        console.log(response.data.data)
+        if(response.data.status){
+            dispatch({
+                type: types.SEARCHDATAITEM,
+                payload: {
+                    data: response.data
+                }
+            })
+            navigation.navigate('search')
+        }
+    }catch(eer){
+        console.log(eer)
+        showMessage({
+            message: "Warning",
+            description: "No record found",
+            type: "warning",
+        });
+        dispatch({
+            type: types.SEARCHDATAITEM_ERROR,
+            payload: {
+                data: null
+            }
+        })
+    }
+}
+
+export const clearRestaurant = () => async (dispatch) => {
+    dispatch({
+        type: types.SEARCHDATA_ERROR,
+        payload: {
+            data: null
+        }
+    })
+}
+
+export const clearItems = () => async (dispatch) => {
+    dispatch({
+        type: types.SEARCHDATAITEM_ERROR,
+        payload: {
+            data: null
+        }
+    })
+}
+
+export const forgetpassword = (email,navigation) => async (dispatch) => {
+    try{
+        console.log(email)
+        const response = await axios.post(`${deploy_API}/client/forget-password`,{
+            email: email,
+        });
+        if(response.data.msg == "Password reset instructions has been successfully sent"){
+            navigation.navigate('forgotpasswordotp')
+            showMessage({
+                message: "Success",
+                description: response.data.msg,
+                type: "success",
+            });
+        }else{
+            showMessage({
+                message: "ERROR",
+                description: response.data.msg,
+                type: "danger",
+            });
+        }
+    }catch(err){
+        console.log(err)
+        showMessage({
+            message: "ERROR",
+            description: "Request failed",
+            type: "danger",
+        });
+    }
+}
+
+
+export const checkEmailOTP = (code,navigation) => async (dispatch) => {
+    try{
+        console.log(code)
+        const response = await axios.post(`${deploy_API}/client/check-token`,{
+            forget_hash: code,
+        });
+        if(response.data.success){
+            navigation.navigate('changepassword')
+            dispatch({
+                type: types.FORGOTPASSWORD_OTP,
+                payload: {
+                    data: response.data.message
+                }
+            })
+            showMessage({
+                message: "Success",
+                description: "Validation Successfully Completed!!!",
+                type: "success",
+            });
+        }
+        // navigation.navigate('changepassword')
+    }catch(err){
+        console.log(err)
+        const response = await axios.post(`${deploy_API}/client/check-token`,{
+            forget_hash: code,
+        });
+        dispatch({
+            type: types.FORGOTPASSWORD_OTP_ERROR,
+            payload: {
+                data: null
+            }
+        })
+        showMessage({
+            message: "ERROR",
+            description: "Request failed",
+            type: "danger",
+        });
+    }
+}
+
+export const passwordChange = (password,navigation, hashed, email) => async (dispatch) => {
+    try{
+        const response = await axios.post(`${deploy_API}/client/create-password`,{
+            password: password,
+            confirmPassword: password,
+            passwordHash: hashed,
+            userEmail: email
+        });
+        if(response.data.success){
+            navigation.navigate('login')
+            showMessage({
+                message: "Success",
+                description: "Password Changed Successfully!!!",
+                type: "success",
+            });
+        }else{
+            showMessage({
+                message: "ERROR",
+                description: "Request failed",
+                type: "danger",
+            });
+        }
+        // console.log(password)
+        // navigation.navigate('login')
+    }catch(err){
+        console.log(err)
+        showMessage({
+            message: "ERROR",
+            description: "Request failed",
+            type: "danger",
+        });
+    }
+}
+
+
+
+
+
+
+export const profileUpdated = (username, address, image, id) => async (dispatch) => {
+    try{
+
+        var bodyFormData = new FormData();
+            bodyFormData.append('image',{
+                uri:image.uri,
+                name:image.fileName,
+                type:image.type
+            });
+            bodyFormData.append('user_name', username);
+            bodyFormData.append('user_address', address);
+            bodyFormData.append('user_id', id);
+
+        const response = await axios({
+            method: "post",
+            url: `${deploy_API}/api/user/updateuser`,
+            data: bodyFormData,
+            headers: { Accept: 'application/json',
+                            "Content-Type": "multipart/form-data"
+                        },
+          })
+        if(response.data.status){
+            showMessage({
+                message: "Profile Updated!!!",
+                description: response.data.msg,
+                type: "success",
+            });
+        }else{
+            showMessage({
+                message: "ERROR",
+                description: response.data.msg,
+                type: "danger",
+            });
+            
+        }
+        }catch(error){
+            showMessage({
+                message: "ERROR",
+                description: "Network Error",
+                type: "danger",
+            }); 
+        }
 }

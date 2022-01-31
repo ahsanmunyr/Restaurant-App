@@ -42,7 +42,20 @@ import {
     RIDERCOORDS,
     RIDERCOORDS_ERROR,
     NAV,
-    FIREBASEDATA
+    FIREBASEDATA,
+    AUTH_OTP_VERIFY,
+    HISTORY ,
+    HISTORY_ERROR,
+    REVIEWS,
+    REVIEWS_EEROR,
+    OTP_VERIFY,
+    ORDER_PLACE_EMPTY,
+    SEARCHDATA_ERROR,
+    SEARCHDATA,
+    SEARCHDATAITEM,
+    SEARCHDATAITEM_ERROR,
+    FORGOTPASSWORD_OTP_ERROR,
+    FORGOTPASSWORD_OTP
 } from '../Actions/actionType'
 
 const initialState={
@@ -70,6 +83,100 @@ const initialCoords = {
 const initialFirebaseData = {
     data: null
 }
+
+const authInitail = {
+    data: null
+}
+
+const history = {
+    data: null
+}
+
+const review = {
+    data: null
+}
+
+const phone = {
+    data: null
+}
+
+const search = {
+    data: null
+}
+
+const searchItem = {
+    data: null
+}
+
+const forgotPassword = {
+    data: null
+}
+
+export function ForgotPasswordRedux(state=forgotPassword,action){
+    switch(action.type){
+        case FORGOTPASSWORD_OTP:
+            return action.payload;
+        case FORGOTPASSWORD_OTP_ERROR:
+            return action.payload;
+        default:
+            return state
+    }
+}
+
+
+export function SearchDataItemRedux(state=searchItem,action){
+    switch(action.type){
+        case SEARCHDATAITEM:
+            return action.payload;
+        case SEARCHDATAITEM_ERROR:
+            return action.payload;
+        default:
+            return state
+    }
+}
+
+
+export function SearchDataRedux(state=search,action){
+    switch(action.type){
+        case SEARCHDATA:
+            return action.payload;
+        case SEARCHDATA_ERROR:
+            return action.payload;
+        default:
+            return state
+    }
+}
+
+export function OTPPhone(state=phone,action){
+    switch(action.type){
+        case OTP_VERIFY:
+            return action.payload;
+        default:
+            return state
+    }
+}
+export function getRestaurantReview(state=review,action){
+    switch(action.type){
+        case REVIEWS:
+            return action.payload;
+        case REVIEWS_EEROR:
+            return action.payload;
+        default:
+            return state
+    }
+}
+
+export function historyReducer(state=history,action){
+    switch(action.type){
+        case HISTORY:
+            return action.payload;
+        case HISTORY_ERROR:
+            return action.payload;
+        default:
+            return state
+    }
+}
+
 
 export function riderCoord(state=initialCoords,action){
     switch(action.type){
@@ -100,6 +207,8 @@ export function placeOrderStatus(state=initialOrderStack,action){
     switch(action.type){
         case ORDER_PLACE:
             return action.payload;
+        case ORDER_PLACE_EMPTY:
+                return action.payload;
         case ORDER_PLACE_ERROR:
             return action.payload;
         default:
@@ -313,7 +422,7 @@ export  function userOtp(state=initialState,action){
 }
 
 
-export  function userOtpVerify(state=initialState,action){
+export  function userOtpVerify(state=authInitail,action){
 
     switch(action.type){
         case AUTH_OTP_VERIFY:

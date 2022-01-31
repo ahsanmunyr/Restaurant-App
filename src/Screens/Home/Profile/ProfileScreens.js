@@ -167,7 +167,7 @@ const renderItem = ({ item, index }) => {
                     }]}>
 
                       <View style={{justifyContent:'center', flexDirection:'column',alignItems:'center'}}>
-                        <AppText nol={2} textAlign="center" family="Overpass-Medium" size={hp("2%")} color="white" Label={"Posts"} />
+                        <AppText nol={2} textAlign="center" family="Poppins-SemiBold" size={hp("2%")} color="white" Label={"Posts"} />
                         <View
                           style={{
                             flexDirection:'row',
@@ -179,12 +179,12 @@ const renderItem = ({ item, index }) => {
                                 size={20}
                                 style={{top:0, right:5}}
                           />
-                          <AppText nol={1} textAlign="left" family="Overpass-Medium" size={hp("1.5%")} color="white" Label={"80"} />
+                          <AppText nol={1} textAlign="left" family="Poppins-SemiBold" size={hp("1.5%")} color="white" Label={"80"} />
                         </View>    
                         </View>
 
                       <View style={{justifyContent:'center', flexDirection:'column',alignItems:'center'}}>
-                       <AppText nol={2} textAlign="center" family="Overpass-Medium" size={hp("2%")} color="white" Label={"Connects"} />
+                       <AppText nol={2} textAlign="center" family="Poppins-SemiBold" size={hp("2%")} color="white" Label={"Connects"} />
                        <View
                         style={{
                           flexDirection:'row',
@@ -196,12 +196,12 @@ const renderItem = ({ item, index }) => {
                               size={20}
                               style={{top:0, right:5}}
                         />
-                        <AppText nol={1} textAlign="left" family="Overpass-Medium" size={hp("1.5%")} color="white" Label={"220"} />
+                        <AppText nol={1} textAlign="left" family="Poppins-SemiBold" size={hp("1.5%")} color="white" Label={"220"} />
                       </View>    
                       </View>
 
                       <View style={{justifyContent:'center', flexDirection:'column',alignItems:'center'}}>
-                       <AppText nol={2} textAlign="left" family="Overpass-Medium" size={hp("2%")} color="white" Label={"Likes"} />
+                       <AppText nol={2} textAlign="left" family="Poppins-SemiBold" size={hp("2%")} color="white" Label={"Likes"} />
                        <View
                         style={{
                           flexDirection:'row',
@@ -213,7 +213,7 @@ const renderItem = ({ item, index }) => {
                               size={20}
                               style={{top:0, right:5}}
                         />
-                       <AppText nol={1} textAlign="center" family="Overpass-Medium" size={hp("1.5%")} color="white" Label={"1.5K"} />
+                       <AppText nol={1} textAlign="center" family="Poppins-SemiBold" size={hp("1.5%")} color="white" Label={"1.5K"} />
                       </View>
                       </View>
                     </Animated.View>
@@ -223,8 +223,8 @@ const renderItem = ({ item, index }) => {
                        height: animatedImagep,
                     }]}>
                       <View style={{justifyContent:'center', flexDirection:'column',alignItems:'center'}}>
-                       <AppText nol={2} textAlign="center" family="Overpass-Medium" size={hp("2%")} color="white" Label={userGets[0].user_name} />
-                       <AppText nol={1} textAlign="left" family="Overpass-Medium" size={hp("1.7%")} color="white" Label={userGets[0].user_title} />
+                       <AppText nol={2} textAlign="center" family="Poppins-SemiBold" size={hp("2%")} color="white" Label={userGets[0].user_name} />
+                       <AppText nol={1} textAlign="left" family="Poppins-SemiBold" size={hp("1.7%")} color="white" Label={userGets[0].user_title} />
                       </View>
                     </Animated.View>
                     

@@ -20,10 +20,10 @@ import AppText from '../../Components/AppText';
             borderColor:'white',
             borderWidth: 1,
             shadowColor: "#000",
-            shadowOffset: {
-                width: 0,
-                height: 1,
-            },
+            // shadowOffset: {
+            //     width: 0,
+            //     height: 1,
+            // },
             shadowOpacity: 0.25,
             shadowRadius: 0.84,
 
@@ -42,7 +42,7 @@ import AppText from '../../Components/AppText';
                         source={image}/>
                 </View>
                      <View style={{justifyContent:'flex-start', flexDirection:'column', padding: 10, backgroundColor:'white',  alignItems:'flex-start',}}>
-                        <AppText  nol={1}  textAlign="left"  family="Overpass-SemiBold" size={hp("1.6%")} color="black" Label={name} />
+                        <AppText  nol={1}  textAlign="left"  family="Poppins-SemiBold" size={hp("1.6%")} color="black" Label={name} />
                         <AppText  nol={1}  textAlign="left"  family="Overpass-Bold" size={hp("2%")} color="#EA2C2E" Label={price} />
                     </View> 
         </View>

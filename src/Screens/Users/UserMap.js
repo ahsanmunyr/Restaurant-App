@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
     marginHorizontal:10,
     height:35,
     shadowColor: '#ccc',
-    shadowOffset: { width: 0, height: 3 },
+    // shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.5,
     shadowRadius: 5,
     elevation: 10,
@@ -329,7 +329,10 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowRadius: 5,
     shadowOpacity: 0.3,
-    shadowOffset: { x: 2, y: -2 },
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2
+    // },
     height: CARD_HEIGHT,
     width: 150,
     overflow: "hidden",

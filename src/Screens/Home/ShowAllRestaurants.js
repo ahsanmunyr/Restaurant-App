@@ -110,7 +110,17 @@ return (
                                                     placeholder="Search "
                                                     onChangeText={onChangeSearch}
                                                     value={searchQuery}
-                                                    style={{borderRadius: 20, width: '90%',  borderColor:'#f54749', borderWidth:1, zIndex: 1, elevation:999}}
+                                                    style={{
+                                                      borderRadius: 20, width: '90%',  borderColor:'#f54749', borderWidth:1,
+                                                      shadowColor: "#000",
+                                                      shadowOffset: {
+                                                          width: 0,
+                                                          height: 2,
+                                                      },
+                                                      shadowOpacity: 0.25,
+                                                      shadowRadius: 3.84,
+                                                      elevation: 5,
+                                                  }}
                                             />
                       </View>
         <StatusBar translucent backgroundColor="#f54749" />
@@ -140,7 +150,7 @@ return (
                             <View style={{height: 100}}>
                             </View>
                         }
-                        maintainVisibleContentPosition
+                        // maintainVisibleContentPosition
                         renderItem={({item, index}) => (
                         <Restaurants
                             RestaurantID={item.restaurant_id}

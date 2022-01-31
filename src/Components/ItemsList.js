@@ -1,6 +1,6 @@
 import React, {useEffect, useState,useRef} from 'react';
 import {
-    View,Text,Image,TouchableOpacity
+    View,Text,Image,TouchableOpacity,ActivityIndicator
  } from 'react-native';
 import TextSample from './Text';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -12,6 +12,7 @@ import * as actions from '../Store/Actions'
 import {connect} from "react-redux";
 import {Avatar} from 'react-native-paper'
 import LinearGradient from 'react-native-linear-gradient'
+import { showMessage, hideMessage } from "react-native-flash-message";
  const ItemsList = ({
     ItemID,
     RestaurantID,
@@ -22,9 +23,61 @@ import LinearGradient from 'react-native-linear-gradient'
     Images,
     Price,
     Navigation,
-    Description
+    Description,
+    Address,
+    Phone,
+    addToCartItems,
+    userAddToCart,
+    addcardQuantity,
+    restInfo
  }) => {
 
+
+   const obj = {
+                    restaurantID: RestaurantID ,
+                    title: RestaurantName,
+                    images: Images,
+                    address: Address,
+                    phone: Phone,
+   }
+
+   const addToCart = () => {
+
+      restInfo(obj)
+      const createOBJ = {
+          restaurantId: RestaurantID,
+          itemId: ItemID,
+          qty: 1,
+          price: Price,
+          image: Images,
+          title: Title,
+          description: Description
+      }
+      const existItem=userAddToCart.filter(item=>item.itemId==ItemID)
+      const existRest=userAddToCart.filter(item=>item.restaurantId==RestaurantID)
+      // console.log(existRest, "EXIST RESTUARANT")
+      if (userAddToCart.length > 0){
+          if(existRest.length > 0){
+              if(existItem.length > 0){
+                  addcardQuantity(createOBJ)
+              }else{
+                  addToCartItems(createOBJ)
+              }
+          }else{
+              showMessage({
+                  message: "Warning",
+                  description: "Please select the same restaurant item",
+                  type: "warning",
+              });
+          }    
+      }else{
+          if(existItem.length>0){
+              addcardQuantity(createOBJ)
+          }else{
+              addToCartItems(createOBJ)
+          }
+      }
+  }
 
         return( 
             <View key={ItemID} style={{ 
@@ -37,6 +90,14 @@ import LinearGradient from 'react-native-linear-gradient'
             flexDirection:'column',
             alignItems:'center',
             margin: 10,
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
+            elevation: 3,
             // zIndex: 9999, elevation: 4
             }}>
                  <LinearGradient
@@ -49,6 +110,7 @@ import LinearGradient from 'react-native-linear-gradient'
                  <Image 
                   resizeMode='cover'
                   resizeMethod='auto'
+                  PlaceholderContent={<ActivityIndicator />}
                   style={{width: '100%', height: 138,borderRadius: 12,  }}
                   source={{uri: `${deploy_API+'/'+Images}`}}
                 />
@@ -88,7 +150,7 @@ import LinearGradient from 'react-native-linear-gradient'
                             /> 
                      </View>
                  <TextSample 
-                                        Label={"Zinger burger, chicken burger etc"} 
+                                        Label={Description} 
                                         Color="grey" 
                                         Size={hp("1.5%")} 
                                         TextAlign='left'
@@ -99,8 +161,8 @@ import LinearGradient from 'react-native-linear-gradient'
                 />
                
              </View>
-            <View style={{position: 'absolute', bottom: -10, width: '100%', height: 40,flexDirection:'row', alignItems:'center', justifyContent:'space-between',padding: 5}}>
-            <View style={{justifyContent:'flex-start', width:'50%', flexDirection:'row'}}>
+            <View style={{position: 'absolute', bottom: 10, width: '100%', height: 40,flexDirection:'row', alignItems:'center', justifyContent:'space-between',padding: 5}}>
+            {/* <View style={{justifyContent:'flex-start', width:'50%', flexDirection:'row'}}>
                       <Rating imageSize={15} ratingCount='1' readonly startingValue='0.6'  />
                       <TextSample 
                                         Label={"3.5"} 
@@ -112,15 +174,15 @@ import LinearGradient from 'react-native-linear-gradient'
                                         TextDecorationLine='none'
                                          TextTransform='none'
                      /> 
-                </View>
+                </View> */}
                 <View style={{flexDirection:'row', justifyContent:'flex-end', alignItems:'center'}}>
-                     <TouchableOpacity style={{margin: 5, backgroundColor:'white'}} >
+                     {/* <TouchableOpacity onPress={} style={{margin: 5, backgroundColor:'white'}} >
                                  <View style={{zIndex: 99999, elevation: 9, backgroundColor: '#f54749', width: 30, height: 30, borderRadius: 50, justifyContent: 'center', alignItems:'center', }}>
                                        <Ionicons name="home-sharp" style={{}} size={17} color='white' />
                                  </View>
-                     </TouchableOpacity>
+                     </TouchableOpacity> */}
                      
-                     <TouchableOpacity style={{margin: 5, backgroundColor:'white'}} onPress={()=> console.log("SAD")}>
+                     <TouchableOpacity style={{margin: 5, backgroundColor:'white'}} onPress={addToCart}>
                                  <View style={{zIndex: 99999, elevation: 9, backgroundColor: '#f54749', width: 30, height: 30, borderRadius: 50, justifyContent: 'center', alignItems:'center', }}>
                                        <Ionicons name="cart" style={{}} size={17} color='white' />
                                  </View>
@@ -130,4 +192,10 @@ import LinearGradient from 'react-native-linear-gradient'
            </View>
     )
  }
- export default connect(null,actions)(ItemsList)
+ function mapStateToProps({userAddToCart}){
+   return {userAddToCart}
+}
+
+
+
+ export default connect(mapStateToProps,actions)(ItemsList)

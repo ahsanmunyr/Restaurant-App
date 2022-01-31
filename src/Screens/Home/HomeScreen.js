@@ -45,6 +45,7 @@ import Voucher from '../../Components/Voucher';
 import {vouchers} from '../../../model/Voucher';
 import LottieView from 'lottie-react-native';
 import TouchableOpacityBtn from '../../Components/TouchableOpacity';
+import {deploy_API} from './../../Config/Apis.json'
 
 // import {ActivityIndicator, Colors} from 'react-native-paper';
 // import {showMessage, hideMessage} from 'react-native-flash-message';
@@ -62,7 +63,7 @@ const HomeScreen = ({
   getRestaurant,
   orderAccept,
   userLatitudeLongitude,
-  saveNavigatorVariable,
+  saveNavigatorVariable,userLogin,
   firebaseData,acceptOrderDetails,firebaseCoordsRider,orderDataClear
 }) => {
   // console.log("NAVIGATION", navigation)
@@ -79,7 +80,7 @@ const HomeScreen = ({
 
   useEffect(()=>{
     if(firebaseData.data){
-      console.log(firebaseData.data.data, "===================FIREBASE DATA====================")
+      // console.log(firebaseData.data.data, "===================FIREBASE DATA====================")
         if (firebaseData.data.data.type == "approveorder") {
           
             // console.log(navigationApp)
@@ -155,7 +156,7 @@ const HomeScreen = ({
     if(userLatitudeLongitude.lat && userLatitudeLongitude.long){
       getRestaurant(userLatitudeLongitude.lat, userLatitudeLongitude.long, 30)
     }
-    console.log(userLatitudeLongitude)
+    // console.log(userLatitudeLongitude)
       setRefreshing(true);
     
     wait(2000).then(() => setRefreshing(false));
@@ -280,10 +281,19 @@ const HomeScreen = ({
             </View>
             <TouchableOpacity>
               <View style={{right: 20}}>
-                <Avatar.Image
+                {console.log(userLogin)}
+                {
+                  userLogin?.user_image == "" ?
+                  <Avatar.Image
+                    size={45}
+                    source={require('./../../Assets/Images/dp.png')} 
+                  />:
+                  <Avatar.Image
                   size={45}
-                  source={require('./../../Assets/Images/pic1.png')}
+                  source={{uri: `${deploy_API+'/'+userLogin?.user_image}`}} 
                 />
+                }
+            
               </View>
             </TouchableOpacity>
           </View>
@@ -317,7 +327,7 @@ const HomeScreen = ({
                         Size={hp('1.5%')}
                         TextAlign="left"
                         NumberOfLines={1}
-                        Font="Overpass-Medium"
+                        Font="Poppins-SemiBold"
                         TextDecorationLine="none"
                         TextTransform="none"
                       />
@@ -336,7 +346,7 @@ const HomeScreen = ({
                     scrollEnabled
                     bounces
                     bouncesZoom
-                    maintainVisibleContentPosition
+                    // maintainVisibleContentPosition
                     renderItem={({item, index}) => (
                       <Restaurants
                         RestaurantID={item.restaurant_id}
@@ -404,7 +414,7 @@ const HomeScreen = ({
                     Size={hp('1.5%')}
                     TextAlign="left"
                     NumberOfLines={1}
-                    Font="Overpass-Medium"
+                    Font="Poppins-SemiBold"
                     TextDecorationLine="none"
                     TextTransform="none"
                   /> */}
@@ -421,7 +431,7 @@ const HomeScreen = ({
                   scrollEnabled
                   bounces
                   bouncesZoom
-                  maintainVisibleContentPosition
+                  // maintainVisibleContentPosition
                   renderItem={({item, index}) => (
                     <Category
                       ID={item.category_id}
@@ -460,7 +470,7 @@ const HomeScreen = ({
                       Size={hp('1.5%')}
                       TextAlign="left"
                       NumberOfLines={1}
-                      Font="Overpass-Medium"
+                      Font="Poppins-SemiBold"
                       TextDecorationLine="none"
                       TextTransform="none"
                     />
@@ -517,7 +527,7 @@ const HomeScreen = ({
                       Size={hp('1.5%')}
                       TextAlign="left"
                       NumberOfLines={1}
-                      Font="Overpass-Medium"
+                      Font="Poppins-SemiBold"
                       TextDecorationLine="none"
                       TextTransform="none"
                     />
@@ -573,7 +583,7 @@ const HomeScreen = ({
             )}
           </>
         ) : null}
-        <View style={{height: 10}}></View>
+        <View style={{height: 100}}></View>
       </ScrollView>
      
     </View>
@@ -587,7 +597,7 @@ function mapStateToProps({
   userGetRestaurant,
   placeOrderStatus,
   orderAccept,
-  userLatitudeLongitude,firebaseData
+  userLatitudeLongitude,firebaseData,userLogin
 }) {
   return {
     userLocations,
@@ -595,7 +605,7 @@ function mapStateToProps({
     userGetRestaurant,
     placeOrderStatus,
     orderAccept,
-    userLatitudeLongitude,firebaseData
+    userLatitudeLongitude,firebaseData,userLogin
   };
 }
 

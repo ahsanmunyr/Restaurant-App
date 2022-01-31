@@ -28,12 +28,12 @@ import {
                                     />
                         <View style={{flexDirection:'row', padding: 4,justifyContent:'space-between', alignContent:'center', left:5, width: '80%' }}>
                                 <View style={{ justifyContent:'flex-start', flexDirection:'column', padding: 3}}>
-                                    <AppText  nol={1}  textAlign="left"  family="Overpass-SemiBold" size={hp("1.9%")} color="black" Label={name} />
+                                    <AppText  nol={1}  textAlign="left"  family="Poppins-SemiBold" size={hp("1.9%")} color="black" Label={name} />
                                   
                                 </View>
                                 <View style={{ justifyContent:'flex-start', flexDirection:'column', padding: 3}}>
                         
-                                    <AppText  nol={1}  textAlign="left"  family="Overpass-SemiBold" size={hp("1.5%")} color="grey" Label={time} /> 
+                                    <AppText  nol={1}  textAlign="left"  family="Poppins-SemiBold" size={hp("1.5%")} color="grey" Label={time} /> 
                                 </View>
                         </View> 
                  </View>

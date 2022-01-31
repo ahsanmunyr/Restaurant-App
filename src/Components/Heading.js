@@ -6,7 +6,7 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 const Heading = ({Label}) => {
     return(   
         <View style={{flexDirection: 'row', justifyContent:"center"}}>
-            <Text  style={{color: 'white', fontFamily: 'Overpass-SemiBold',fontSize: hp('4.3%'), textAlign:'center'}}>
+            <Text  style={{color: 'white', fontFamily: 'Poppins-SemiBold',fontSize: hp('4.3%'), textAlign:'center'}}>
                 {Label}
             </Text>
         </View>     

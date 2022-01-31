@@ -252,7 +252,7 @@ import Fontisto  from 'react-native-vector-icons/Fontisto';
                   <AppText
                       nol={1}
                       textAlign="left"
-                      family="Overpass-SemiBold"
+                      family="Poppins-SemiBold"
                       size={hp("2%")}
                       color="white"
                       Label={"Post"}
